@@ -1,0 +1,190 @@
+    {
+      "tableName": "StockItems",
+      "columns": [
+        {
+          "field": "StockItemName",
+          "title": "StockItemName",
+          "unique": true,
+          "type": "text",
+          "isInput": true,
+          "isAutoFocus": true,
+          "defaultvalue": "KeshavSoft",
+          "isConsider": true
+        },
+        {
+          "field": "StockItemReservedName",
+          "title": "StockItemReservedName",
+          "type": "text",
+          "isInput": true,
+          "isConsider": true
+        },
+        {
+          "field": "StockItemType",
+          "title": "StockItemType",
+          "type": "text",
+          "isInput": true,
+          "isConsider": true
+        },
+        {
+          "field": "pk",
+          "title": "pk",
+          "primary": true
+        },
+        {
+          "field": "StockParentName",
+          "title": "StockParentName",
+          "isConsider": true
+        },
+        {
+          "field": "StockCategory",
+          "title": "StockCategory",
+          "isConsider": true
+        },
+        {
+          "field": "StockGstApplicable",
+          "title": "StockGstApplicable",
+          "isConsider": true
+        },
+        {
+          "field": "StockGstTypeOfSupply",
+          "title": "StockGstTypeOfSupply",
+          "isConsider": true
+        },
+        {
+          "field": "StockBaseUnits",
+          "title": "StockBaseUnits",
+          "isConsider": true
+        },
+        {
+          "field": "sgstRate",
+          "title": "sgstRate",
+          "isConsider": true
+        },
+        {
+          "field": "cgstRate",
+          "title": "cgstRate",
+          "isConsider": true
+        }
+      ],
+      "data": [],
+      "Vertical": [],
+      "DataTableOptions": {
+        "Header": {
+          "autoFocus": "StockItemName"
+        }
+      },
+      "NonSecured": {
+        "SubRoutes": [
+          "ShowAll",
+          "Pipe",
+          "Insert"
+        ]
+      },
+      "PrimarykeyTableNames": [],
+      "PrimarykeyTables": [],
+      "columnsConfig1": [
+        {
+          "columnName": "StockItemName",
+          "title": "StockItemName",
+          "cellConfig": {
+            "width": "150px"
+          }
+        }
+      ],
+      "callbacks": {
+        "table": {
+          "onDelete": "function",
+          "onReadFail": "function"
+        }
+      },
+      "columnsConfig": [
+        {
+          "columnName": "StockItemName",
+          "title": "StockItemName",
+          "field": "StockItemName",
+          "cellConfig": {
+            "width": "150px"
+          },
+          "isConsider": true
+        },
+        {
+          "columnName": "StockGstApplicable",
+          "title": "StockGstApplicable",
+          "field": "StockGstApplicable",
+          "cellConfig": {
+            "width": "150px"
+          },
+          "isConsider": true
+        },
+        {
+          "columnName": "StockBaseUnits",
+          "title": "StockBaseUnits",
+          "field": "StockBaseUnits",
+          "cellConfig": {
+            "width": "150px"
+          },
+          "isConsider": true
+        },
+        {
+          "columnName": "sgstRate",
+          "title": "sgstRate",
+          "cellConfig": {
+            "width": "150px"
+          }
+        },
+        {
+          "columnName": "cgstRate",
+          "title": "cgstRate",
+          "cellConfig": {
+            "width": "150px"
+          }
+        },
+        {
+          "columnName": "TaxPer",
+          "title": "TaxPer",
+          "cellConfig": {
+            "width": "150px"
+          }
+        },
+        {
+          "columnName": "Uom",
+          "title": "Uom",
+          "cellConfig": {
+            "width": "150px"
+          }
+        },
+        {
+          "columnName": "StockItemReservedName",
+          "title": "StockItemReservedName",
+          "cellConfig": {
+            "width": "150px"
+          }
+        },
+        {
+          "columnName": "StockItemType",
+          "title": "StockItemType",
+          "cellConfig": {
+            "width": "150px"
+          }
+        },
+        {
+          "columnName": "StockParentName",
+          "title": "StockParentName",
+          "cellConfig": {
+            "width": "150px"
+          }
+        },
+        {
+          "columnName": "StockCategory",
+          "title": "StockCategory",
+          "cellConfig": {
+            "width": "150px"
+          }
+        },
+        {
+          "field": "pk",
+          "title": "pk",
+          "primary": true
+        }
+      ]
+    }

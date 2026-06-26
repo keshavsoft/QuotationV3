@@ -1,0 +1,95 @@
+{
+  "tableName": "LedgerNames",
+  "columns": [
+    {
+      "field": "LedgerName",
+      "title": "LedgerName",
+      "unique": true,
+      "type": "text",
+      "isInput": true,
+      "isAutoFocus": true,
+      "defaultvalue": "KeshavSoft",
+      "isConsider": true
+    },
+    {
+      "field": "LedgerParentName",
+      "title": "LedgerParentName",
+      "type": "text",
+      "isInput": true,
+      "isConsider": true
+    },
+    {
+      "field": "LedgerType",
+      "title": "LedgerType",
+      "type": "text",
+      "isInput": true,
+      "isConsider": true
+    },
+    {
+      "field": "pk",
+      "title": "pk",
+      "primary": true
+    },
+    {
+      "field": "GstRegistrationType",
+      "title": "GstRegistrationType",
+      "isConsider": true
+    },
+    {
+      "field": "PartyGSTIN",
+      "title": "PartyGSTIN",
+      "isConsider": true
+    }
+  ],
+  "data": [],
+  "Vertical": [],
+  "DataTableOptions": {
+    "Header": {
+      "autoFocus": "LedgerName"
+    }
+  },
+  "NonSecured": {
+    "SubRoutes": [
+      "ShowAll",
+      "Insert",
+      "Pipe"
+    ]
+  },
+  "PrimarykeyTableNames": [],
+  "PrimarykeyTables": [],
+  "columnsConfig": [
+    {
+      "columnName": "LedgerName",
+      "title": "LedgerName",
+      "cellConfig": {
+        "width": "150px"
+      },
+      "isSearchable": false,
+      "dataListSource": "Dates.Date"
+    },
+    {
+      "columnName": "LedgerParentName",
+      "title": "Parent Name",
+      "cellConfig": {
+        "width": "100px"
+      },
+      "isSearchable": false,
+      "dataListSource": "AccountNames.AccountName"
+    },
+    {
+      "columnName": "GstRegistrationType",
+      "title": "Registration Type",
+      "cellConfig": {
+        "width": "100px"
+      }
+    },
+    {
+      "columnName": "PartyGSTIN",
+      "title": "GSTIN",
+      "cellConfig": {
+        "width": "100px",
+        "tableFooter": {}
+      }
+    }
+  ]
+}
