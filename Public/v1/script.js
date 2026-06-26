@@ -164,9 +164,9 @@ async function ensureKSTableComp() {
 
     async function tryLocal() {
         try {
-            const fromPromise = await loadScriptAsModule("/TableComp/v12/entry.js");
+            const fromPromise = await loadScriptAsModule("/TableComp/v13/entry.js");
 
-            console.log("KSTableComp loaded from Local Server : TableComp/v12");
+            console.log("KSTableComp loaded from Local Server : TableComp/v13");
 
             if (fromPromise) return true;
         } catch {
