@@ -1,0 +1,56 @@
+{
+    "uiClasses": {
+        "ulClass1": "[&_svg]:size-6",
+        "navClass1": "bg-red-800 text-white",
+        "brandClass1": "text-sm"
+    },
+    "title": {
+        "text": "Quotations",
+        "htmlId": "htmlId"
+    },
+    "items": [
+        {
+            "text": "Create",
+            "id": "TableHtmlId",
+            "icon": [],
+            "uiClasses": {
+                "aClass": "",
+                "svgDivClass": "size-10"
+            },
+            "svgName": "serverStack"
+        },
+        {
+            "text": "PrintV1",
+            "id": "PrintHtmlId",
+            "icon": [],
+            "uiClasses": {
+                "aClass": "",
+                "svgDivClass": "size-10"
+            },
+            "svgName": "home",
+            "href": "../Print/v1/index.html"
+        },
+        {
+            "text": "PrintV2",
+            "id": "PrintHtmlId",
+            "icon": [],
+            "uiClasses": {
+                "aClass": "",
+                "svgDivClass": "size-10"
+            },
+            "svgName": "home",
+            "href": "../Print/v2/index.html"
+        },
+        {
+            "text": "Print",
+            "id": "PrintHtmlId",
+            "icon": [],
+            "uiClasses": {
+                "aClass": "",
+                "svgDivClass": "size-10"
+            },
+            "svgName": "home",
+            "href": "javascript:window.print()"
+        }
+    ]
+}
