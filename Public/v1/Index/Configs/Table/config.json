@@ -41,8 +41,7 @@
         "find": "",
         "filter": "",
         "dataLists": {},
-        "dataListEndpoints": {
-        }
+        "dataListEndpoints": {}
     },
     "columnsConfig": [
         {
@@ -125,8 +124,18 @@
                 "onKeyDownType": "OrigRate",
                 "type": "number"
             },
-            "tableConfig": {},
-            "isVisible": false,
+            "tableConfig": {
+                "footerConfig": {
+                    "allowOnChange": true,
+                    "onKeyDown": true,
+                    "onKeyDownType": "OrigRate",
+                    "type": "number",
+                    "enterAsTab": true,
+                    "evalformula": "OrigRate * Qty",
+                    "evalToControl": "OrigAmount"
+                }
+            },
+            "isVisible": true,
             "tableFooterDataListShow": true,
             "type": "number",
             "dataListFillName": "OrigRate"
@@ -154,8 +163,18 @@
                 "type": "number",
                 "inputClass": "flex-1 border rounded px-3 py-2 text-right text-xl"
             },
-            "tableConfig": {},
-            "isVisible": false,
+            "tableConfig": {
+                "footerConfig": {
+                    "allowOnChange": true,
+                    "onKeyDown": true,
+                    "onKeyDownType": "OrigAmount",
+                    "type": "number",
+                    "enterAsTab": true,
+                    "evalformula": "OrigAmount / Qty",
+                    "evalToControl": "OrigRate"
+                }
+            },
+            "isVisible": true,
             "tableFooterDataListShow": true,
             "type": "number"
         },
@@ -183,7 +202,13 @@
             },
             "tableConfig": {
                 "footerConfig": {
-                    "enterAsTab": true
+                    "allowOnChange": true,
+                    "onKeyDown": true,
+                    "onKeyDownType": "RateInc",
+                    "type": "number",
+                    "enterAsTab": true,
+                    "evalformula": "RateInc * Qty",
+                    "evalToControl": "Amount"
                 }
             },
             "isVisible": true,
@@ -216,7 +241,17 @@
                 "labelClass": "w-24 text-2xl font-medium",
                 "rowClass": "flex items-center justify-between"
             },
-            "tableConfig": {},
+            "tableConfig": {
+                "footerConfig": {
+                    "allowOnChange": true,
+                    "onKeyDown": true,
+                    "onKeyDownType": "Amount",
+                    "type": "number",
+                    "enterAsTab": true,
+                    "evalformula": "Amount / Qty",
+                    "evalToControl": "RateInc"
+                }
+            },
             "isVisible": true,
             "tableFooterDataListShow": true,
             "allowOnChange": true,
