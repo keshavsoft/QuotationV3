@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Invoice</title>
+    <style>
+        /* GENERAL */
+        :root {
+            --brand: #0b7a50;
+            --muted: #666;
+            --accent: #f5f5a3;
+            --paper: #fffde8;
+            --border: #ddd;
+            --mono: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            font-family: var(--mono);
+            background: #f2f2f4;
+            margin: 24px;
+            color: #222;
+        }
+
+        .invoice {
+            width: 900px;
+            max-width: 100%;
+            margin: 0 auto;
+            background: white;
+            border: 1px solid var(--border);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+            /* border-bottom: 2px solid var(--border); */
+            padding-bottom: 10px;
+            /* margin-bottom: 12px; */
+        }
+
+        .vendor {
+            max-width: 65%;
+        }
+
+        .vendor h3 {
+            margin: 0;
+            color: var(--brand);
+            letter-spacing: 0.5px;
+        }
+
+        .vendor .addr {
+            font-size: 13px;
+            color: var(--muted);
+            /* margin-top: 6px; */
+            line-height: 1.35;
+        }
+
+        .vendor .contacts {
+            margin-top: 6px;
+            font-size: 13px;
+            color: var(--muted)
+        }
+
+        .meta {
+            text-align: right;
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .meta .big {
+            font-size: 20px;
+            color: #111;
+            font-weight: 600;
+        }
+
+        .row {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 10px;
+        }
+
+        .box {
+            flex: 1;
+            background: #fbfbfb;
+            padding: 10px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            min-width: 0;
+        }
+
+        .box h3 {
+            margin: 0 0 6px 0;
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .box p {
+            margin: 0;
+            font-weight: 600;
+        }
+
+        table.items {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        table.items thead th {
+            text-align: left;
+            padding: 8px 10px;
+            background: #f8f8f8;
+            border-bottom: 1px solid var(--border);
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        table.items tbody td {
+            padding: 8px 9px;
+            border-bottom: 1px dashed #eee;
+            vertical-align: top;
+        }
+
+        table.items tfoot td {
+            padding: 8px 10px;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .right {
+            text-align: right;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .tax-summary {
+            margin-top: 12px;
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+            align-items: flex-end;
+        }
+
+        .tax-card {
+            width: 340px;
+            border: 1px solid var(--border);
+            padding: 10px;
+            background: #fff;
+            border-radius: 6px;
+            font-size: 13px;
+        }
+
+        .tax-card .row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+
+        .bank {
+            font-size: 10px;
+            color: var(--muted);
+            border-top: 1px dashed var(--border);
+            padding-top: 10px;
+        }
+
+        .sign {
+            margin-top: 22px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .signature {
+            width: 220px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            padding-top: 6px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* PRINT */
+        @media print {
+            body {
+                margin: 0;
+            }
+
+            .invoice {
+                box-shadow: none;
+                border: none;
+                width: 100%;
+            }
+        }
+    </style>
+
+    <style>
+        .flex-container {
+            display: flex;
+            /* Makes the container a flex container */
+            gap: 20px;
+            /* Adds space between the child divs */
+        }
+
+        .flex-child {
+            flex: 1;
+            /* Allows the divs to grow and shrink to fill available space equally */
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="invoice" role="document">
+        <header>
+            <div class="vendor">
+                <h3>KeshavSoft</h3>
+                <div class="addr">
+                    D.No. 29-1-17, Cinema Road,<br />
+                    KAKINADA - 533 001
+                </div>
+                <div class="contacts">
+                    GSTIN: <strong>---------------</strong> &nbsp; | &nbsp; PAN: <strong>----------</strong><br />
+                </div>
+            </div>
+
+            <div class="meta">
+                <div>Tax Invoice (Cash/Credit)</div>
+                <h1 class="RefreshBSTableClass" style="display: none;">16</h1>
+                <div>Number : <span class="big" id="BillNumberId">2763</span></div>
+                <div>Date: <strong id="InvoiceDateId">02-09-2019</strong></div>
+                <div>State Code: <strong>37</strong></div>
+                <div class="contacts">
+                    Phone: <strong>98481 63021</strong> / <strong>92481 11788</strong>
+                </div>
+            </div>
+        </header>
+
+        <div class="row">
+            <div class="box">
+                <div>Buyer Name : <strong id="BuyerNameId">Nalam Keshav</strong></div>
+                <div>Address : <strong id="BuyerAddressId"></strong></div>
+
+            </div>
+
+            <div class="box">
+                <div>GST : <strong id="BuyerGSTId"></strong></div>
+                <div>Phone : <strong id="BuyerPhoneId"></strong></div>
+            </div>
+        </div>
+
+        <table class="items" aria-label="Invoice items">
+            <thead>
+                <tr>
+                    <th style="width:6%;">S.No</th>
+                    <th style="width:52%;">Name of Product</th>
+                    <th style="width:10%;" class="center">Qty</th>
+                    <th style="width:12%;" class="right">Rate (₹)</th>
+                    <th style="width:20%;" class="right">Amount (₹)</th>
+                </tr>
+            </thead>
+            <tbody id="TableBodyId">
+
+            </tbody>
+        </table>
+        <!-- Tax Summary: single line -->
+        <div class="d-flex flex-wrap justify-content-end align-items-center gap-2 small border rounded p-2 bg-light">
+            <!-- <strong class="me-1">Tax Summary:</strong> -->
+
+        </div>
+
+        <div class="flex-container">
+            <div>
+                <div class="bank">
+                    Note: We are only mediators between Company and Purchasers for the warranty of the goods. Goods once
+                    sold
+                    will not be taken back or exchanged. Interest @ 24% p.a. will be charged on delayed payments.
+                    Disputes
+                    subject to Kakinada jurisdiction only.
+                    <div style="font-size:13px;color:var(--muted);">Receiver's Signature</div>
+
+                </div>
+            </div>
+            <div class="flex-child">
+                <div class="sign">
+                    <div class="signature">For KeshavSoft<br /><span
+                            style="font-weight:700;color:#111;">Authorised Signatory</span></div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <template id="TemplateForRowId">
+        <tr>
+            <td class="center"></td>
+            <td></td>
+            <td class="center"></td>
+            <td class="right"></td>
+            <td class="right"></td>
+        </tr>
+    </template>
+
+    <template id="TemplateForTotalRowId">
+        <tr>
+            <td colspan="3">
+                <span>Taxable Value <strong id="TaxableValueId">₹1,964.41</strong> </span>
+                <span>• GST 18% <strong id="TaxSplitId">(CGST ₹176.80 + SGST ₹176.80)</strong> </span>
+            </td>
+
+            <td class="right" style="font-weight:700;padding-top:8px;  font-size: 18px;">Total</td>
+            <td class="right" style="font-weight:700;padding-top:8px; font-size: 20px;">₹ 2,292.00</td>
+        </tr>
+    </template>
+
+    <script type="module" src="./Js/Print/entryFile.js"></script>
+</body>
+
+</html>
