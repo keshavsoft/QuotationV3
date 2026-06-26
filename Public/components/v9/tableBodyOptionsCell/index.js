@@ -10,8 +10,8 @@ class KsTableBodyOptionsCell extends HTMLElement {
 
         applyStyle({ inElement: this });
 
-        const editBtn = createEditButton(localOptions);
-        const deleteBtn = createDeleteButton(localOptions);
+        const editBtn = localOptions.showEdit ? createEditButton(localOptions) : null;
+        const deleteBtn = localOptions.showDelete ? createDeleteButton(localOptions) : null;
 
         render({
             inElement: this,

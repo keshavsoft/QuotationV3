@@ -1,6 +1,6 @@
 const render = ({ inElement, editBtn, deleteBtn }) => {
-    inElement.appendChild(editBtn);
-    inElement.appendChild(deleteBtn);
+    if (editBtn) inElement.appendChild(editBtn);
+    if (deleteBtn) inElement.appendChild(deleteBtn);
 };
 
 export default render;

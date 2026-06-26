@@ -38,7 +38,7 @@
 //     customElements.define("ks-table-body-options-cell", KsTableBodyOptionsCell);
 // }
 
-// Note: The Web Component KsTableBodyOptionsCell was moved to Public/components/v8/tableBodyOptionsCell/index.js
+// Note: The Web Component KsTableBodyOptionsCell was moved to Public/components/v9/tableBodyOptionsCell/index.js
 
 const createOptionsCell = ({ item, index, onDeleteFunc, onEditFunc }) => {
     const td = document.createElement("td");
@@ -51,6 +51,8 @@ const createOptionsCell = ({ item, index, onDeleteFunc, onEditFunc }) => {
     ksTd.ksOnEditFunc = onEditFunc;
     // ksTd.ksOnEditFunc = onEditFunc;
 
+    ksTd.setAttribute("show-edit", "true");
+    ksTd.setAttribute("show-delete", "true");
     ksTd.setAttribute("delete-type", "icon");
 
     td.appendChild(ksTd);
