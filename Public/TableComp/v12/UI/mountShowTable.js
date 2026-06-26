@@ -51,6 +51,12 @@ const startFunc = ({
     const defaultRow = dataStore.getDefaultRow();
     const showSave = options?.table?.showSave;
 
+    const inShowEdit = options?.table?.body?.showEdit;
+    const inShowDelete = options?.table?.body?.showDelete;
+    const inDeleteType = options?.table?.body?.deleteType;
+    const inDeleteIconSize = options?.table?.body?.deleteIconSize;
+    console.log("", options?.table?.body);
+
     buildFullUI({
         containerEl: containerEl,
         inTableName: inConfig.tableName,
@@ -83,7 +89,8 @@ const startFunc = ({
         inEndPoints: endPoints,
         inDataStore: dataStore,
         inConfig,
-        inTableFooter: dom.getTableFooter(containerEl)
+        inTableFooter: dom.getTableFooter(containerEl),
+        inShowEdit, inShowDelete, inDeleteType, inDeleteIconSize
     });
     // debugger;
     if (showFooter) {

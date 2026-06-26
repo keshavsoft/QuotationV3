@@ -24,6 +24,12 @@
                 "createNewRow": true,
                 "showBalance": false,
                 "showTotals": true
+            },
+            "body": {
+                "showEdit": false,
+                "showDelete": true,
+                "deleteType": "icon",
+                "deleteIconSize": "xl"
             }
         }
     },

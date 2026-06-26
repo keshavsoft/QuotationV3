@@ -28,6 +28,22 @@ const getShowDelete = (el, onDeleteFunc) => {
     return !!onDeleteFunc;
 };
 
+const getDeleteIconSize = (el) => {
+    if (el.ksDeleteIconSize) return el.ksDeleteIconSize;
+
+    if (el.hasAttribute("ks-delete-icon-size")) return el.getAttribute("ks-delete-icon-size");
+    if (el.hasAttribute("delete-icon-size")) return el.getAttribute("delete-icon-size");
+
+    let parent = el.parentElement;
+    while (parent) {
+        if (parent.hasAttribute("ks-delete-icon-size")) return parent.getAttribute("ks-delete-icon-size");
+        if (parent.hasAttribute("delete-icon-size")) return parent.getAttribute("delete-icon-size");
+        parent = parent.parentElement;
+    }
+
+    return "medium";
+};
+
 const getOptions = ({ inElement }) => {
     return {
         item: inElement.ksItem,
@@ -36,7 +52,8 @@ const getOptions = ({ inElement }) => {
         onEditFunc: inElement.ksOnEditFunc,
         deleteType: getDeleteType(inElement),
         showEdit: getShowEdit(inElement, inElement.ksOnEditFunc),
-        showDelete: getShowDelete(inElement, inElement.ksOnDeleteFunc)
+        showDelete: getShowDelete(inElement, inElement.ksOnDeleteFunc),
+        deleteIconSize: getDeleteIconSize(inElement)
     };
 };
 
