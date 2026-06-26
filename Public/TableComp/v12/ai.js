@@ -5,12 +5,12 @@
 
 // import "../../components/TableRow/v1/index.js";
 // import "../../components/TableFoot/v9/index.js";
+import "../../components/v7/index.js";
 
 import { createState } from "./HtmlState/start.js";
 import { getDomManipulation } from "./DomManipulation/start.js";
 import { prepareColumnsBundle } from "./Utils/prepareColumnsBundle.js";
 import { normalizeConfig } from "./Utils/normalizeConfig.js";
-import { focusToEl } from "./FocusSet/V2/focusSet.js";
 
 import { createStore } from "./TableStore/V3/start.js";
 import { KeshavUIClasses } from "./uiClasses.js";
