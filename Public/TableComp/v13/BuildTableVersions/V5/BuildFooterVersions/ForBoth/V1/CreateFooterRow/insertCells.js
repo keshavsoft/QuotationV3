@@ -1,12 +1,14 @@
 import { createFooterCell } from "./createFooterCell.js";
 
-const startFunc = ({ keys, tr, options = {}, inDefaultRow, inTdClass,
-    inShowDataList, onChangeFunc, inVisibleColumnsConfig }) => {
+const startFunc = ({ keys, tr, options = {}, inDefaultRow,
+    inShowDataList, onChangeFunc, inVisibleColumnsConfig,
+    inDataStore }) => {
 
     const defaultRow = inDefaultRow;
 
     inVisibleColumnsConfig.forEach(loopColumn => {
-        const defaultValue = defaultRow[loopColumn.columnName];
+        const defaultValue = defaultRow ? defaultRow[loopColumn.columnName] : "";
+        // console.log("loopColumn-------- : ", loopColumn);
 
         const createdFooterCell = createFooterCell({
             key: loopColumn.columnName,
@@ -14,12 +16,22 @@ const startFunc = ({ keys, tr, options = {}, inDefaultRow, inTdClass,
             onChangeFunc,
             showDataList: inShowDataList,
             inColumnsConfig: options.inColumnsConfig,
-            inTdClass,
+            inTdClass: loopColumn?.cellConfig?.tdClass,
             inAllowOnChange: loopColumn.allowOnChange,
             inOnChangeType: loopColumn.onChangeType,
             inOnKeyDown: loopColumn?.onKeyDown,
-            inOnKeyDownType: loopColumn?.onKeyDownType,
-            inDefaultRow: defaultRow
+            inDefaultRow: defaultRow,
+            inType: loopColumn.type,
+            inRightAlign: loopColumn?.cellConfig?.rightAlign,
+            inWidth: loopColumn?.cellConfig?.width,
+            inputClassName: loopColumn?.cellConfig?.uiClasses?.table?.tfoot?.inputClass,
+            inDataListSource: loopColumn?.dataListSource,
+            inDataStore,
+            inDataListFillName: loopColumn?.dataListFillName,
+            inOnKeyDownType: loopColumn?.verticalConfig?.onKeyDownType,
+            inEnterAsTab: loopColumn?.tableConfig?.footerConfig?.enterAsTab,
+            inEvalformula: loopColumn?.tableConfig?.footerConfig?.evalformula,
+            inEvalToControl: loopColumn?.tableConfig?.footerConfig?.evalToControl
         });
 
         tr.appendChild(createdFooterCell);

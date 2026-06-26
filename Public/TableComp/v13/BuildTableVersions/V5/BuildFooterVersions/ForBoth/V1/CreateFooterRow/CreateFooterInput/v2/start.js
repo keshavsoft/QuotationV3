@@ -6,7 +6,7 @@ import attachKeyDownEvent from "./AttachKeyDownEvent/v2/start.js";
 
 const createFooterInput = (args) => {
     const {
-        key,
+        key, inType,
         onChangeFunc,
         showDataList,
         inColumnsConfig,
@@ -14,38 +14,42 @@ const createFooterInput = (args) => {
         inOnChangeType,
         inOnKeyDown,
         inOnKeyDownType,
-        inDefaultRow
+        inDefaultRow, inRightAlign, inWidth
     } = args;
 
-    const input = createInput({ key });
-
-    if (inOnChangeType) {
-        input.dataset.onChangeType = inOnChangeType;
-    }
-
-    applyDataList({
-        input,
-        key,
-        showDataList,
-        inColumnsConfig
+    const input = createInput({
+        key, inOnKeyDown, inOnKeyDownType, inOnChangeType,
+        showDataList, inColumnsConfig, onChangeFunc, inType, inRightAlign,
+        inWidth
     });
 
-    applyDefaultValue({
-        input,
-        inDefaultValue
-    });
+    // if (inOnChangeType) {
+    //     input.dataset.onChangeType = inOnChangeType;
+    // }
 
-    attachChangeEvent({
-        input,
-        onChangeFunc
-    });
+    // applyDataList({
+    //     input,
+    //     key,
+    //     showDataList,
+    //     inColumnsConfig
+    // });
 
-    attachKeyDownEvent({
-        input,
-        inOnKeyDown,
-        inOnKeyDownType,
-        inDefaultRow
-    });
+    // applyDefaultValue({
+    //     input,
+    //     inDefaultValue
+    // });
+
+    // attachChangeEvent({
+    //     input,
+    //     onChangeFunc
+    // });
+
+    // attachKeyDownEvent({
+    //     input,
+    //     inOnKeyDown,
+    //     inOnKeyDownType,
+    //     inDefaultRow
+    // });
 
     return input;
 };

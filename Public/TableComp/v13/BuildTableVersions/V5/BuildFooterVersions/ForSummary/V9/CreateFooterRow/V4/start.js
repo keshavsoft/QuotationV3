@@ -39,7 +39,7 @@ const startFunc = ({ inVisibleColumnsConfig,
             inThSerialClassName,
             inData, inShowSerial, inShowActions
         });
-        // debugger;
+        // console.log("inShowTotals : ", inShowTotals, tr);
 
         returnArrayOfTrs.push(tr);
     };

@@ -12,6 +12,7 @@ const attachChangeEvent = ({
 
             const onChangeType =
                 localCurrentTarget.dataset.onChangeType;
+            // console.log("aaaaaaaa : ", localCurrentTarget, onChangeType);
 
             onChangeFunc({
                 inCurrentTarget: localCurrentTarget,

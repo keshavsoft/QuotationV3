@@ -2,24 +2,37 @@ import { startFunc as createHandleSave } from "./CreateHandleSave/start.js";
 import createHandleOnChange from "./CreateHandleOnChange/V2/start.js";
 
 import { startFunc as createFooter } from "./CreateFooter/start.js";
-import forSummary from "../../ForSummary/V8/CreateFooterRow/V4/start.js";
+// import forSummary from "../../ForSummary/V8/CreateFooterRow/V4/start.js";
+
+import forSummary from "../../ForSummary/V9/CreateFooterRow/V4/start.js";
 
 const buildFooter = ({ inVisibleColumnsConfig, inDefaultRow, keys,
-    inTableFooter, inShowDataList, inDataStore, inShowSave, inOptions,
-    inServices, inEndPoints, inTableBody, inShowSerial, inShowActions,
-    inData, inShowFooterRows = false
+    inTableFooter, inShowDataList, inDataStore, inOptions,
+    inServices, inEndPoints, inTableBody,
+    inData,
 }) => {
+    // debugger;
+    const createNewRow = inOptions.createNewRow;
+    const showAggregateRows = inOptions.showAggregateRows;
+    const showTotals = inOptions.showTotals;
+    const showBalance = inOptions.showBalance;
+    // console.log("inOptions : ", inOptions);
 
     const localVisibleColumns = inVisibleColumnsConfig
 
+    const oldShowActions = inTableFooter.getAttribute("ks-showActions");
+    const oldShowSerial = inTableFooter.getAttribute("ks-showSerial");
+
     const localHandleSave = ({ dataFromDom, inCurrentTarget }) => {
         const objectToSave = { ...dataFromDom, ...inDefaultRow };
-        // debugger;
+        // console.log("objectToSave : ", objectToSave, inServices);
+
         createHandleSave({
             inServices, inEndPoints, inPayload: objectToSave,
             inDataStore, inTableBody,
             inVisibleColumnsConfig: localVisibleColumns,
-            inShowSerial, inShowActions, inCurrentTarget,
+            inShowSerial: oldShowSerial,
+            inShowActions: oldShowActions, inCurrentTarget,
             inTableFooter
         });
     };
@@ -34,23 +47,27 @@ const buildFooter = ({ inVisibleColumnsConfig, inDefaultRow, keys,
         });
     };
 
-    const localTr = createFooter({
-        inVisibleColumnsConfig: localVisibleColumns,
-        inDefaultRow, inShowDataList, keys,
-        onChangeFunc: localHandleOnChange,
-        inShowSave, inOnSaveFunc: localHandleSave,
-        inShowSerial
-    });
+    if (createNewRow) {
+        const localTr = createFooter({
+            inVisibleColumnsConfig: localVisibleColumns,
+            inDefaultRow, inShowDataList, keys,
+            onChangeFunc: localHandleOnChange,
+            inShowSave: oldShowActions, inOnSaveFunc: localHandleSave,
+            inShowSerial: oldShowSerial, inDataStore
+        });
 
-    inTableFooter.appendChild(localTr);
-    // debugger;
+        if (localTr) inTableFooter.appendChild(localTr);
+        // // debugger;
 
-    if (inShowFooterRows) {
+    };
+
+    if (showAggregateRows) {
         const forSummaryTr = forSummary({
             inVisibleColumnsConfig: localVisibleColumns,
             inThSerialClassName: "", inData,
-            inShowTotals: true, inShowBalance: true,
-            inShowSerial, inShowActions
+            inShowTotals: showTotals, inShowBalance: showBalance,
+            inShowSerial: oldShowSerial,
+            inShowActions: oldShowActions
         });
         // debugger;
 
@@ -58,6 +75,7 @@ const buildFooter = ({ inVisibleColumnsConfig, inDefaultRow, keys,
             inTableFooter.appendChild(element);
         });
     };
+
 };
 
 export default buildFooter;

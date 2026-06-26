@@ -3,7 +3,7 @@ import { appendFooterSaveCell } from "./appendFooterSaveCell.js";
 
 const startFunc = ({ keys, options, inDefaultRow, inTdClass,
     inSerialClass, inShowSerial, inShowDataList, inShowSave = false,
-    inOnSaveFunc, onChangeFunc, inVisibleColumnsConfig
+    inOnSaveFunc, onChangeFunc, inVisibleColumnsConfig, inDataStore
 }) => {
     // debugger;
     const tr = document.createElement("tr");
@@ -11,7 +11,7 @@ const startFunc = ({ keys, options, inDefaultRow, inTdClass,
     if (inShowSerial) tr.appendChild(getSerialColumn({ inSerialClass }));
 
     insertRowCells({
-        keys, tr, options, inDefaultRow, inTdClass,
+        keys, tr, options, inDefaultRow, inTdClass, inDataStore,
         inShowDataList, onChangeFunc, inVisibleColumnsConfig
     });
 

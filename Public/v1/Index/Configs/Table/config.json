@@ -159,6 +159,9 @@
                             "inputClass": "w-full border rounded px-2 py-1 text-xl"
                         }
                     }
+                },
+                "tableFooter": {
+                    "showTotal": true
                 }
             },
             "isConsider": true,
@@ -235,6 +238,9 @@
                             "inputClass": "w-full border rounded px-2 py-1 text-lg"
                         }
                     }
+                },
+                "tableFooter": {
+                    "showTotal": true
                 }
             },
             "isConsider": true,
