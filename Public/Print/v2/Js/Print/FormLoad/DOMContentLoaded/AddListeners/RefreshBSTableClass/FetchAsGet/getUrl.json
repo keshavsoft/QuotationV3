@@ -1,0 +1,4 @@
+{
+    "GetEndPoint1": "Filter/RowFilter/FK/{inValue}",
+    "GetEndPoint": "/api/v1/ItemsTable/showAll"
+}

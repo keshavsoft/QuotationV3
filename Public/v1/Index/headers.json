@@ -20,7 +20,7 @@
             "svgName": "serverStack"
         },
         {
-            "text": "Print",
+            "text": "PrintV1",
             "id": "PrintHtmlId",
             "icon": [],
             "uiClasses": {
@@ -28,7 +28,18 @@
                 "svgDivClass": "size-10"
             },
             "svgName": "home",
-            "href":"../Print/index.html"
+            "href": "../Print/v1/index.html"
+        },
+        {
+            "text": "PrintV2",
+            "id": "PrintHtmlId",
+            "icon": [],
+            "uiClasses": {
+                "aClass": "",
+                "svgDivClass": "size-10"
+            },
+            "svgName": "home",
+            "href": "../Print/v2/index.html"
         }
     ]
 }
