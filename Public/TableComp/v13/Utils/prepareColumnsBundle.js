@@ -3,6 +3,8 @@ export const prepareColumnsBundle = (columnsConfig = []) => {
 
     const visibleConfig = columnsConfig.filter(c => c.isVisible !== false);
 
+    const defaultColumns = columnsConfig.filter(c => "defaultValue" in c);
+
     const visibleColumns = visibleConfig.map(c => c.columnName);
 
     const defaultRow = columnsConfig.reduce((acc, c) => {
@@ -13,13 +15,14 @@ export const prepareColumnsBundle = (columnsConfig = []) => {
         return acc;
     }, {});
 
-    const toSaveRow = columnsConfig.reduce((acc, c) => {
+    const toSaveRow = defaultColumns.reduce((acc, c) => {
         if ("defaultValue" in c) {
             acc[c.columnName] = c.defaultValue ?? "";
         };
 
         return acc;
     }, {});
+    console.log("toSaveRow : ", toSaveRow, defaultColumns);
 
     const dataListColumns = visibleConfig
         .filter(c => c.tableFooterDataListShow);

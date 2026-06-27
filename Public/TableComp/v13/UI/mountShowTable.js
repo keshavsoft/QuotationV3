@@ -51,6 +51,9 @@ const startFunc = ({
 
     const defaultRow = dataStore.getDefaultRow();
     const showSave = options?.table?.showSave;
+    const toSaveRow = dataStore.getToSaveRow();
+
+    // console.log("defaultRow : ", toSaveRow, defaultRow);
 
     const inShowEdit = options?.table?.body?.showEdit;
     const inShowDelete = options?.table?.body?.showDelete;
@@ -109,7 +112,8 @@ const startFunc = ({
             inEndPoints: endPoints,
             inDataStore: dataStore,
             inTableBody: tableBody,
-            inOptions: footerOptions
+            inOptions: footerOptions,
+            inToSaveRow: toSaveRow
         });
     };
 

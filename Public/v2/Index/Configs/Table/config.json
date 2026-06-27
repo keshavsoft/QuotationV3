@@ -276,6 +276,13 @@
             "title": "pk",
             "primary": true,
             "isVisible": false
+        },
+        {
+            "field": "ParentPk",
+            "title": "ParentPk",
+            "columnName": "ParentPk",
+            "isVisible": false,
+            "defaultValue": 16
         }
     ]
 }

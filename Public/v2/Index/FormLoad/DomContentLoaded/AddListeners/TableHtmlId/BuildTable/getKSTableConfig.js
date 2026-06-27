@@ -6,7 +6,15 @@ export const getKSTableConfig = async () => {
     // debugger;
     const configJson = await config.json();
 
+    const pk = prompt("Enter PK");
+
+    if (pk === null || pk.trim() === "") return;
+
     configJson.callbacks.table.onReadFail = onReadFail;
+    const findColumn = configJson.columnsConfig.find(element => {
+        return element.field === "ParentPk"
+    });
+    findColumn.defaultValue = pk;
 
     return configJson;
 };
