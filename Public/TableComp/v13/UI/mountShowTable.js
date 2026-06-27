@@ -21,6 +21,7 @@ const startFunc = ({
     inConfig
 }) => {
     // debugger
+    console.log("v13");
 
     const visibleColumns = dataStore.getVisibleColumns();
     const visibleColumnsConfig = dataStore.getVisibleColumnsConfig();
@@ -55,7 +56,7 @@ const startFunc = ({
     const inShowDelete = options?.table?.body?.showDelete;
     const inDeleteType = options?.table?.body?.deleteType;
     const inDeleteIconSize = options?.table?.body?.deleteIconSize;
-    console.log("", options?.table?.body);
+    // console.log("", options?.table?.body);
 
     buildFullUI({
         containerEl: containerEl,
@@ -63,7 +64,8 @@ const startFunc = ({
         inIsShowHeaderRow: showSearch,
         inShowSerial: showSerial,
         inSerialWidth: serialWidth,
-        inShowActions: showActions
+        inShowActions: showActions,
+        inShowEdit, inShowDelete, inDeleteType, inDeleteIconSize
     });
 
     buildHeader({
@@ -89,8 +91,7 @@ const startFunc = ({
         inEndPoints: endPoints,
         inDataStore: dataStore,
         inConfig,
-        inTableFooter: dom.getTableFooter(containerEl),
-        inShowEdit, inShowDelete, inDeleteType, inDeleteIconSize
+        inTableFooter: dom.getTableFooter(containerEl)
     });
     // debugger;
     if (showFooter) {

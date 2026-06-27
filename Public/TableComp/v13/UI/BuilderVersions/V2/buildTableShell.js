@@ -1,5 +1,6 @@
 const buildTableShell = ({ inTableClassName = "table bg-white table-fixed w-[1000px]",
-    inShowSerial, inShowActions
+    inShowSerial, inShowActions,
+    inShowEdit, inShowDelete, inDeleteType, inDeleteIconSize
 }) => {
 
     const wrapper = document.createElement("div");
@@ -13,12 +14,16 @@ const buildTableShell = ({ inTableClassName = "table bg-white table-fixed w-[100
 
     thead.setAttribute("ks-showActions", inShowActions);
     thead.setAttribute("ks-showSerial", inShowSerial);
-    
+
     const tbody = document.createElement("tbody");
     tbody.className = "tbodyClass";
 
     tbody.setAttribute("ks-showActions", inShowActions);
     tbody.setAttribute("ks-showSerial", inShowSerial);
+    tbody.setAttribute("ks-showEdit", inShowEdit);
+    tbody.setAttribute("ks-showDelete", inShowDelete);
+    tbody.setAttribute("ks-deleteType", inDeleteType);
+    tbody.setAttribute("ks-deleteIconSize", inDeleteIconSize);
 
     const tfoot = document.createElement("tfoot");
     tfoot.className = "tfootClass";

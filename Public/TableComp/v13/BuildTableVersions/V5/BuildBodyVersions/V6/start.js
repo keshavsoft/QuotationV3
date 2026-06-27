@@ -2,8 +2,7 @@ import { buildRow } from "./buildRow.js";
 import buildDeleteHandler from "./handlerFuncs/V8/buildDeleteHandler.js";
 
 const buildBody = ({ inVisibleColumnsConfig, inTableBody, inData,
-    inServices, inEndPoints, inDataStore, inConfig, inTableFooter,
-    inShowEdit, inShowDelete, inDeleteType, inDeleteIconSize
+    inServices, inEndPoints, inDataStore, inConfig, inTableFooter
 }) => {
 
     const dataToShow = inData;
@@ -11,6 +10,10 @@ const buildBody = ({ inVisibleColumnsConfig, inTableBody, inData,
 
     const oldShowActions = tableBody.getAttribute("ks-showActions");
     const oldShowSerial = tableBody.getAttribute("ks-showSerial");
+    const showEdit = tableBody.getAttribute("ks-showEdit");
+    const showDelete = tableBody.getAttribute("ks-showDelete");
+    const deleteType = tableBody.getAttribute("ks-deleteType");
+    const deleteIconSize = tableBody.getAttribute("ks-deleteIconSize");
 
     tableBody.innerHTML = '';
     // tableBody.setAttribute("ks-showActions", inShowActions);
@@ -36,7 +39,10 @@ const buildBody = ({ inVisibleColumnsConfig, inTableBody, inData,
             inShowSerial: oldShowSerial === "true",
             inShowActions: oldShowActions === "true",
             onDeleteFunc: handleDelete,
-            inShowEdit, inShowDelete, inDeleteType, inDeleteIconSize
+            inShowEdit: showEdit,
+            inShowDelete: showDelete,
+            inDeleteType: deleteType,
+            inDeleteIconSize: deleteIconSize
         });
 
         tableBody.appendChild(row);
