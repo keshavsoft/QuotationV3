@@ -1,4 +1,4 @@
-PUT http://localhost:9011/api/v2/ItemsTable/modify?showLog
+PUT http://localhost:9011/api/v2/ItemsTable/modify?showLog=true
 Content-Type: application/json
 
 {

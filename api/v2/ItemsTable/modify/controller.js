@@ -4,7 +4,9 @@ const showLog = false;
 const postFunc = async ({ req, res, inTablePath, inConfigPath }) => {
     try {
         const inRequestBody = req.body;
-        const inFlag = "showLog" in req.query ? true : req.query.showLog;
+        // const inFlag = "showLog" in req.query ? true : req.query.showLog;
+        const inFlag = "showLog" in req.query && req.query.showLog !== "false";
+
         const newShowLog = inFlag || showLog;
 
         const fromService = await Service({
