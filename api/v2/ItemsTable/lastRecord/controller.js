@@ -1,5 +1,5 @@
 import { startFunc as Service } from "./service.js";
-import { ConflictError, StorageError } from "./errors.js";
+import { ConflictError, StorageError, NotFoundError } from "./errors.js";
 
 const getFunc = async ({ req, res, inTablePath }) => {
     try {
@@ -12,6 +12,12 @@ const getFunc = async ({ req, res, inTablePath }) => {
 
         if (err instanceof ConflictError)
             return res.status(409).send(err.message);
+
+        if (err instanceof NotFoundError) {
+            return res.status(404).json({
+                message: err.message
+            });
+        };
 
         if (err instanceof StorageError)
             return res.status(500).send("Failed to persist data");

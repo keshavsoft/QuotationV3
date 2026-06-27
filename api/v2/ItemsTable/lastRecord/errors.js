@@ -7,5 +7,6 @@ class AppError extends Error {
 
 class ConflictError extends AppError { }
 class StorageError extends AppError { }
+class NotFoundError extends AppError { }
 
-export { AppError, ConflictError, StorageError };
+export { AppError, ConflictError, StorageError, NotFoundError };
