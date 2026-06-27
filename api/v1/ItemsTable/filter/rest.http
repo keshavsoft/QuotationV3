@@ -1,0 +1,6 @@
+POST http://localhost:9011/api/v1/ItemsTable/filter
+Content-Type: application/json
+
+{
+  "ParentPk": 1
+}

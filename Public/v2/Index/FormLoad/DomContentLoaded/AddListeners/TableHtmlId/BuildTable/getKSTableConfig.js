@@ -11,10 +11,14 @@ export const getKSTableConfig = async () => {
     if (pk === null || pk.trim() === "") return;
 
     configJson.callbacks.table.onReadFail = onReadFail;
+
     const findColumn = configJson.columnsConfig.find(element => {
         return element.field === "ParentPk"
     });
-    findColumn.defaultValue = pk;
+
+    findColumn.defaultValue = parseInt(pk);
+
+    configJson.endPoints.read = configJson.endPoints.read.replace("<ParentPk>", pk);
 
     return configJson;
 };
