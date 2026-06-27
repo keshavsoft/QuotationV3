@@ -27,7 +27,7 @@
                 "aClass": "",
                 "svgDivClass": "size-10"
             },
-            "svgName": "serverStack"
+            "svgName": "queueList"
         },
         {
             "text": "PrintV1",
@@ -59,7 +59,7 @@
                 "aClass": "",
                 "svgDivClass": "size-10"
             },
-            "svgName": "home",
+            "svgName": "printer",
             "href": "javascript:window.print()"
         }
     ]
