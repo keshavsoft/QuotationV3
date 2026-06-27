@@ -1,69 +1,39 @@
-import { JSONFilePreset } from 'lowdb/node';
+import getSchema from "./getSchema.js";
+import dval from "./dval.js";
+import getData from "./getData.js";
+import updateRecord from "./updateRecord.js";
+import saveData from "./saveData.js";
 
 const startFunc = async ({ inRequestBody, inTablePath, inConfigPath }) => {
-    if (!inRequestBody || typeof inRequestBody !== "object") {
-        const err = new Error("Request body must be an object");
-        err.status = 400;
-        throw err;
-    }
+    console.log("[Modify Service] Started processing request");
 
     // 1. Get primary key from schema
-    const schemaDb = await JSONFilePreset(inConfigPath, {});
-    await schemaDb.read();
+    console.log("[Modify Service] Step 1: Discovering primary key from schema config at:", inConfigPath);
+    const pk = await getSchema({ inConfigPath });
+    console.log("[Modify Service] Primary key discovered:", pk);
 
-    if (!schemaDb.data || !Array.isArray(schemaDb.data.columnsConfig)) {
-        const err = new Error("Invalid schema configuration");
-        err.status = 500;
-        throw err;
-    }
-
-    const pkColumn = schemaDb.data.columnsConfig.find(c => c.primary);
-    if (!pkColumn) {
-        const err = new Error("Primary key not defined in schema");
-        err.status = 500;
-        throw err;
-    }
-    const pk = pkColumn.field;
-
-    // 2. Validate request body has primary key
-    if (inRequestBody[pk] === undefined) {
-        const err = new Error(`${pk} is required for update`);
-        err.status = 400;
-        throw err;
-    }
+    // 2. Validate request body
+    console.log("[Modify Service] Step 2: Validating input data");
+    dval({ inRequestBody, pk });
+    console.log("[Modify Service] Input data validation passed");
 
     // 3. Read data
-    const db = await JSONFilePreset(inTablePath, []);
-    await db.read();
+    console.log("[Modify Service] Step 3: Reading table data from path:", inTablePath);
+    const data = await getData({ inTablePath });
+    console.log(`[Modify Service] Successfully read ${data.length} records`);
 
-    const data = db.data;
-    if (!Array.isArray(data)) {
-        const err = new Error("Data table is not an array");
-        err.status = 500;
-        throw err;
-    }
+    // 4. Update the record
+    const pkValue = inRequestBody[pk];
+    console.log(`[Modify Service] Step 4: Updating record where ${pk} = ${pkValue}`);
+    const { updatedData, updatedRecord } = updateRecord({ data, inRequestBody, pk });
+    console.log("[Modify Service] Record merged successfully:", updatedRecord);
 
-    // 4. Find matching record
-    const reqPkValue = inRequestBody[pk];
-    const index = data.findIndex(item => item[pk] == reqPkValue);
+    // 5. Save the updated data array
+    console.log("[Modify Service] Step 5: Saving updated data back to storage");
+    await saveData({ inTablePath, inData: updatedData });
+    console.log("[Modify Service] Data stored successfully. Process complete.");
 
-    if (index === -1) {
-        const err = new Error(`Record with ${pk} "${reqPkValue}" not found`);
-        err.status = 404;
-        throw err;
-    }
-
-    // 5. Merge existing record with new values
-    data[index] = {
-        ...data[index],
-        ...inRequestBody
-    };
-
-    // 6. Write back
-    db.data = data;
-    await db.write();
-
-    return data[index];
+    return updatedRecord;
 };
 
 export { startFunc };
