@@ -1,7 +1,7 @@
-PUT http://localhost:9011/api/v2/ItemsTable/modify
+PUT http://localhost:9011/api/v2/ItemsTable/modify?showLog
 Content-Type: application/json
 
 {
   "ItemName": "",
-  "pk":111
+  "pk":1
 }

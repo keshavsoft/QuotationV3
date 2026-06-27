@@ -1,12 +1,15 @@
 import { startFunc as Service } from "./service.js";
+const showLog = false;
 
 const postFunc = async ({ req, res, inTablePath, inConfigPath }) => {
     try {
         const inRequestBody = req.body;
+        const inFlag = "showLog" in req.query ? true : req.query.showLog;
+        const newShowLog = inFlag || showLog;
 
         const fromService = await Service({
             inRequestBody, inTablePath,
-            inConfigPath
+            inConfigPath, showLog: newShowLog
         });
 
         res.type("application/json").send(fromService);
