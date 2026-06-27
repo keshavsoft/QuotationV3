@@ -1,5 +1,4 @@
 import { startFunc as Service } from "./service.js";
-import { ConflictError, StorageError } from "./errors.js";
 
 const postFunc = async ({ req, res, inTablePath, inConfigPath }) => {
     try {
