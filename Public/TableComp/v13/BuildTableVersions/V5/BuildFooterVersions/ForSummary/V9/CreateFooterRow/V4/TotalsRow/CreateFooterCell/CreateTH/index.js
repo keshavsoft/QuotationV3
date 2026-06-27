@@ -9,7 +9,8 @@ const createTH = ({
     inData,
     inShowThousandsSeperator = false,
     inWidth,
-    inRightAlign
+    inRightAlign,
+    isQuantity = false
 }) => {
 
     const th = document.createElement("th");
@@ -17,6 +18,7 @@ const createTH = ({
     th.dataset.columnName = inKey;
     th.dataset.showTotal = inShowTotal;
     th.dataset.showThousandsSeperator = inShowThousandsSeperator;
+    th.dataset.isQuantity = isQuantity;
 
     applyWidth({
         th,

@@ -84,7 +84,12 @@
                             "inputClass": "w-full border rounded px-2 py-1 text-xl"
                         }
                     }
-                }
+                },
+                "tableFooter": {
+                    "showTotal": true
+                },
+                "isQuantity": true,
+                "showThousandsSeperator": true
             },
             "isConsider": true,
             "verticalConfig": {
@@ -163,7 +168,8 @@
                 },
                 "tableFooter": {
                     "showTotal": true
-                }
+                },
+                "showThousandsSeperator": true
             },
             "isConsider": true,
             "verticalConfig": {
@@ -242,7 +248,8 @@
                 },
                 "tableFooter": {
                     "showTotal": true
-                }
+                },
+                "showThousandsSeperator": true
             },
             "isConsider": true,
             "verticalConfig": {

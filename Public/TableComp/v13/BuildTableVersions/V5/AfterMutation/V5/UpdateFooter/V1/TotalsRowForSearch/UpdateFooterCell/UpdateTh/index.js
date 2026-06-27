@@ -9,6 +9,7 @@ const createTH = ({
     inTh
 }) => {
     const th = inTh;
+    console.log("bbbbbbb : ", th.dataset);
 
     if (inShowTotal) {
         const total = getTotal({

@@ -1,12 +1,3 @@
-// import { validateRow } from "./Utils/validateRow.js";
-
-// import { getFooterPayload } from "./getFooterPayload.js";
-// import { showErrors } from "./DomManipulation/showErrors.js";
-// import { clearErrors } from "./DomManipulation/clearErrors.js";
-// import { clearFooterInputs } from "./DomManipulation/clearFooterInputs.js";
-
-// import { buildBody } from "../../../BuildBodyVersions/V4/start.js";
-
 import afterMutation from "../../../AfterMutation/V5/index.js";
 
 const saveFooterRow = async ({

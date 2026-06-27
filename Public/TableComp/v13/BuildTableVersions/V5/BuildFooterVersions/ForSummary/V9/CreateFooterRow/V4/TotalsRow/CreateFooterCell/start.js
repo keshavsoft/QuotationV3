@@ -5,7 +5,7 @@ const startFunc = ({
     inCellConfig = {},
     inData
 }) => {
-    // console.log("inCellConfig : ", inCellConfig);
+    console.log("inCellConfig : ", inCellConfig);
 
     const showTotal =
         inCellConfig?.tableFooter?.showTotal || false;
@@ -15,6 +15,9 @@ const startFunc = ({
 
     const showThousandsSeperator =
         inCellConfig?.showThousandsSeperator || false;
+
+    const isQuantity =
+        inCellConfig?.isQuantity || false;
 
     const width =
         inCellConfig?.width;
@@ -26,7 +29,8 @@ const startFunc = ({
         inShowThousandsSeperator:
             showThousandsSeperator,
         inWidth: width,
-        inRightAlign: rightAlign
+        inRightAlign: rightAlign,
+        isQuantity
     });
 
     return th;

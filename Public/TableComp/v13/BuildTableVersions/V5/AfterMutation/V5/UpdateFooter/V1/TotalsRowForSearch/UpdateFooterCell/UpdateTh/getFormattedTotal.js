@@ -1,7 +1,8 @@
 const getFormattedTotal = ({
     inTotal,
-    inShowThousandsSeperator = false
+    inShowThousandsSeperator = true
 }) => {
+    console.log("inShowThousandsSeperator : ", inShowThousandsSeperator);
 
     if (inShowThousandsSeperator) {
 

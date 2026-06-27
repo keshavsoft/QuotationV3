@@ -30,6 +30,16 @@
             "svgName": "queueList"
         },
         {
+            "text": "Find",
+            "id": "FindHtmlId",
+            "icon": [],
+            "uiClasses": {
+                "aClass": "",
+                "svgDivClass": "size-10"
+            },
+            "svgName": "search"
+        },
+        {
             "text": "PrintV1",
             "id": "PrintHtmlId",
             "icon": [],
