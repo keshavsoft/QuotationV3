@@ -7,7 +7,13 @@ export const getKSTableConfig = async () => {
     const configJson = await config.json();
 
     const last = await fetch("/api/v2/ItemsTable/lastRecord");
+
     // debugger;
+    if (last.ok) {
+        const lastJson = await last.json();
+        console.log("lastJson: ", lastJson)
+        const pk = lastJson.ParentPk;
+    }
     const lastJson = await last.json();
 
     const pk = lastJson.ParentPk;

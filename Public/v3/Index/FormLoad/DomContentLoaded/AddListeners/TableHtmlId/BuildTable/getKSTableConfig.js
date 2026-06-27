@@ -8,9 +8,16 @@ export const getKSTableConfig = async () => {
 
     const last = await fetch("/api/v2/ItemsTable/lastRecord");
     // debugger;
-    const lastJson = await last.json();
+    
+    let lastJson = { ParentPk: 0 };
+    if (last.ok) {
+        const text = await last.text();
+        if (text) {
+            lastJson = JSON.parse(text);
+        }
+    }
 
-    const pk = lastJson.ParentPk + 1;
+    const pk = (lastJson.ParentPk || 0) + 1;
 
     // const pk = prompt("Enter PK");
 
