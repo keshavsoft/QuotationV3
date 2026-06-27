@@ -1,0 +1,7 @@
+PUT http://localhost:9011/api/v2/ItemsTable/modify
+Content-Type: application/json
+
+{
+  "ItemName": "",
+  "pk":1
+}
