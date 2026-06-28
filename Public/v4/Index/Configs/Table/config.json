@@ -62,7 +62,8 @@
             "verticalConfig": {},
             "tableConfig": {
                 "footerConfig": {
-                    "enterAsTab": true
+                    "enterAsTab": true,
+                    "isNotEmpty": true
                 }
             },
             "isVisible": true,

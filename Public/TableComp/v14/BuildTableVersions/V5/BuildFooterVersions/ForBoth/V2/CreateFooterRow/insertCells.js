@@ -31,7 +31,8 @@ const startFunc = ({ keys, tr, options = {}, inDefaultRow,
             inOnKeyDownType: loopColumn?.verticalConfig?.onKeyDownType,
             inEnterAsTab: loopColumn?.tableConfig?.footerConfig?.enterAsTab,
             inEvalformula: loopColumn?.tableConfig?.footerConfig?.evalformula,
-            inEvalToControl: loopColumn?.tableConfig?.footerConfig?.evalToControl
+            inEvalToControl: loopColumn?.tableConfig?.footerConfig?.evalToControl,
+            inIsNotEmpty: loopColumn?.tableConfig?.footerConfig?.isNotEmpty
         });
 
         tr.appendChild(createdFooterCell);
