@@ -46,7 +46,8 @@ const createInput = ({
     if (inEvalformula) input.setAttribute("evalformula", inEvalformula);
 
     if (inEvalToControl) input.setAttribute("evalToControl", inEvalToControl);
-
+    console.log("propedddddddd")
+    input.ksPlaceholder = "Enter the Item";
     return input;
 };
 

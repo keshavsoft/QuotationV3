@@ -1,4 +1,4 @@
-const appendFooterSaveCell = ({ inOnSaveFunc }) => {
+const appendFooterSaveCell = ({ inOnSaveFunc, inVisibleColumnsConfig }) => {
     // debugger
     if (!inOnSaveFunc) return;
 
@@ -17,6 +17,22 @@ const appendFooterSaveCell = ({ inOnSaveFunc }) => {
         const closestFooter = currentTarget.closest("tfoot");
         const inputs = closestFooter.querySelectorAll("input");
         
+        let isValid = true;
+        for (const input of inputs) {
+            const col = inVisibleColumnsConfig?.find(c => c.columnName === input.name);
+            if (col?.isRequired) {
+                input.required = true;
+            }
+
+            if (!input.checkValidity()) {
+                input.reportValidity();
+                isValid = false;
+                break;
+            }
+        }
+
+        if (!isValid) return;
+
         const data = {};
 
         inputs.forEach((input) => {

@@ -70,12 +70,14 @@
             "tableFooterDataListShow": true,
             "dataListSource": "ItemName.StockItemName",
             "allowOnChange": true,
-            "onChangeType": "onDataListChange"
+            "onChangeType": "onDataListChange",
+           "isRequired": true
         },
         {
             "columnName": "Qty",
             "title": "Qty",
             "field": "Qty",
+             "isRequired": true,
             "cellConfig": {
                 "width": "60px",
                 "rightAlign": true,
@@ -91,6 +93,7 @@
                 },
                 "isQuantity": true,
                 "showThousandsSeperator": true
+              
             },
             "isConsider": true,
             "verticalConfig": {
@@ -119,6 +122,7 @@
             "columnName": "OrigRate",
             "title": "OrigRate",
             "field": "OrigRate",
+             "isRequired": true,
             "cellConfig": {
                 "width": "75px",
                 "rightAlign": true,
@@ -199,6 +203,7 @@
             "columnName": "RateInc",
             "title": "RateInc",
             "field": "RateInc",
+             "isRequired": true,
             "cellConfig": {
                 "width": "75px",
                 "rightAlign": true,
@@ -237,6 +242,7 @@
             "columnName": "Amount",
             "title": "Amount",
             "field": "Amount",
+             "isRequired": true,
             "cellConfig": {
                 "width": "75px",
                 "rightAlign": true,
