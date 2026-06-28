@@ -15,7 +15,7 @@ const startFunc = ({ keys, options, inDefaultRow, inTdClass,
         inShowDataList, onChangeFunc, inVisibleColumnsConfig
     });
 
-    if (inShowSave) tr.appendChild(appendFooterSaveCell({ inOnSaveFunc }));
+    if (inShowSave) tr.appendChild(appendFooterSaveCell({ inOnSaveFunc, inVisibleColumnsConfig }));
 
     return tr;
 };

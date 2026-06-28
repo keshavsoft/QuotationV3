@@ -21,8 +21,8 @@ const startFunc = ({
     inConfig
 }) => {
     // debugger
-    console.log("v13");
-
+  
+    console.log("hujur");
     const visibleColumns = dataStore.getVisibleColumns();
     const visibleColumnsConfig = dataStore.getVisibleColumnsConfig();
     const searchableColumnsConfig = dataStore.getSearchableColumnsConfig();
