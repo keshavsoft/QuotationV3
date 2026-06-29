@@ -25,9 +25,6 @@ async function ensureKSComponents() {
     };
 
     tryTable().then();
-
-    // tryVertical().then();
-    // tryTableFoot().then();
 };
 
 async function ensureTailwind() {
@@ -104,9 +101,9 @@ async function ensureKSHeader() {
 
     async function tryLocal() {
         try {
-            const fromPromise = await loadScriptAsModuleCommon("/header/v11/initHeader.js");
+            const fromPromise = await loadScriptAsModuleCommon("/header/v12/initHeader.js");
 
-            console.log("KSHeader loaded from local : header-v11");
+            console.log("KSHeader loaded from local : header-v12");
 
             if (fromPromise) return true;
         } catch { return false };
@@ -119,7 +116,7 @@ async function ensureKSHeader() {
         return;
     };
 
-    // if (await tryLocal()) return;
+    if (await tryLocal()) return;
 
     if (await tryGitHub()) return;
 
@@ -176,7 +173,7 @@ async function ensureKSTableComp() {
 
 ensureTailwind().then();
 
-await ensureKSComponents();
+// await ensureKSComponents();
 
 await ensureKSHeader();
 
