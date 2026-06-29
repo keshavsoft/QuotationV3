@@ -24,11 +24,7 @@ async function ensureKSComponents() {
         return false;
     };
 
-    // tryMenu().then();
-    // tryNav().then();
     tryTable().then();
-
-    // console.log("aaaaaaaaaaaaaaaaaaaaaaaaa----------");
 
     // tryVertical().then();
     // tryTableFoot().then();
@@ -131,19 +127,6 @@ async function ensureKSHeader() {
 };
 
 async function ensureKSTableComp() {
-    function loadScriptAsModule(src) {
-        return new Promise((resolve, reject) => {
-            const script = document.createElement("script");
-
-            script.src = src;
-            script.onload = () => resolve(true);
-            script.onerror = () => reject(new Error(`Failed to load: ${src}`));
-            script.type = "module";
-
-            document.head.appendChild(script);
-        });
-    };
-
     function isKSTableLoaded() {
         // console.log("aaaaaaaa : ", window.KSTableComp, window.KSHeader);
 
@@ -152,7 +135,7 @@ async function ensureKSTableComp() {
 
     async function tryGitHub() {
         try {
-            const fromPromise = await loadScriptAsModule("https://keshavsoft.github.io/tailwind-table-dom-comp/Public/v13/kstablecomp.js");
+            const fromPromise = await loadScriptAsModuleCommon("https://keshavsoft.github.io/tailwind-table-dom-comp/Public/v13/kstablecomp.js");
 
             console.log("KSTableComp loaded from git : tailwind-table-dom-comp-13");
 
@@ -193,15 +176,7 @@ async function ensureKSTableComp() {
 
 ensureTailwind().then();
 
-// await ensureTailwind();
-
 await ensureKSComponents();
-
-// ensureKSComponents().then(fromPromise => {
-//     // ensureKSHeader().then();
-
-//     // ensureKSTableComp().then();
-// });
 
 await ensureKSHeader();
 
