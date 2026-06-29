@@ -1,9 +1,5 @@
-import navDefaults from "./navDefaults.js";
-
-const readAttributeOrDefault = (element, name, defaultValue) => {
-    const value = element.getAttribute(name);
-    return value === null ? defaultValue : value;
-};
+import navDefaults from "../navDefaults.js";
+import readAttributeOrDefault from "./readAttributeOrDefault.js";
 
 export const readStory = (element) => {
     return {
