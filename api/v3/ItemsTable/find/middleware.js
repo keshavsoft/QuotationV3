@@ -1,4 +1,5 @@
 import fs from "fs/promises";
+import { allowedAggFuncs } from "./service.js";
 
 const checkColumnName = ({ inConfigPath }) => {
     return async (req, res, next) => {
@@ -51,7 +52,6 @@ const checkColumnsToSum = ({ inConfigPath }) => {
 
             // Extract all valid fields and columnNames from schema
             const schemaColumns = schema.columns.map(col => col.field || col.columnName).filter(Boolean);
-            const validAggFuncs = ["sum", "max", "min", "count"];
 
             for (const key of keys) {
                 // Check if key is a column in the schema
@@ -61,8 +61,8 @@ const checkColumnsToSum = ({ inConfigPath }) => {
                 
                 // Check if value is a valid aggregation function
                 const value = body[key];
-                if (!validAggFuncs.includes(value)) {
-                    return res.status(400).send(`Value for key '${key}' must be one of: ${validAggFuncs.join(", ")}.`);
+                if (!allowedAggFuncs.includes(value)) {
+                    return res.status(400).send(`Value for key '${key}' must be one of: ${allowedAggFuncs.join(", ")}.`);
                 }
             }
 

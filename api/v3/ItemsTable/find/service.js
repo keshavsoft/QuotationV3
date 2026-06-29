@@ -1,5 +1,32 @@
 import getData from "./getData.js";
 
+const aggConfig = {
+    sum: {
+        init: 0,
+        update: (accVal, currentVal) => accVal + (Number(currentVal) || 0)
+    },
+    count: {
+        init: 0,
+        update: (accVal, currentVal) => currentVal !== undefined && currentVal !== null ? accVal + 1 : accVal
+    },
+    max: {
+        init: -Infinity,
+        update: (accVal, currentVal) => {
+            const val = Number(currentVal);
+            return !isNaN(val) ? Math.max(accVal, val) : accVal;
+        }
+    },
+    min: {
+        init: Infinity,
+        update: (accVal, currentVal) => {
+            const val = Number(currentVal);
+            return !isNaN(val) ? Math.min(accVal, val) : accVal;
+        }
+    }
+};
+
+const allowedAggFuncs = Object.keys(aggConfig);
+
 const startFunc = async ({ inColumnName, inTablePath }, inColumnsToSum) => {
     const dataAsArray = await getData({ inTablePath });
     const columnsToSum = inColumnsToSum || {};
@@ -12,36 +39,16 @@ const startFunc = async ({ inColumnName, inTablePath }, inColumnsToSum) => {
             };
             Object.keys(columnsToSum).forEach(key => {
                 const func = columnsToSum[key];
-                if (func === "sum") {
-                    acc[groupKey][key] = 0;
-                } else if (func === "count") {
-                    acc[groupKey][key] = 0;
-                } else if (func === "max") {
-                    acc[groupKey][key] = -Infinity;
-                } else if (func === "min") {
-                    acc[groupKey][key] = Infinity;
+                if (aggConfig[func]) {
+                    acc[groupKey][key] = aggConfig[func].init;
                 }
             });
         }
 
         Object.keys(columnsToSum).forEach(key => {
             const func = columnsToSum[key];
-            const val = Number(current[key]);
-
-            if (func === "sum") {
-                acc[groupKey][key] += isNaN(val) ? 0 : val;
-            } else if (func === "count") {
-                if (current[key] !== undefined && current[key] !== null) {
-                    acc[groupKey][key] += 1;
-                }
-            } else if (func === "max") {
-                if (!isNaN(val)) {
-                    acc[groupKey][key] = Math.max(acc[groupKey][key], val);
-                }
-            } else if (func === "min") {
-                if (!isNaN(val)) {
-                    acc[groupKey][key] = Math.min(acc[groupKey][key], val);
-                }
+            if (aggConfig[func]) {
+                acc[groupKey][key] = aggConfig[func].update(acc[groupKey][key], current[key]);
             }
         });
 
@@ -60,4 +67,4 @@ const startFunc = async ({ inColumnName, inTablePath }, inColumnsToSum) => {
     return result;
 };
 
-export { startFunc };
+export { startFunc, allowedAggFuncs };

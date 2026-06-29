@@ -2,8 +2,5 @@ POST http://localhost:9011/api/v3/ItemsTable/groupBy/ParentPk
 content-type: application/json
 
 {
-    "Qty": "sum",
-    "OrigRate": "max",
-    "OrigAmount": "sum",
-    "pk": "count"
+    "Amount": "sum"
 }
