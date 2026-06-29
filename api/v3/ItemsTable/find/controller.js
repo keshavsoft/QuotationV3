@@ -1,14 +1,15 @@
 import { startFunc as Service } from "./service.js";
 import { ConflictError, StorageError } from "./errors.js";
 
-const getFunc = async ({ req, res, inTablePath }) => {
+const postFunc = async ({ req, res, inTablePath }) => {
     try {
         const columnName = req.params.columnName;
+        const columnsToSum = req.body;
 
         const fromService = await Service({
             inColumnName: columnName,
             inTablePath
-        });
+        }, columnsToSum);
 
         res.type("application/json").send(fromService);
     } catch (err) {
@@ -24,4 +25,4 @@ const getFunc = async ({ req, res, inTablePath }) => {
     }
 };
 
-export default getFunc;
+export default postFunc;
