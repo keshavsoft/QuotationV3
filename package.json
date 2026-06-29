@@ -6,7 +6,10 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --env-file=.env app.js"
+    "start": "node --env-file=.env app.js",
+    "generate": "node Scripts/generateDataFromSchemas.js",
+    "omit-dev": "npm install --omit=dev",
+    "prod": "npm run generate && npm run omit-dev && npm start"
   },
   "author": "",
   "license": "ISC",
