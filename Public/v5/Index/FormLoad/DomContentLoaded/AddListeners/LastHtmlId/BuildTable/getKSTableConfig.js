@@ -7,17 +7,18 @@ export const getKSTableConfig = async () => {
     const configJson = await config.json();
 
     const last = await fetch("/api/v2/ItemsTable/lastRecord");
+    let lastPk;
 
     // debugger;
     if (last.ok) {
         const lastJson = await last.json();
         console.log("lastJson: ", lastJson)
-        const pk = lastJson.ParentPk;
-    }
-    const lastJson = await last.json();
+        lastPk = lastJson.ParentPk;
+    };
+    // const lastJson = await last.json();
 
-    const pk = lastJson.ParentPk;
-
+    // const pk = lastJson.ParentPk;
+    debugger
     // const pk = prompt("Enter PK");
 
     // if (pk === null || pk.trim() === "") return;
@@ -28,9 +29,9 @@ export const getKSTableConfig = async () => {
         return element.field === "ParentPk"
     });
 
-    findColumn.defaultValue = parseInt(pk);
+    findColumn.defaultValue = parseInt(lastPk);
 
-    configJson.endPoints.read = configJson.endPoints.read.replace("<ParentPk>", pk);
+    configJson.endPoints.read = configJson.endPoints.read.replace("<ParentPk>", lastPk);
 
     return configJson;
 };
