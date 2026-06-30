@@ -29,7 +29,7 @@
                 "showTotals": true
             },
             "body": {
-                "showEdit": false,
+                "showEdit": true,
                 "showDelete": true,
                 "deleteType": "icon",
                 "deleteIconSize": "xl"
@@ -39,7 +39,8 @@
     "callbacks": {
         "table": {
             "onDelete1": "function",
-            "onReadFail": "function"
+            "onReadFail": "function",
+            "onEdit": "function"
         }
     },
     "endPoints": {

@@ -9,9 +9,9 @@ export const getKSTableConfig = async () => {
             fetchLastRecord()
         ]);
 
-        return transformConfig({ configJson, lastPk });
+        return await transformConfig({ configJson, lastPk });
     } catch (error) {
         console.error("Error loading table configuration:", error);
         throw error;
     }
-};
+};

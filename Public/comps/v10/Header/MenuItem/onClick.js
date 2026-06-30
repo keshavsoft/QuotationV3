@@ -4,7 +4,7 @@ export const onClick = (event) => {
         .closest("nav")
         ?.querySelector("#menu");
 
-    console.log("menu : ", menu, currentAnchor);
+    // console.log("menu : ", menu, currentAnchor);
 
     menu?.classList.add("hidden");
 

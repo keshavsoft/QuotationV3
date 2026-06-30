@@ -21,7 +21,7 @@ const startFunc = ({
     inConfig
 }) => {
     // debugger
-    console.log("v13");
+    console.log("v14");
 
     const visibleColumns = dataStore.getVisibleColumns();
     const visibleColumnsConfig = dataStore.getVisibleColumnsConfig();
@@ -133,6 +133,10 @@ const startFunc = ({
     };
 
     setFocus({ inContainerEl: containerEl });
+};
+
+const startFunc1 = () => {
+
 };
 
 export default startFunc;

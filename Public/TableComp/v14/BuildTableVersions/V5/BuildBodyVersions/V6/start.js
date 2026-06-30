@@ -29,16 +29,33 @@ const buildBody = ({ inVisibleColumnsConfig, inTableBody, inData,
         inTableBody: tableBody, inTableFooter
     });
 
+    const editFunc = buildAlterHandler({
+        inServices,
+        inEndPoints,
+        inConfig,
+        inDataStore,
+        inVisibleColumnsConfig,
+        inShowSerial: oldShowSerial,
+        inTableBody: tableBody, inTableFooter
+    });
+
     const handleDelete = ({ item, index, presentPk }) => {
         deleteFunc({ presentPk });
     };
 
+    const handleEdit = ({ item, index, presentPk }) => {
+        console.log("aaaaaaaaaa : ", item, index, presentPk);
+
+        editFunc({ presentPk: item.ParentPk });
+    };
+    debugger;
     dataToShow.forEach((item, index) => {
         const row = buildRow({
             item, index, inVisibleColumnsConfig,
             inShowSerial: oldShowSerial === "true",
             inShowActions: oldShowActions === "true",
             onDeleteFunc: handleDelete,
+            onEditFunc: handleEdit,
             inShowEdit: showEdit,
             inShowDelete: showDelete,
             inDeleteType: deleteType,
