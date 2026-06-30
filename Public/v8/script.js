@@ -14,12 +14,15 @@ function loadScriptAsModuleCommon(src) {
 async function ensureKSComponents() {
     async function tryTable() {
         try {
-            const fromPromise = await loadScriptAsModuleCommon("https://keshavsoft.github.io/ks-web-comp-table/Public/v2.8/KSComponents.js");
+            const fromPromise = await loadScriptAsModuleCommon("https://keshavsoft.github.io/ks-web-comp-table/Public/v2.10/KSComponents.js");
 
-            console.log("KSComponents loaded from git : ks-web-comp-table-2.8");
+            console.log("KSComponents loaded from git : ks-web-comp-table-2.10");
 
             if (fromPromise) return true;
-        } catch { return false };
+        } catch {
+            console.log("KSComponents -failed- from git : ks-web-comp-table-2.10");
+            return false
+        };
 
         return false;
     };
@@ -173,7 +176,7 @@ async function ensureKSTableComp() {
 
 ensureTailwind().then();
 
-// await ensureKSComponents();
+await ensureKSComponents();
 
 await ensureKSHeader();
 
