@@ -4,8 +4,7 @@ import { ConflictError, StorageError } from "./errors.js";
 const postFunc = async ({ req, res, inTablePath }) => {
     try {
         const columnsToSum = {
-            Amount: "sum",
-            Qty: "sum"
+            Amount: "sum"
         };
 
         const fromService = await Service({
