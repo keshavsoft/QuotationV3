@@ -61,7 +61,7 @@
             "href": "../Print/v1/index.html"
         },
         {
-            "text": "PrintV2",
+            "text": "ShowAll",
             "id": "PrintHtmlId",
             "icon": [],
             "uiClasses": {
@@ -69,7 +69,7 @@
                 "svgDivClass": "size-10"
             },
             "svgName": "home",
-            "href": "../Print/v2/index.html"
+            "href": "./showAll/index.html"
         },
         {
             "text": "Print",
