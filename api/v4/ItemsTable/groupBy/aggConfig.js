@@ -3,6 +3,10 @@ const aggConfig = {
         init: 0,
         update: (accVal, currentVal) => accVal + (Number(currentVal) || 0)
     },
+    sumQty: {
+        init: "0.00",
+        update: (accVal, currentVal) => (Number(accVal) + (Number(currentVal) || 0)).toFixed(2)
+    },
     count: {
         init: 0,
         update: (accVal, currentVal) => currentVal !== undefined && currentVal !== null ? accVal + 1 : accVal
