@@ -166,6 +166,7 @@
     {
       "columnName": "LedgerName",
       "title": "LedgerName",
+      "field": "LedgerName",
       "cellConfig": {
         "width": "400px",
         "tdClass": "px-4 py-2 border"
@@ -178,11 +179,13 @@
         }
       },
       "allowOnChange": true,
-      "onChangeType": "onDataListChange"
+      "onChangeType": "onDataListChange",
+      "isConsider": true
     },
     {
       "columnName": "InvoiceDate",
       "title": "InvoiceDate",
+      "field": "InvoiceDate",
       "cellConfig": {
         "width": "150px"
       },
@@ -197,11 +200,13 @@
       "isReadonly": false,
       "autoFocus": false,
       "isSearch": false,
-      "type": "date"
+      "type": "date",
+      "isConsider": true
     },
     {
       "columnName": "PartyGSTIN",
       "title": "PartyGSTIN",
+      "field": "PartyGSTIN",
       "dataListFillName": "PartyGSTIN",
       "cellConfig": {
         "width": "200px"
@@ -210,7 +215,8 @@
         "form": {
           "rowClass": "flex items-center space-x-4 w-1/2"
         }
-      }
+      },
+      "isConsider": true
     },
     {
       "field": "pk",
