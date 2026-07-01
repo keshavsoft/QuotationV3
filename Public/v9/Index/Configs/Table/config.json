@@ -40,7 +40,7 @@
         }
     },
     "endPoints": {
-        "create": "/Api/v1/ItemsTable/insertGenPk",
+        "create": "/Api/v5/ItemsTable/insertWithMeta",
         "update": "",
         "delete": "/Api/v1/ItemsTable/del",
         "read": "/Api/V1/ItemsTable/findParentPk/<ParentPk>",
