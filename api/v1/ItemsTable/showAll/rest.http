@@ -1,1 +1,1 @@
-GET http://localhost:9011/api/v1/ItemsTable/showAll
+GET http://localhost:9012/api/v1/ItemsTable/showAll
