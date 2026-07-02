@@ -1,4 +1,4 @@
-POST http://localhost:9012/api/v1/ItemsTable/insertGenPk
+POST http://localhost:9011/api/v1/ItemsTable/insertGenPk
 Content-Type: application/json
 
 {

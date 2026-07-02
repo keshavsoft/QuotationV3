@@ -1,1 +1,1 @@
-DELETE http://localhost:9012/api/v1/ItemsTable/del/<pk>
+DELETE http://localhost:9011/api/v1/ItemsTable/del/<pk>

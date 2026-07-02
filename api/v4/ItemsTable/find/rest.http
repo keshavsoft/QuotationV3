@@ -1,4 +1,4 @@
-POST http://localhost:9012/api/v3/ItemsTable/groupBy/ParentPk
+POST http://localhost:9011/api/v3/ItemsTable/groupBy/ParentPk
 content-type: application/json
 
 {
