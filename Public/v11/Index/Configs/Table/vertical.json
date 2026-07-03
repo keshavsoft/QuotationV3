@@ -34,7 +34,8 @@
         },
         "vertical": {
             "isCreate": true,
-            "isEdit": false
+            "isEdit": false,
+            "layoutType": "singleLine"
         }
     },
     "callbacks": {

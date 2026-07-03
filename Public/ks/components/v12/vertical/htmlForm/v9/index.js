@@ -1,5 +1,12 @@
 import renderForm from "./render/start.js";
-import defaultOptions from "./defaultOptions.js";
+import defaultOptions, { defaultOptionsSingleLine, defaultOptionsTwoLines, defaultOptionsInputInline } from "./defaultOptions.js";
+
+const layouts = {
+    singleLine: defaultOptionsSingleLine,
+    twoLines: defaultOptionsTwoLines,
+    inputsInline: defaultOptionsInputInline,
+    inputInline: defaultOptionsInputInline
+};
 
 class KsHtmlForm extends HTMLElement {
     static defaults = defaultOptions;
@@ -9,7 +16,32 @@ class KsHtmlForm extends HTMLElement {
     }
 
     init(options) {
-        this.options = options;
+        const layoutType = options?.layoutType || options?.inVerticalOptions?.layoutType;
+        const layoutPreset = layouts[layoutType] || defaultOptions;
+
+        // Merge uiClasses recursively to allow override and fallbacks
+        const mergedUiClasses = {
+            ...layoutPreset.uiClasses,
+            ...options?.uiClasses,
+            form: {
+                ...layoutPreset.uiClasses?.form,
+                ...options?.uiClasses?.form,
+                fieldset: {
+                    ...layoutPreset.uiClasses?.form?.fieldset,
+                    ...options?.uiClasses?.form?.fieldset
+                },
+                buttonRow: {
+                    ...layoutPreset.uiClasses?.form?.buttonRow,
+                    ...options?.uiClasses?.form?.buttonRow
+                }
+            }
+        };
+
+        this.options = {
+            ...layoutPreset,
+            ...options,
+            uiClasses: mergedUiClasses
+        };
         this.render();
     }
 
