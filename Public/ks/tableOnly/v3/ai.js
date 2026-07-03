@@ -8,10 +8,8 @@ import { normalizeConfig } from "./Utils/normalizeConfig.js";
 
 import { createStore } from "./TableStore/V3/start.js";
 import { KeshavUIClasses } from "./uiClasses.js";
-import { loadDataFlow } from "./Core/loadDataFlow.js";
 
-import { setupServices } from "./Services/setupServices.js";
-import mountShowTableUI from "./UI/mountShowTable.js";
+import mountShowTableUI from "./UI/mountTableOnly.js";
 
 class KSAiTableShowOnly {
     constructor(inConfig) {
@@ -19,7 +17,7 @@ class KSAiTableShowOnly {
 
         const { containerId, options, endPoints, columnsConfig,
             uiClasses, callbacks, defaults } = config;
-        console.log("defaults : ", defaults);
+        // console.log("defaults : ", defaults);
 
         this.config = config;
         this.containerEl = document.getElementById(containerId);
@@ -50,6 +48,8 @@ class KSAiTableShowOnly {
         this.columnsConfig = columnsConfig;
         // constructor
         this.callbacks = callbacks || {};
+
+        this.defaults = defaults;
     };
 
     mergeUI(defaults, incoming = {}) {
@@ -64,16 +64,6 @@ class KSAiTableShowOnly {
     };
 
     async initShowTable() {
-        this.setupServices();
-
-        await loadDataFlow({
-            config: this.config,
-            services: this.services,
-            dataStore: this.dataStore,
-            endPoints: this.endPoints,
-            callbacks: this.callbacks
-        });
-
         mountShowTableUI({
             containerEl: this.containerEl,
             dataStore: this.dataStore,
@@ -85,14 +75,8 @@ class KSAiTableShowOnly {
             uiClasses: this.uiClasses,
             callbacks: this.callbacks,
             inConfig: this.config,
-            inShowFooter: true
-        });
-    };
-
-    setupServices() {
-        this.services = setupServices({
-            config: this.config,
-            dataStore: this.dataStore
+            inShowFooter: true,
+            inDefaults: this.defaults
         });
     };
 };
