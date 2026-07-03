@@ -147,7 +147,7 @@ async function ensureKSTableOnly() {
 
     async function tryLocal() {
         try {
-            const fromPromise = await loadScriptAsModuleCommon("/ks/tableOnly/v3/entry.js");
+            const fromPromise = await loadScriptAsModuleCommon("/ks/tableOnly/v3/ai.js");
 
             console.log("KSTableonly loaded from Local Server : ks/tableOnly/v3");
 
