@@ -25,10 +25,12 @@ const startFunc = async () => {
     config.defaults.data = await fetchData('/api/v5/ItemsTable/groupByParentPk');
     console.log("config : ", config);
 
-    ksTable1 = new window.KSAiCompTable(config);
+    // ksTable1 = new window.KSAiCompTable(config);
+    ksTable1 = new window.ks.classes.tableShowOnly(config);
+
+    // window.ks.classes.tableShowOnly
 
     ksTable1.initShowTable();
-    // await callKSTable(config);
 };
 
 export default startFunc;

@@ -126,7 +126,7 @@ async function ensureKSHeader() {
     throw new Error("KSTable could not be loaded");
 };
 
-async function ensureKSTableComp() {
+async function ensureKSTableOnly() {
     function isKSTableLoaded() {
         // console.log("aaaaaaaa : ", window.KSTableComp, window.KSHeader);
 
@@ -135,9 +135,9 @@ async function ensureKSTableComp() {
 
     async function tryGitHub() {
         try {
-            const fromPromise = await loadScriptAsModuleCommon("https://keshavsoft.github.io/tailwind-table-dom-comp/Public/v13/kstablecomp.js");
+            const fromPromise = await loadScriptAsModuleCommon("https://keshavsoft.github.io/tailwind-table-dom-comp-show/dist/v2/kstableonly.js");
 
-            console.log("KSTableComp loaded from git : tailwind-table-dom-comp-13");
+            console.log("kstableonly loaded from git : tailwind-table-dom-comp-show-2");
 
             if (fromPromise) return true;
         } catch { return false };
@@ -147,9 +147,9 @@ async function ensureKSTableComp() {
 
     async function tryLocal() {
         try {
-            const fromPromise = await loadScriptAsModuleCommon("/TableComp/v15/entry.js");
+            const fromPromise = await loadScriptAsModuleCommon("/ks/tableOnly/v3/entry.js");
 
-            console.log("KSTableComp loaded from Local Server : TableComp/v15");
+            console.log("KSTableonly loaded from Local Server : ks/tableOnly/v3");
 
             if (fromPromise) return true;
         } catch {
@@ -180,4 +180,4 @@ ensureTailwind().then();
 
 await ensureKSHeader();
 
-await ensureKSTableComp();
+await ensureKSTableOnly();
