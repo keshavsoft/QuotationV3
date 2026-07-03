@@ -11,7 +11,28 @@ function loadScriptAsModuleCommon(src) {
     });
 };
 
+
 async function ensureKSComponents() {
+    async function tryTable() {
+        try {
+            const fromPromise = await loadScriptAsModuleCommon("https://keshavsoft.github.io/ks-web-comp-table/dist/v3.11/KSComponents.js");
+
+            console.log("KSComponents loaded from git : ks-web-comp-table-3.11");
+
+            if (fromPromise) return true;
+        } catch {
+            console.log("KSComponents -failed- from git : ks-web-comp-table-3.11");
+            return false
+        };
+
+        return false;
+    };
+
+    tryTable().then();
+};
+
+
+async function ensureKSComponents1() {
     async function tryTable() {
         try {
             const fromPromise = await loadScriptAsModuleCommon("https://keshavsoft.github.io/ks-web-comp-table/Public/v2.10/KSComponents.js");

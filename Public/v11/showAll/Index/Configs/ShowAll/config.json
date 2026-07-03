@@ -166,6 +166,15 @@
             "cellConfig": {
                 "width": "60px"
             }
+        },
+        {
+            "field": "DateTimeDiff",
+            "title": "TimeDiff",
+            "columnName": "DateTimeDiff",
+            "isVisible": true,
+            "cellConfig": {
+                "width": "90px"
+            }
         }
     ],
     "defaults": {
