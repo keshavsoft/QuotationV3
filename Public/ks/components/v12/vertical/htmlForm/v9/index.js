@@ -1,11 +1,13 @@
 import renderForm from "./render/start.js";
-import { defaultOptionsSingleLine, defaultOptionsTwoLines, defaultOptionsInputInline } from "./defaultOptions.js";
+import { defaultOptionsSingleLine, defaultOptionsTwoLines, defaultOptionsInputInline, defaultOptionsInputsStacked } from "./defaultOptions.js";
 
 const layouts = {
     singleLine: defaultOptionsSingleLine,
     twoLines: defaultOptionsTwoLines,
     inputsInline: defaultOptionsInputInline,
-    inputInline: defaultOptionsInputInline
+    inputInline: defaultOptionsInputInline,
+    inputsStacked: defaultOptionsInputsStacked,
+    labelAbove: defaultOptionsInputsStacked
 };
 
 class KsHtmlForm extends HTMLElement {
