@@ -22,11 +22,8 @@ const renderForm = ({ element, options, inputs }) => {
 
     const isFormDisabled = isModeDefined ? (!isEdit && !isCreate) : (inIsDisabled || false);
 
-    const numCols = inSearchableColumnsConfig.length || 3;
-    const defaultFieldsetClass = `grid grid-cols-${numCols} gap-x-8 gap-y-4 p-2 verticalForm`;
-
     const form = createForm({ uiClasses });
-    const fieldset = createFieldset({ uiClasses, inIsDisabled: isFormDisabled, defaultFieldsetClass });
+    const fieldset = createFieldset({ uiClasses, inIsDisabled: isFormDisabled });
 
     form.appendChild(fieldset);
 
