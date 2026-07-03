@@ -14,13 +14,13 @@ function loadScriptAsModuleCommon(src) {
 async function ensureKSComponents() {
     async function tryTable() {
         try {
-            const fromPromise = await loadScriptAsModuleCommon("https://keshavsoft.github.io/ks-web-comp-table/dist/v3.11/KSComponents.js");
+            const fromPromise = await loadScriptAsModuleCommon("https://keshavsoft.github.io/ks-web-comp-table/dist/v3.12/KSComponents.js");
 
-            console.log("KSComponents loaded from git : ks-web-comp-table-3.11");
+            console.log("KSComponents loaded from git : ks-web-comp-table-3.12");
 
             if (fromPromise) return true;
         } catch {
-            console.log("KSComponents -failed- from git : ks-web-comp-table-3.11");
+            console.log("KSComponents -failed- from git : ks-web-comp-table-3.12");
             return false
         };
 
@@ -220,9 +220,9 @@ async function ensureKSVertical() {
 
     async function tryGitHub() {
         try {
-            const fromPromise = await loadScriptAsModuleCommon("https://keshavsoft.github.io/tailwind-vertical-dom/Public/v6/ksvertical.js");
+            const fromPromise = await loadScriptAsModuleCommon("https://keshavsoft.github.io/tailwind-vertical-dom/dist/v2.7/ksvertical.js");
 
-            console.log("KSVertical----------- loaded from git : v-6");
+            console.log("KSVertical loaded from git : v-2.7");
 
             if (fromPromise) return true;
         } catch { return false };
