@@ -2,5 +2,6 @@ POST http://localhost:9011/api/v5/ItemsTable/groupBy/ParentPk
 Content-Type: application/json
 
 {
-  "Amount": "sum"
+  "Amount": "sum",
+  "DateTime":"max"
 }

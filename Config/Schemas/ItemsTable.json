@@ -455,6 +455,10 @@
       "title": "pk",
       "primary": true,
       "isVisible": false
+    },
+    {
+      "field": "DateTime",
+      "title": "DateTime"
     }
   ]
 }
