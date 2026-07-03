@@ -1,5 +1,5 @@
 import renderForm from "./render/start.js";
-import defaultOptions, { defaultOptionsSingleLine, defaultOptionsTwoLines, defaultOptionsInputInline } from "./defaultOptions.js";
+import { defaultOptionsSingleLine, defaultOptionsTwoLines, defaultOptionsInputInline } from "./defaultOptions.js";
 
 const layouts = {
     singleLine: defaultOptionsSingleLine,
@@ -9,15 +9,15 @@ const layouts = {
 };
 
 class KsHtmlForm extends HTMLElement {
-    static defaults = defaultOptions;
+    static layouts = layouts;
 
-    get defaults() {
-        return this.constructor.defaults;
+    get layouts() {
+        return this.constructor.layouts;
     }
 
     init(options) {
         const layoutType = options?.layoutType || options?.inVerticalOptions?.layoutType;
-        const layoutPreset = layouts[layoutType] || defaultOptions;
+        const layoutPreset = layouts[layoutType] || layouts.inputsInline;
 
         // Merge uiClasses recursively to allow override and fallbacks
         const mergedUiClasses = {
@@ -74,4 +74,4 @@ window.ks.components = window.ks.components || {};
 window.ks.components.htmlForm = KsHtmlForm;
 
 export default KsHtmlForm;
-export { KsHtmlForm, defaultOptions };
+export { KsHtmlForm, layouts };
