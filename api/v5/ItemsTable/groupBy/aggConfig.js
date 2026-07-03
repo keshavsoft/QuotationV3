@@ -10,15 +10,25 @@ const aggConfig = {
     max: {
         init: -Infinity,
         update: (accVal, currentVal) => {
-            const val = Number(currentVal);
-            return !isNaN(val) ? Math.max(accVal, val) : accVal;
+            if (currentVal === undefined || currentVal === null) return accVal;
+            const num = Number(currentVal);
+            if (!isNaN(num) && !isNaN(parseFloat(currentVal))) {
+                return accVal === -Infinity ? num : Math.max(accVal, num);
+            }
+            if (accVal === -Infinity) return currentVal;
+            return currentVal > accVal ? currentVal : accVal;
         }
     },
     min: {
         init: Infinity,
         update: (accVal, currentVal) => {
-            const val = Number(currentVal);
-            return !isNaN(val) ? Math.min(accVal, val) : accVal;
+            if (currentVal === undefined || currentVal === null) return accVal;
+            const num = Number(currentVal);
+            if (!isNaN(num) && !isNaN(parseFloat(currentVal))) {
+                return accVal === Infinity ? num : Math.min(accVal, num);
+            }
+            if (accVal === Infinity) return currentVal;
+            return currentVal < accVal ? currentVal : accVal;
         }
     }
 };

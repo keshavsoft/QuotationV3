@@ -11,12 +11,13 @@ const checkColumnName = ({ inConfigPath }) => {
             const schema = JSON.parse(schemaData);
             
             // Validate schema structure
-            if (!schema || !Array.isArray(schema.columns)) {
+            if (!schema || (!Array.isArray(schema.columnsConfig) && !Array.isArray(schema.columns))) {
                 return res.status(500).send("Schema configuration error");
             }
             
-            // Check if columnName matches any field or columnName in the columns definition
-            const columnExists = schema.columns.some(col => col.field === columnName || col.columnName === columnName);
+            // Check if columnName matches any field or columnName in columnsConfig or columns
+            const columnExists = (Array.isArray(schema.columnsConfig) && schema.columnsConfig.some(col => col.field === columnName || col.columnName === columnName)) ||
+                                 (Array.isArray(schema.columns) && schema.columns.some(col => col.field === columnName || col.columnName === columnName));
             
             if (!columnExists) {
                 return res.status(400).send(`ColumnName '${columnName}' is not in the schema.`);
@@ -46,12 +47,14 @@ const checkColumnsToSum = ({ inConfigPath }) => {
             const schemaData = await fs.readFile(inConfigPath, "utf-8");
             const schema = JSON.parse(schemaData);
             
-            if (!schema || !Array.isArray(schema.columns)) {
+            if (!schema || (!Array.isArray(schema.columnsConfig) && !Array.isArray(schema.columns))) {
                 return res.status(500).send("Schema configuration error");
             }
 
-            // Extract all valid fields and columnNames from schema
-            const schemaColumns = schema.columns.map(col => col.field || col.columnName).filter(Boolean);
+            // Extract all valid fields and columnNames from columnsConfig and columns
+            const schemaColumnsConfig = Array.isArray(schema.columnsConfig) ? schema.columnsConfig.map(col => col.field || col.columnName).filter(Boolean) : [];
+            const schemaColumnsList = Array.isArray(schema.columns) ? schema.columns.map(col => col.field || col.columnName).filter(Boolean) : [];
+            const schemaColumns = [...new Set([...schemaColumnsConfig, ...schemaColumnsList])];
 
             for (const key of keys) {
                 // Check if key is a column in the schema
