@@ -135,9 +135,9 @@ async function ensureKSTableOnly() {
 
     async function tryGitHub() {
         try {
-            const fromPromise = await loadScriptAsModuleCommon("https://keshavsoft.github.io/tailwind-table-dom-comp-show/dist/v2/kstableonly.js");
+            const fromPromise = await loadScriptAsModuleCommon("https://keshavsoft.github.io/tailwind-table-dom-comp-show/dist/v3/kstableonly.js");
 
-            console.log("kstableonly loaded from git : tailwind-table-dom-comp-show-2");
+            console.log("kstableonly loaded from git : tailwind-table-dom-comp-show-3");
 
             if (fromPromise) return true;
         } catch { return false };
@@ -171,7 +171,7 @@ async function ensureKSTableOnly() {
 
     if (await tryGitHub()) return;
 
-    throw new Error("KSTableComp could not be loaded");
+    throw new Error("kstableonly could not be loaded");
 };
 
 ensureTailwind().then();
