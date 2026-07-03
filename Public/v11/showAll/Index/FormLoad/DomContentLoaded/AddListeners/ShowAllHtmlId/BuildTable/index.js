@@ -4,7 +4,10 @@ import { callKSTable } from "./callKSTable.js";
 const startFunc = async () => {
     const config = await getKSTableConfig();
 
-    await callKSTable(config);
+    ksTable1 = new window.KSAiCompTable(config);
+
+    ksTable1.initShowTable();
+    // await callKSTable(config);
 };
 
 export default startFunc;

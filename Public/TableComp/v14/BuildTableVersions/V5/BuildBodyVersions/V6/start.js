@@ -48,7 +48,7 @@ const buildBody = ({ inVisibleColumnsConfig, inTableBody, inData,
 
         editFunc({ presentPk: item.ParentPk });
     };
-    debugger;
+    // debugger;
     dataToShow.forEach((item, index) => {
         const row = buildRow({
             item, index, inVisibleColumnsConfig,

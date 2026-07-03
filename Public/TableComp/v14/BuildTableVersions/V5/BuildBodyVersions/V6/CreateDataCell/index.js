@@ -12,35 +12,14 @@ const createDataCell = ({
 
     const width =
         inCellConfig.width;
+    console.log("gggggggggg : ", value, searchValue, inCellConfig);
 
     const td = createTd({
         inValue: value, inRightAlign: inCellConfig.rightAlign,
         inWidth: width, inSearchValue: searchValue
     });
 
-    // applyWidth({
-    //     td,
-    //     inWidth: width
-    // });
-
-    // applyRightAlign({
-    //     td,
-    //     inCellConfig
-    // });
-
-    // const displayValue = getDisplayValue({
-    //     value,
-    //     inCellConfig
-    // });
-
-    // setCellContent({
-    //     td,
-    //     displayValue,
-    //     searchValue
-    // });
-
     return td;
-
 };
 
 export default createDataCell;

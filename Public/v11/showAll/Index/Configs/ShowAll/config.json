@@ -47,7 +47,7 @@
         "create": "/Api/v1/ItemsTable/insertGenPk",
         "update": "",
         "delete": "/Api/v1/ItemsTable/del",
-        "read": "/Api/v4/ItemsTable/groupBy",
+        "read": "/Api/v5/ItemsTable/groupByParentPk",
         "find": "",
         "filter": "",
         "dataLists": {},
@@ -159,10 +159,13 @@
             "type": "number"
         },
         {
-            "field": "pk",
-            "title": "pk",
-            "primary": true,
-            "isVisible": false
+            "field": "DateTime",
+            "title": "DateTime",
+            "columnName": "DateTime",
+            "isVisible": true,
+            "cellConfig": {
+                "width": "60px"
+            }
         }
     ]
 }
