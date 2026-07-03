@@ -11,9 +11,7 @@ const startFunc = ({
     containerEl,
     dataStore,
     dom,
-    services,
     options,
-    endPoints,
     uiClasses,
     inDefaults,
     inConfig
@@ -23,22 +21,13 @@ const startFunc = ({
 
     const showSerial = options.table.showSerial;
     const serialWidth = options.table.serialWidth;
-    const showDataList = options.table.showDataList;
 
-    const dataListColumns = dataStore.getDataListColumns();
-
-    const showTotals = options?.table?.showTotals;
-    const showBalance = options?.table?.showBalance;
     const showSearch = options.firstRow.showSearch;
-    const showTotalsForSearch = options?.table?.showTotalsForSearch;
-    const showBalanceForSearch = options?.table?.showBalanceForSearch;
 
     const showActions = options?.table?.showActions;
     const showFooter = options?.table?.showFooter;
     const optionsWidth = options.table.optionsWidth;
     const footerOptions = options.table?.footer;
-
-    const toSaveRow = dataStore.getToSaveRow();
 
     const inShowEdit = options?.table?.body?.showEdit;
     const inShowDelete = options?.table?.body?.showDelete;
@@ -76,31 +65,15 @@ const startFunc = ({
     buildBody({
         inVisibleColumnsConfig: visibleColumnsConfig,
         inTableBody: tableBody,
-        inData: data,
-        inServices: services,
-        inEndPoints: endPoints,
-        inDataStore: dataStore,
-        inConfig,
-        inTableFooter: dom.getTableFooter(containerEl)
+        inData: data
     });
     // debugger;
     if (showFooter) {
         buildFooter({
-            inTableFooter: dom.getTableFooter(containerEl),
-            options,
             inVisibleColumnsConfig: visibleColumnsConfig,
-            inData: data,
-            inShowTotals: showTotals,
-            inShowBalance: showBalance,
-            inShowTotalsForSearch: showTotalsForSearch,
-            inShowBalanceForSearch: showBalanceForSearch,
-            inShowDataList: showDataList,
-            inServices: services,
-            inEndPoints: endPoints,
-            inDataStore: dataStore,
-            inTableBody: tableBody,
+            inTableFooter: dom.getTableFooter(containerEl),
             inOptions: footerOptions,
-            inToSaveRow: toSaveRow
+            inData: data
         });
     };
 
