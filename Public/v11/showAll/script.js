@@ -147,13 +147,13 @@ async function ensureKSTableComp() {
 
     async function tryLocal() {
         try {
-            const fromPromise = await loadScriptAsModuleCommon("/TableComp/v14/entry.js");
+            const fromPromise = await loadScriptAsModuleCommon("/TableComp/v15/entry.js");
 
-            console.log("KSTableComp loaded from Local Server : TableComp/v14");
+            console.log("KSTableComp loaded from Local Server : TableComp/v15");
 
             if (fromPromise) return true;
         } catch {
-            console.log("KSTableComp failed from Local Server : TableComp/v14");
+            console.log("KSTableComp failed from Local Server : TableComp/v15");
 
             return false
         };
@@ -176,7 +176,7 @@ async function ensureKSTableComp() {
 
 ensureTailwind().then();
 
-await ensureKSComponents();
+// await ensureKSComponents();
 
 await ensureKSHeader();
 
