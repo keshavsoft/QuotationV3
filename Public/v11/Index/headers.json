@@ -50,18 +50,7 @@
             "svgName": "search"
         },
         {
-            "text": "PrintV1",
-            "id": "PrintHtmlId",
-            "icon": [],
-            "uiClasses": {
-                "aClass": "",
-                "svgDivClass": "size-10"
-            },
-            "svgName": "home",
-            "href": "../Print/v1/index.html"
-        },
-        {
-            "text": "ShowAll",
+            "text": "Dashboard",
             "id": "PrintHtmlId",
             "icon": [],
             "uiClasses": {
