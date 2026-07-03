@@ -99,4 +99,8 @@ class KSAiTable {
 
 window.KSAiCompTable = KSAiTable;
 
+window.ks = window.ks || {};
+window.ks.classes = window.ks.classes || {};
+window.ks.classes.compTable = KSAiTable;
+
 export { KSAiTable };
