@@ -19,7 +19,7 @@ class KSAiTable {
 
         const { containerId, options, endPoints, columnsConfig,
             uiClasses, callbacks, defaults } = config;
-        console.log("defaults : ", defaults);
+        // console.log("defaults : ", defaults);
 
         this.config = config;
         this.containerEl = document.getElementById(containerId);

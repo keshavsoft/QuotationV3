@@ -76,11 +76,11 @@ const ensureKSHeader = () => loadResource({
     ]
 });
 
-const ensureKSTableComp = () => loadResource({
-    name: "KSTableComp",
+const ensureKSTable = () => loadResource({
+    name: "KSTable",
     isLoaded: () => !!window.KSTableComp,
     sources: [
-        { type: "js", url: "/ks/table/v15/entry.js", label: "Local" },
+        { type: "js", url: "/ks/table/v15/ai.js", label: "Local" },
         { type: "js", url: "https://keshavsoft.github.io/tailwind-table-dom-comp/dist/v14/kstablecomp.js", label: "git" }
     ]
 });
@@ -108,7 +108,7 @@ await Promise.all([
     ensureTailwind(),
     ensureKSComponents(),
     ensureKSHeader(),
-    ensureKSTableComp(),
+    ensureKSTable(),
     ensureKSVertical(),
     ensureKSTableOnly()
 ]);
