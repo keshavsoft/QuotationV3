@@ -1,59 +1,83 @@
 import onReadFail from "../../../../CommonFuncs/onReadFail.js";
 
-async function updateData(url = '', data = {}) {
+const itemsTableModifyUrl = "/api/v5/ItemsTable/modify";
+const parentPkField = "ParentPk";
+const parentPkToken = "<ParentPk>";
+
+async function updateData(url = "", data = {}) {
     try {
         const response = await fetch(url, {
-            method: 'PUT', // Specify the HTTP method
+            method: "PUT",
             headers: {
-                'Content-Type': 'application/json', // Tell the server you are sending JSON
-                // 'Authorization': 'Bearer YOUR_TOKEN' // (Optional) Add auth headers if needed
+                "Content-Type": "application/json"
             },
-            body: JSON.stringify(data) // Convert JavaScript object to a JSON string
+            body: JSON.stringify(data)
         });
 
-        // Check if the response status is in the 200-299 range
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
 
-        const updatedResult = await response.json(); // Parse the JSON response text
-        return updatedResult;
+        return await response.json();
     } catch (error) {
-        console.error('Error during PUT request:', error);
-        throw error; // Re-throw to handle it at the caller level
+        console.error("Error during PUT request:", error);
+        throw error;
+    }
+}
+
+const hasValue = value => value !== undefined && value !== null;
+
+const parseParentPk = lastPk => {
+    const parsedPk = parseInt(lastPk, 10);
+
+    return isNaN(parsedPk) ? 0 : parsedPk;
+};
+
+const findParentPkColumn = columnsConfig => {
+    if (!Array.isArray(columnsConfig)) return;
+
+    return columnsConfig.find(element => element.field === parentPkField);
+};
+
+const cloneConfig = configJson => ({ ...configJson });
+
+const wireReadFailCallback = modifiedConfig => {
+    if (modifiedConfig.callbacks?.table) {
+        modifiedConfig.callbacks.table.onReadFail = onReadFail;
+    }
+};
+
+const setParentPkDefault = ({ modifiedConfig, lastPk }) => {
+    const parentPkColumn = findParentPkColumn(modifiedConfig.columnsConfig);
+
+    if (parentPkColumn) {
+        parentPkColumn.defaultValue = parseParentPk(lastPk);
+    }
+};
+
+const replaceReadEndpointParentPk = ({ modifiedConfig, lastPk }) => {
+    if (modifiedConfig.endPoints?.read && hasValue(lastPk)) {
+        modifiedConfig.endPoints.read = modifiedConfig.endPoints.read.replace(parentPkToken, lastPk);
+    }
+};
+
+const saveUpdatedRow = alterRow => {
+    updateData(itemsTableModifyUrl, alterRow).then();
+};
+
+const wireRowUpdateCallback = modifiedConfig => {
+    if (modifiedConfig.callbacks?.table?.body) {
+        modifiedConfig.callbacks.table.body.update = saveUpdatedRow;
     }
 };
 
 const transformConfig = ({ configJson, lastPk }) => {
-    const modifiedConfig = { ...configJson };
+    const modifiedConfig = cloneConfig(configJson);
 
-    if (modifiedConfig.callbacks?.table) {
-        modifiedConfig.callbacks.table.onReadFail = onReadFail;
-    }
-
-    if (Array.isArray(modifiedConfig.columnsConfig)) {
-        const parentPkColumn = modifiedConfig.columnsConfig.find(
-            element => element.field === "ParentPk"
-        );
-        if (parentPkColumn) {
-            const parsedPk = parseInt(lastPk, 10);
-            parentPkColumn.defaultValue = isNaN(parsedPk) ? 0 : parsedPk;
-        }
-    }
-
-    if (modifiedConfig.endPoints?.read && lastPk !== undefined && lastPk !== null) {
-        modifiedConfig.endPoints.read = modifiedConfig.endPoints.read.replace("<ParentPk>", lastPk);
-    };
-
-    if ("callbacks" in modifiedConfig) {
-        modifiedConfig.callbacks.table.body.update = alterRow => {
-            // console.log("nnnnnnnnnnnnnnnn ", alterRow);
-
-            updateData("/api/v5/ItemsTable/modify", alterRow).then();
-
-            // console.log("alterRow---------- : ", alterRow);
-        };
-    };
+    wireReadFailCallback(modifiedConfig);
+    setParentPkDefault({ modifiedConfig, lastPk });
+    replaceReadEndpointParentPk({ modifiedConfig, lastPk });
+    wireRowUpdateCallback(modifiedConfig);
 
     return modifiedConfig;
 };

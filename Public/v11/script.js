@@ -153,9 +153,9 @@ async function ensureKSTableComp() {
 
     async function tryGitHub() {
         try {
-            const fromPromise = await loadScriptAsModuleCommon("https://keshavsoft.github.io/tailwind-table-dom-comp/Public/v13/kstablecomp.js");
+            const fromPromise = await loadScriptAsModuleCommon("https://keshavsoft.github.io/tailwind-table-dom-comp/dist/v14/kstablecomp.js");
 
-            console.log("KSTableComp loaded from git : tailwind-table-dom-comp-13");
+            console.log("KSTableComp loaded from git : tailwind-table-dom-comp-14");
 
             if (fromPromise) return true;
         } catch { return false };
@@ -167,7 +167,7 @@ async function ensureKSTableComp() {
         try {
             const fromPromise = await loadScriptAsModuleCommon("/TableComp/v15/entry.js");
 
-            console.log("KSTableComp loaded from Local Server : TableComp/v15");
+            console.log("KSTableComp---------------- loaded from Local Server : TableComp/v15");
 
             if (fromPromise) return true;
         } catch {
