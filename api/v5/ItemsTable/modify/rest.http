@@ -1,0 +1,7 @@
+PUT http://localhost:9011/api/v5/ItemsTable/modify
+Content-Type: application/json
+
+{
+    "pk":1,
+    "OrigRate":300
+}

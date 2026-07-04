@@ -5,6 +5,7 @@ import funcFrominsertWithMeta from './insertWithMeta/controller.js';
 import funcFromgroupBy from './groupBy/controller.js';
 import { checkColumnName, checkColumnsToSum } from './groupBy/middleware.js';
 import funcFromGroupByParentPk from './groupByParentPk/controller.js';
+import funcFrommodify from './modify/controller.js';
 
 const tableName = "ItemsTable.json";
 const tablePath = "Data/ItemsTable.json";
@@ -16,5 +17,6 @@ router.post('/insertGenPk', express.json(), (req, res) => funcFrominsertGenPk({ 
 router.post('/insertWithMeta', express.json(), (req, res) => funcFrominsertWithMeta({ req, res, inTablePath: tablePath, inConfigPath: configPath }));
 router.post('/groupBy/:columnName', express.json(), checkColumnName({ inConfigPath: configPath }), checkColumnsToSum({ inConfigPath: configPath }), (req, res) => funcFromgroupBy({ req, res, inTablePath: tablePath }));
 router.get('/groupByParentPk', (req, res) => funcFromGroupByParentPk({ req, res, inTablePath: tablePath }));
+router.put('/modify', express.json(), (req, res) => funcFrommodify({ req, res, inTablePath: tablePath, inConfigPath: configPath }));
 
 export { router };

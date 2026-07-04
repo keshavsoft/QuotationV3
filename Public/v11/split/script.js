@@ -234,7 +234,7 @@ async function ensureKSVertical() {
         try {
             const fromPromise = await loadScriptAsModuleCommon("/ks/vertical/v8/ai.js");
 
-            console.log("KSVertical loaded from Local Server : /ks/vertical/v8");
+            console.log("KSVertical----------- loaded from Local : /ks/vertical/v8");
 
             if (fromPromise) return true;
         } catch {

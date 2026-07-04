@@ -33,8 +33,8 @@
             }
         },
         "vertical": {
-            "isCreate": true,
-            "isEdit": false,
+            "isCreate": false,
+            "isEdit": true,
             "layoutType": "inputsStacked"
         }
     },
@@ -42,11 +42,14 @@
         "table": {
             "onDelete1": "function",
             "onReadFail": "function"
+        },
+        "vertical": {
+            "onUpdate": "function"
         }
     },
     "endPoints": {
         "create": "/Api/v5/ItemsTable/insertWithMeta",
-        "update": "",
+        "update": "-------------",
         "delete": "/Api/v1/ItemsTable/del",
         "read": "/Api/V1/ItemsTable/findParentPk/<ParentPk>",
         "read1": "/Api/V1/ItemsTable/ShowAll",
