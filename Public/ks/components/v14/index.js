@@ -7,7 +7,7 @@ import "./table/footer/input/v2/index.js";
 
 import "./inputForVertical/index.js";
 import "./inputForTableRow/index.js";
-import "./table/body/options/v2/index.js";
+import "./table/body/options/v3/index.js";
 
 // import "./vertical/button/v4/index.js";
 // import "./vertical/htmlForm/v9/index.js";
