@@ -17,7 +17,7 @@
                 "aClass": "",
                 "svgDivClass": "size-10"
             },
-            "svgName": "serverStack"
+            "svgName": "squaresPlus"
         },
         {
             "text": "ShowAll",
@@ -27,7 +27,7 @@
                 "aClass": "",
                 "svgDivClass": "size-10"
             },
-            "svgName": "serverStack"
+            "svgName": "tableCells"
         },
         {
             "text": "Last",
@@ -37,7 +37,7 @@
                 "aClass": "",
                 "svgDivClass": "size-10"
             },
-            "svgName": "queueList"
+            "svgName": "arrowDown"
         },
         {
             "text": "split",

@@ -14,13 +14,14 @@ function loadScriptAsModuleCommon(src) {
 async function ensureKSComponents() {
     async function tryTable() {
         try {
-            const fromPromise = await loadScriptAsModuleCommon("https://keshavsoft.github.io/ks-web-comp-table/dist/v3.13/KSComponents.js");
+            const version = "3.14";
+            const fromPromise = await loadScriptAsModuleCommon(`https://keshavsoft.github.io/ks-web-comp-table/dist/v${version}/KSComponents.js`);
 
-            console.log("KSComponents loaded from git : ks-web-comp-table-3.13");
+            console.log(`KSComponents loaded from git : ks-web-comp-table-${version}`);
 
             if (fromPromise) return true;
         } catch {
-            console.log("KSComponents -failed- from git : ks-web-comp-table-3.13");
+            console.log(`KSComponents -failed- from git : ks-web-comp-table-${version}`);
             return false
         };
 
@@ -240,6 +241,54 @@ async function ensureKSVertical() {
     throw new Error("KSVertical could not be loaded");
 };
 
+async function ensureKSTableOnly() {
+    function isKSTableLoaded() {
+        // console.log("aaaaaaaa : ", window.KSTableComp, window.KSHeader);
+
+        return !!window.KSTableComp;
+    };
+
+    async function tryGitHub() {
+        try {
+            const fromPromise = await loadScriptAsModuleCommon("https://keshavsoft.github.io/tailwind-table-dom-comp-show/dist/v3/kstableonly.js");
+
+            console.log("kstableonly loaded from git : tailwind-table-dom-comp-show-3");
+
+            if (fromPromise) return true;
+        } catch { return false };
+
+        return false;
+    };
+
+    async function tryLocal() {
+        try {
+            const fromPromise = await loadScriptAsModuleCommon("/ks/tableOnly/v3/ai.js");
+
+            console.log("KSTableonly loaded from Local Server : ks/tableOnly/v3");
+
+            if (fromPromise) return true;
+        } catch {
+            console.log("KSTableComp failed from Local Server : TableComp/v15");
+
+            return false
+        };
+
+        return false;
+    };
+
+    if (isKSTableLoaded()) {
+        console.log("KSTableComp-- loaded from Firefox Extension");
+        return;
+    };
+    // console.log("------------");
+
+    if (await tryLocal()) return;
+
+    if (await tryGitHub()) return;
+
+    throw new Error("kstableonly could not be loaded");
+};
+
 await ensureTailwind();
 
 await ensureKSComponents();
@@ -249,3 +298,5 @@ await ensureKSHeader();
 await ensureKSTableComp();
 
 await ensureKSVertical();
+
+await ensureKSTableOnly();
