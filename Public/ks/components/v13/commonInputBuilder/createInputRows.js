@@ -1,8 +1,9 @@
 import { createInputRow } from "./createInputRow.js";
 
-const createInputRows = ({ inSearchableColumnsConfig, inDefaultRow, inDataStore, inputs }) => {
+const createInputRows = ({ inColumnsConfig, inDefaultRow, inDataStore, inputs }) => {
     const fragment = document.createDocumentFragment();
-    inSearchableColumnsConfig.forEach(col => {
+
+    inColumnsConfig.forEach(col => {
         const row = createInputRow({
             inCol: col,
             inDefaultRow,

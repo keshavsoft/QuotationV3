@@ -42,9 +42,9 @@ const startFunc = ({
     const showSaveButton = options.vertical.showSaveButton;
     const verticalOptions = options.vertical;
 
-    console.log("verticalOptions------------ : ", verticalOptions, callbacks.vertical);
+    console.log("verticalOptions------------ : ", visibleColumnsConfig);
 
-    // debugger
+    debugger
 
     buildFullUI({
         containerEl: containerEl,
@@ -58,7 +58,7 @@ const startFunc = ({
     if (true) {
         const searchForm = createForm({
             inVisibleColumnsConfig: visibleColumnsConfig,
-            inSearchableColumnsConfig: visibleColumnsConfig,
+            inColumnsConfig: visibleColumnsConfig,
             inServices: services,
             inConfig,
             inShowButton: false,

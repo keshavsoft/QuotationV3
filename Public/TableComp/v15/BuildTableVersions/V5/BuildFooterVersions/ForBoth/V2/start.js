@@ -49,7 +49,7 @@ const buildFooter = ({ inVisibleColumnsConfig, inDefaultRow, keys,
 
     if (createNewRow) {
         const k1 = window.createTfootRow({
-
+            inColumnsConfig: localVisibleColumns
         });
         console.log("k1111111111 : ", k1);
 

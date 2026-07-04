@@ -14,14 +14,14 @@ export const createTfootRow = ({ options, inputs, inServices, inConfig, element 
     const {
         showSaveButton = false,
         inDefaultRow = {},
-        inSearchableColumnsConfig = [],
+        inColumnsConfig = [],
         inDataStore,
         inVerticalOptions
     } = options || {};
 
     // Build the input rows into the shared inputs mapping object
     createInputRows({
-        inSearchableColumnsConfig,
+        inColumnsConfig,
         inDefaultRow,
         inDataStore,
         inputs
@@ -42,7 +42,7 @@ export const createTfootRow = ({ options, inputs, inServices, inConfig, element 
     }
 
     // 2. Input cells mapping
-    inSearchableColumnsConfig.forEach(col => {
+    inColumnsConfig.forEach(col => {
         const td = document.createElement("td");
         td.className = "px-4 py-2 align-middle";
 

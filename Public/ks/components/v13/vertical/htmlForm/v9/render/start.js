@@ -11,7 +11,7 @@ const renderForm = ({ element, options, inputs }) => {
         inIsDisabled,
         inServices,
         inConfig,
-        inSearchableColumnsConfig = [],
+        inColumnsConfig = [],
         inDataStore,
         inVerticalOptions
     } = options;
@@ -28,7 +28,7 @@ const renderForm = ({ element, options, inputs }) => {
     form.appendChild(fieldset);
 
     const inputsFragment = createInputRows({
-        inSearchableColumnsConfig,
+        inColumnsConfig,
         inDefaultRow,
         inDataStore,
         inputs
