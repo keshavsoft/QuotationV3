@@ -67,7 +67,7 @@
                     "isNotEmpty": true
                 }
             },
-            "isVisible": true,
+            "isVisible": false,
             "tableFooterDataListShow": true,
             "dataListSource": "ItemName.StockItemName",
             "allowOnChange": true,

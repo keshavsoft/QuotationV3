@@ -1,4 +1,4 @@
-export const createDataListInput = ({ inCol, inDefaultRow, inDataStore, inputs }) => {
+export const createDataListInput = ({ inCol, inDefaultRow, inDataStore }) => {
     const col = inCol.columnName;
     const row = document.createElement("ks-datalist-input");
 
@@ -11,7 +11,6 @@ export const createDataListInput = ({ inCol, inDefaultRow, inDataStore, inputs }
     row.setAttribute("ksDataListSource", inCol.dataListSource);
 
     row.dataStore = inDataStore;
-    inputs[col] = row;
 
     return row;
 };

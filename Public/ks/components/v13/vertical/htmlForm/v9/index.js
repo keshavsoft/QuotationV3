@@ -57,12 +57,9 @@ class KsHtmlForm extends HTMLElement {
         this.dataset.rendered = "true";
         this.innerHTML = "";
 
-        this.inputs = {};
-
         renderForm({
             element: this,
-            options: this.options,
-            inputs: this.inputs
+            options: this.options
         });
     }
 }

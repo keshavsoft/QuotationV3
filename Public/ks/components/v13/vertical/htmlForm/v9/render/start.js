@@ -3,7 +3,7 @@ import createFieldset from "./createFieldset.js";
 import createInputRows from "../../../../commonInputBuilder/createInputRows.js";
 import { appendButtons } from "../Buttons/index.js";
 
-const renderForm = ({ element, options, inputs }) => {
+const renderForm = ({ element, options }) => {
     const {
         showSaveButton = false,
         inDefaultRow = {},
@@ -30,8 +30,7 @@ const renderForm = ({ element, options, inputs }) => {
     const inputsFragment = createInputRows({
         inColumnsConfig,
         inDefaultRow,
-        inDataStore,
-        inputs
+        inDataStore
     });
 
     fieldset.appendChild(inputsFragment);

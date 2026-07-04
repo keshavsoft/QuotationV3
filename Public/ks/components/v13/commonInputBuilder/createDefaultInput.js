@@ -1,4 +1,4 @@
-export const createDefaultInput = ({ inCol, inDefaultRow, inDataStore, inDataListFillName, inType, inputs }) => {
+export const createDefaultInput = ({ inCol, inDefaultRow, inDataStore, inDataListFillName, inType }) => {
     const col = inCol.columnName;
     const row = document.createElement("ks-input");
 
@@ -30,7 +30,7 @@ export const createDefaultInput = ({ inCol, inDefaultRow, inDataStore, inDataLis
     }
 
     row.dataStore = inDataStore;
-    inputs[col] = row;
+    // inputs[col] = row;
 
     return row;
 };
