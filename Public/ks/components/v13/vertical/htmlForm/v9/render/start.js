@@ -1,6 +1,6 @@
 import createForm from "./createForm.js";
 import createFieldset from "./createFieldset.js";
-import appendInputRows from "./appendInputRows.js";
+import createInputRows from "./appendInputRows.js";
 import { appendButtons } from "../Buttons/index.js";
 
 const renderForm = ({ element, options, inputs }) => {
@@ -27,13 +27,14 @@ const renderForm = ({ element, options, inputs }) => {
 
     form.appendChild(fieldset);
 
-    appendInputRows({
-        fieldset,
+    const inputsFragment = createInputRows({
         inSearchableColumnsConfig,
         inDefaultRow,
         inDataStore,
         inputs
     });
+
+    fieldset.appendChild(inputsFragment);
 
     appendButtons({
         form,

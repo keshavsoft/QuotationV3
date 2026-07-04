@@ -7,13 +7,14 @@ export const createDefaultInput = ({ inCol, inDefaultRow, inDataStore, inDataLis
     row.setAttribute("label", inCol.title);
     row.setAttribute("ksName", col);
     row.setAttribute("source", col);
+
     if (inType !== undefined) {
         row.setAttribute("type", inType);
-    }
+    };
 
     if (defaultValue) {
         row.setAttribute("ksInValue", defaultValue);
-    }
+    };
 
     if (inCol?.verticalConfig) {
         if ("allowOnChange" in inCol.verticalConfig) {

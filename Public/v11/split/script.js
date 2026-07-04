@@ -29,13 +29,13 @@ async function ensureKSComponents() {
 
     async function tryLocal() {
         try {
-            const fromPromise = await loadScriptAsModuleCommon("/ks/components/v12/index.js");
+            const fromPromise = await loadScriptAsModuleCommon("/ks/components/v13/index.js");
 
-            console.log("components loaded from Local Server : /ks/components/v12");
+            console.log("components loaded from Local Server : /ks/components/v13");
 
             if (fromPromise) return true;
         } catch {
-            console.log("components failed from Local Server : /ks/components/v12");
+            console.log("components failed from Local Server : /ks/components/v13");
 
             return false
         };

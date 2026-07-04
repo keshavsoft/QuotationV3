@@ -1,6 +1,7 @@
 import { createInputRow } from "../createInputRow.js";
 
-const appendInputRows = ({ fieldset, inSearchableColumnsConfig, inDefaultRow, inDataStore, inputs }) => {
+const createInputRows = ({ inSearchableColumnsConfig, inDefaultRow, inDataStore, inputs }) => {
+    const fragment = document.createDocumentFragment();
     inSearchableColumnsConfig.forEach(col => {
         const row = createInputRow({
             inCol: col,
@@ -9,9 +10,10 @@ const appendInputRows = ({ fieldset, inSearchableColumnsConfig, inDefaultRow, in
             inputs: inputs
         });
         if (row) {
-            fieldset.appendChild(row);
+            fragment.appendChild(row);
         }
     });
+    return fragment;
 };
 
-export default appendInputRows;
+export default createInputRows;
