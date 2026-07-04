@@ -21,9 +21,13 @@ const hookEvents = ({ editBtn, deleteBtn, updateBtn, cancelBtn, options, inEleme
         const tds = closestTr.querySelectorAll("td");
         const footerTds = closestTable.querySelectorAll("tfoot tr td");
 
-        originalNodes = Array.from(tds).map(td => Array.from(td.childNodes));
+        originalNodes = Array.from(tds).map((td, i) => {
+            if (i === tds.length - 1) return null;
+            return Array.from(td.childNodes);
+        });
 
         tds.forEach((td, i) => {
+            if (i === tds.length - 1) return;
             replaceCellWithFooterInput(td, footerTds[i], item);
         });
 
@@ -36,6 +40,7 @@ const hookEvents = ({ editBtn, deleteBtn, updateBtn, cancelBtn, options, inEleme
 
         const tds = closestTr.querySelectorAll("td");
         tds.forEach((td, i) => {
+            if (i === tds.length - 1) return;
             td.replaceChildren(...originalNodes[i]);
         });
 
@@ -73,6 +78,7 @@ const hookEvents = ({ editBtn, deleteBtn, updateBtn, cancelBtn, options, inEleme
         console.log("Updated Row Data: ", updatedItem);
 
         tds.forEach((td, i) => {
+            if (i === tds.length - 1) return;
             const childNode = originalNodes[i][0];
             if (childNode && childNode.nodeType === Node.TEXT_NODE) {
                 const footerInput = footerTds[i]?.querySelector("ks-table-footer-input, ks-input, input");
