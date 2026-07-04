@@ -29,13 +29,13 @@ async function ensureKSComponents() {
 
     async function tryLocal() {
         try {
-            const fromPromise = await loadScriptAsModuleCommon("/ks/components/v12/index.js");
+            const fromPromise = await loadScriptAsModuleCommon("/ks/components/v14/index.js");
 
-            console.log("components loaded from Local Server : /ks/components/v12");
+            console.log("components loaded from Local : /ks/components/v14");
 
             if (fromPromise) return true;
         } catch {
-            console.log("components failed from Local Server : /ks/components/v12");
+            console.log("components failed from Local : /ks/components/v14");
 
             return false
         };
@@ -44,25 +44,6 @@ async function ensureKSComponents() {
     };
 
     if (await tryLocal()) return;
-
-    tryTable().then();
-};
-
-async function ensureKSComponents1() {
-    async function tryTable() {
-        try {
-            const fromPromise = await loadScriptAsModuleCommon("https://keshavsoft.github.io/ks-web-comp-table/Public/v2.10/KSComponents.js");
-
-            console.log("KSComponents loaded from git : ks-web-comp-table-2.10");
-
-            if (fromPromise) return true;
-        } catch {
-            console.log("KSComponents -failed- from git : ks-web-comp-table-2.10");
-            return false
-        };
-
-        return false;
-    };
 
     tryTable().then();
 };
@@ -234,7 +215,7 @@ async function ensureKSVertical() {
         try {
             const fromPromise = await loadScriptAsModuleCommon("/ks/vertical/v8/ai.js");
 
-            console.log("KSVertical loaded from Local Server : /ks/vertical/v8");
+            console.log("KSVertical----------- loaded from Local : /ks/vertical/v8");
 
             if (fromPromise) return true;
         } catch {
