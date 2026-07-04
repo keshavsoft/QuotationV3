@@ -5,24 +5,27 @@ const createTd = ({ inValue, inRightAlign, inWidth, inSearchValue,
 
     td.className = "px-4 py-2 border";
 
-    // const ksTd = document.createElement("ks-table-body-cell");
-    // ksTd.ksValue = inValue;
-    // ksTd.ksRightAlign = inRightAlign;
-    // ksTd.ksWidth = inWidth;
-    // ksTd.ksSearchValue = inSearchValue;
+    const ksTd = document.createElement("ks-table-body-cell");
+    ksTd.ksValue = inValue;
+    ksTd.ksRightAlign = inRightAlign;
+    ksTd.ksWidth = inWidth;
+    ksTd.ksSearchValue = inSearchValue;
+
+    td.appendChild(ksTd);
 
     // const k1 = document.createElement("ks-table-body-cell");
-    let footerInput = document.createElement("ks-table-footer-input");
 
-    if (inOnKeyDownType) footerInput.setAttribute("onKeyDownType", inOnKeyDownType);
+    // let footerInput = document.createElement("ks-table-footer-input");
 
-    if (inEnterAsTab) footerInput.setAttribute("enterAsTab", inEnterAsTab);
+    // if (inOnKeyDownType) footerInput.setAttribute("onKeyDownType", inOnKeyDownType);
 
-    if (inEvalformula) footerInput.setAttribute("evalformula", inEvalformula);
+    // if (inEnterAsTab) footerInput.setAttribute("enterAsTab", inEnterAsTab);
 
-    if (inEvalToControl) footerInput.setAttribute("evalToControl", inEvalToControl);
+    // if (inEvalformula) footerInput.setAttribute("evalformula", inEvalformula);
 
-    td.appendChild(footerInput);
+    // if (inEvalToControl) footerInput.setAttribute("evalToControl", inEvalToControl);
+
+    // td.appendChild(footerInput);
 
     return td;
 
