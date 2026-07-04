@@ -1,6 +1,6 @@
 import createForm from "./createForm.js";
 import createFieldset from "./createFieldset.js";
-import createInputRows from "./appendInputRows.js";
+import createInputRows from "../../../../commonInputBuilder/createInputRows.js";
 import { appendButtons } from "../Buttons/index.js";
 
 const renderForm = ({ element, options, inputs }) => {

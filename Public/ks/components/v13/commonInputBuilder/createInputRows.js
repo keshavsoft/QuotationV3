@@ -1,4 +1,4 @@
-import { createInputRow } from "../createInputRow.js";
+import { createInputRow } from "./createInputRow.js";
 
 const createInputRows = ({ inSearchableColumnsConfig, inDefaultRow, inDataStore, inputs }) => {
     const fragment = document.createDocumentFragment();
