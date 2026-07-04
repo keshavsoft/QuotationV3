@@ -5,7 +5,7 @@
         "brandClass1": "text-sm"
     },
     "title": {
-        "text": "Quotations",
+        "text": "split",
         "htmlId": "htmlId"
     },
     "items": [
@@ -69,17 +69,6 @@
             },
             "svgName": "home",
             "href": "./showAll/index.html"
-        },
-        {
-            "text": "split",
-            "id": "splitHtmlId",
-            "icon": [],
-            "uiClasses": {
-                "aClass": "",
-                "svgDivClass": "size-10"
-            },
-            "svgName": "home",
-            "href": "./split/index.html"
         },
         {
             "text": "Print",
