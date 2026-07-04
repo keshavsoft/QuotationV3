@@ -1,7 +1,8 @@
 // Note: The Web Component KsTableBodyOptionsCell was moved to Public/components/v9/tableBodyOptionsCell/index.js
 
 const createOptionsCell = ({ item, index, onDeleteFunc, onEditFunc,
-    inShowEdit, inShowDelete, inDeleteType, inDeleteIconSize
+    inShowEdit, inShowDelete, inDeleteType, inDeleteIconSize,
+    onUpdate
 }) => {
     const td = document.createElement("td");
     td.className = "px-4 py-2 border";
@@ -11,6 +12,8 @@ const createOptionsCell = ({ item, index, onDeleteFunc, onEditFunc,
     ksTd.ksIndex = index;
     ksTd.ksOnDeleteFunc = onDeleteFunc;
     ksTd.ksOnEditFunc = onEditFunc;
+    ksTd.ksOnUpdateFunc = onUpdate;
+
     // ksTd.ksOnEditFunc = onEditFunc;
     // console.log("onEditFunc----------- : ", onEditFunc);
 

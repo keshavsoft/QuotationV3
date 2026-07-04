@@ -9,12 +9,15 @@ const startFunc = ({ event, options }) => {
     const updateBtn = event.currentTarget;
     const actionsCell = updateBtn.parentElement;
     const closestTr = updateBtn.closest("tr");
-    
+
     if (!closestTr || !actionsCell) return;
 
     // 1. Gather values from inputs in row cells to construct an object
     const updatedItem = extractRowData({ closestTr, options });
-    console.log("Updated Row Data Object: ", updatedItem);
+
+    if (options.onUpdateFunc) {
+        options.onUpdateFunc({ updatedItem });
+    };
 
     // 2. Revert cells to static text displaying the new values
     revertRowToStaticText({ closestTr });

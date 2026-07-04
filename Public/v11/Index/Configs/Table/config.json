@@ -36,7 +36,10 @@
     "callbacks": {
         "table": {
             "onDelete1": "function",
-            "onReadFail": "function"
+            "onReadFail": "function",
+            "body": {
+                "update": "function"
+            }
         }
     },
     "endPoints": {

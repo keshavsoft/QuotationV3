@@ -27,7 +27,7 @@ const editClick = ({ event, options }) => {
         replaceCellWithFooterInput(td, footerTds[i], options.item);
     });
 
-    options.onEditFunc?.({ item: options.item, index: options.index, presentPk: options.item?.pk });
+    // options.onEditFunc?.({ item: options.item, index: options.index, presentPk: options.item?.pk });
 };
 
 export default editClick;

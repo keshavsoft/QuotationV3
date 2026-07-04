@@ -1,6 +1,7 @@
 import { buildRow } from "./buildRow.js";
 import buildDeleteHandler from "./handlerFuncs/V9/buildDeleteHandler.js";
 import buildAlterHandler from "./handlerFuncs/V9/buildAlterHandler.js";
+import buildUpdateHandler from "./handlerFuncs/V9/buildUpdateHandler.js";
 
 const buildBody = ({ inVisibleColumnsConfig, inTableBody, inData,
     inServices, inEndPoints, inDataStore, inConfig, inTableFooter
@@ -39,15 +40,28 @@ const buildBody = ({ inVisibleColumnsConfig, inTableBody, inData,
         inTableBody: tableBody, inTableFooter
     });
 
+    const updateFunc = buildUpdateHandler({
+        inServices,
+        inEndPoints,
+        inConfig,
+        inDataStore,
+        inVisibleColumnsConfig,
+        inShowSerial: oldShowSerial,
+        inTableBody: tableBody, inTableFooter
+    });
+
     const handleDelete = ({ item, index, presentPk }) => {
         deleteFunc({ presentPk });
     };
 
-    const handleEdit = ({ item, index, presentPk }) => {
-        console.log("aaaaaaaaaa : ", item, index, presentPk);
-
-        editFunc({ item, index, presentPk });
+    const handleEdit = ({ item, index, presentPk, updatedItem }) => {
+        editFunc({ item, index, presentPk, updatedItem });
     };
+
+    const handleUpdate = ({ item, index, presentPk, updatedItem }) => {
+        updateFunc({ item, index, presentPk, updatedItem });
+    };
+
     // debugger;
     dataToShow.forEach((item, index) => {
         const row = buildRow({
@@ -56,6 +70,7 @@ const buildBody = ({ inVisibleColumnsConfig, inTableBody, inData,
             inShowActions: oldShowActions === "true",
             onDeleteFunc: handleDelete,
             onEditFunc: handleEdit,
+            onUpdate: handleUpdate,
             inShowEdit: showEdit,
             inShowDelete: showDelete,
             inDeleteType: deleteType,

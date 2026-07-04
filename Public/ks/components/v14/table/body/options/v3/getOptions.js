@@ -50,6 +50,7 @@ const getOptions = ({ inElement }) => {
         index: inElement.ksIndex,
         onDeleteFunc: inElement.ksOnDeleteFunc,
         onEditFunc: inElement.ksOnEditFunc,
+        onUpdateFunc: inElement.ksOnUpdateFunc,
         deleteType: getDeleteType(inElement),
         showEdit: getShowEdit(inElement, inElement.ksOnEditFunc),
         showDelete: getShowDelete(inElement, inElement.ksOnDeleteFunc),

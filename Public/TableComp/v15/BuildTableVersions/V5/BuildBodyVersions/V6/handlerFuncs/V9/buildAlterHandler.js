@@ -27,11 +27,9 @@ const buildDeleteHandler = ({
         });
     };
 
-    const localDeleteHandler = async ({ item, index, presentPk }) => {
-        // console.log(" :", presentPk, inConfig?.callbacks?.table);
-
+    const localDeleteHandler = async ({ item, index, presentPk, updatedItem }) => {
         if (inConfig?.callbacks?.table?.onEdit) {
-            inConfig?.callbacks?.table?.onEdit({ item, index, presentPk });
+            inConfig?.callbacks?.table?.onEdit(updatedItem);
         };
     };
 
