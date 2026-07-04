@@ -4,7 +4,7 @@ import createEditButton from "./createEditButton.js";
 import createDeleteButton from "./createDeleteButton.js";
 import createUpdateButton from "./createUpdateButton.js";
 import createCancelButton from "./createCancelButton/index.js";
-import hookEvents from "./hookEvents.js";
+import hookEvents from "./events/index.js";
 import render from "./render.js";
 
 class KsTableBodyOptionsCell extends HTMLElement {
