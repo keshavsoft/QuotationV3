@@ -1,4 +1,4 @@
 const setContent = ({ inButton }) => {
-    inButton.textContent = "Edit--";
+    inButton.textContent = "Edit";
 };
 export default setContent;

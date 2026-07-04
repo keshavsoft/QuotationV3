@@ -1,6 +1,13 @@
 const applyDefaultValue = ({
-    inInput, type
+    inInput, type, inValue
 }) => {
+    console.log("inValue-0------------- : ", inValue);
+
+    if (inValue) {
+        inInput.value = inValue;
+        return;
+    };
+
     switch (type) {
         case "date":
             const localDate = new Date();

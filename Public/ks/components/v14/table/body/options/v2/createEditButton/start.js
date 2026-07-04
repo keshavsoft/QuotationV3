@@ -42,18 +42,10 @@ export const replaceCellWithFooterInput = (td, footerTd, item) => {
 
     const clonedInput = cloneFooterInput(footerInput);
 
-    // Set the initial value on the cloned input based on current row item data
-    const fieldName = footerInput.getAttribute("ksname") ||
-        footerInput.getAttribute("source") ||
-        footerInput.getAttribute("name") ||
-        footerInput.ksName;
-
-    if (fieldName && item) {
-        const val = item[fieldName] !== undefined ? item[fieldName] : "";
-        clonedInput.setAttribute("ksInValue", val);
-        clonedInput.setAttribute("value", val);
-        clonedInput.value = val;
-    }
+    const val = td.dataset.oldValue !== undefined ? td.dataset.oldValue : "";
+    clonedInput.setAttribute("ksInValue", val);
+    clonedInput.setAttribute("value", val);
+    // clonedInput.value = val;
 
     td.replaceChildren(clonedInput);
 };
@@ -74,6 +66,8 @@ const startFunc = ({ event, item, index, onEditFunc }) => {
     const footerTds = closestTable.querySelectorAll("tfoot tr td");
 
     tds.forEach((td, i) => {
+        if (i === tds.length - 1) return;
+        td.dataset.oldValue = td.textContent;
         replaceCellWithFooterInput(td, footerTds[i], item);
     });
 

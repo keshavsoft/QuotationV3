@@ -36,7 +36,7 @@ class KsTableFooterInputCore extends HTMLElement {
 
         applyDefaultValue({
             inInput: localInput,
-            type: localOptions.type
+            type: localOptions.type, inValue: localOptions.value
         });
 
         applyDataList({

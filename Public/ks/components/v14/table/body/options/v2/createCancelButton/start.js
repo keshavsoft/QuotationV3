@@ -7,7 +7,7 @@ const startFunc = ({ inCurrentTarget }) => {
     const cancelBtn = inCurrentTarget;
     const actionsCell = cancelBtn.parentElement;
     const closestTr = cancelBtn.closest("tr");
-    
+
     if (!closestTr || !actionsCell) return;
 
     const tds = closestTr.querySelectorAll("td");
@@ -19,13 +19,9 @@ const startFunc = ({ inCurrentTarget }) => {
     // Revert cells to static text based on current input values in DOM
     tds.forEach((td, i) => {
         if (i === tds.length - 1) return; // Skip actions cell
+        const oldValue = td.dataset.oldValue;
 
-        const input = td.querySelector("ks-table-footer-input, ks-input, input");
-        if (input) {
-            const nativeInput = input.querySelector("input") || input;
-            const val = nativeInput.value || "";
-            td.replaceChildren(document.createTextNode(val));
-        }
+        td.replaceChildren(document.createTextNode(oldValue));
     });
 
     // Toggle button visibilities
