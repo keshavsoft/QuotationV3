@@ -67,9 +67,18 @@ const startFunc = ({ inCurrentTarget }) => {
     console.log("aaaaaaaaaaa : ", inCurrentTarget);
 
 
+    const cancelBtn = event.currentTarget;
+    const actionsCell = cancelBtn.parentElement;
+    // const closestTable = editBtn.closest("table");
+    // const closestTr = editBtn.closest("tr");
 
+    const editButton = actionsCell.querySelector("button.editButton")
+    editButton.style.display = "";
 
+    const deleteButton = actionsCell.querySelector("button.deleteButton")
+    deleteButton.style.display = "";
 
+    cancelBtn.style.display = "none";
 
 
 

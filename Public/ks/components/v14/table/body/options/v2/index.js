@@ -4,7 +4,6 @@ import createEditButton from "./createEditButton.js";
 import createDeleteButton from "./createDeleteButton.js";
 import createUpdateButton from "./createUpdateButton.js";
 import createCancelButton from "./createCancelButton/index.js";
-import hookEvents from "./hookEvents.js";
 import render from "./render.js";
 
 class KsTableBodyOptionsCell extends HTMLElement {
@@ -17,15 +16,6 @@ class KsTableBodyOptionsCell extends HTMLElement {
         const deleteBtn = localOptions.showDelete ? createDeleteButton(localOptions) : null;
         const updateBtn = createUpdateButton();
         const cancelBtn = createCancelButton();
-
-        hookEvents({
-            editBtn,
-            deleteBtn,
-            updateBtn,
-            cancelBtn,
-            options: localOptions,
-            inElement: this
-        });
 
         render({
             inElement: this,

@@ -66,10 +66,18 @@ export const replaceCellWithFooterInput = (td, footerTd, item) => {
 const startFunc = ({ event, item, index, onEditFunc }) => {
     const editBtn = event.currentTarget;
     const actionsCell = editBtn.parentElement;
-    const closestTable = editBtn.closest("table");
-    const closestTr = editBtn.closest("tr");
+    // const closestTable = editBtn.closest("table");
+    // const closestTr = editBtn.closest("tr");
 
-    onEditFunc?.({ item, index, presentPk: item?.pk });
+    const cancelBtn = actionsCell.querySelector("button.cancelButton")
+    cancelBtn.style.display = "";
+
+    const deleteButton = actionsCell.querySelector("button.deleteButton")
+    deleteButton.style.display = "none";
+
+    editBtn.style.display = "none";
+
+    // onEditFunc?.({ item, index, presentPk: item?.pk });
 };
 
 const startFunc1 = ({ event, item, index, onEditFunc }) => {
