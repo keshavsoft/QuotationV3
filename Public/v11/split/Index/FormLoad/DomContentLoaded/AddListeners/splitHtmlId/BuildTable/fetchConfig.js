@@ -6,9 +6,18 @@ const fetchConfig = async () => {
     const configJson = await response.json();
     console.log("---------from : ", configJson.callbacks);
 
-    configJson.callbacks.table.onEdit = (fromLibrary) => {
-        console.log("from : ", fromLibrary);
-
+    configJson.callbacks.table.onEdit = ({ item, index, presentPk }) => {
+        console.log("from : ", item, index, presentPk);
+        const verticalContainer = document.getElementById("kSVerticalContainer");
+        if (verticalContainer) {
+            Object.entries(item).forEach(([key, value]) => {
+                const input = verticalContainer.querySelector(`[name="${key}"]`);
+                if (input) {
+                    input.value = value ?? "";
+                    input.dispatchEvent(new Event("change", { bubbles: true }));
+                };
+            });
+        };
     };
 
     return configJson;

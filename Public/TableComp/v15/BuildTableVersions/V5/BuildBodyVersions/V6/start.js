@@ -46,7 +46,7 @@ const buildBody = ({ inVisibleColumnsConfig, inTableBody, inData,
     const handleEdit = ({ item, index, presentPk }) => {
         console.log("aaaaaaaaaa : ", item, index, presentPk);
 
-        editFunc({ presentPk: item.ParentPk });
+        editFunc({ item, index, presentPk });
     };
     // debugger;
     dataToShow.forEach((item, index) => {

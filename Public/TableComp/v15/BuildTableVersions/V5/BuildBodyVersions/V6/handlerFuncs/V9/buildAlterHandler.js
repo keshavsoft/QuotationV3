@@ -14,6 +14,8 @@ const buildDeleteHandler = ({
     inShowSerial,
     inTableBody, inTableFooter
 }) => {
+    console.log("aaaaaaaaaaa :");
+
     const refreshAfterDelete = () => {
         afterMutation({
             inDataStore,
@@ -25,11 +27,11 @@ const buildDeleteHandler = ({
         });
     };
 
-    const localDeleteHandler = async ({ presentPk }) => {
+    const localDeleteHandler = async ({ item, index, presentPk }) => {
         // console.log(" :", presentPk, inConfig?.callbacks?.table);
 
         if (inConfig?.callbacks?.table?.onEdit) {
-            inConfig?.callbacks?.table?.onEdit(presentPk);
+            inConfig?.callbacks?.table?.onEdit({ item, index, presentPk });
         };
 
         //   presentPk, inOnDelete: inConfig?.callbacks?.table?.onDelete
