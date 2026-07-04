@@ -1,3 +1,18 @@
+# Implementation Plan: Vertical Table Component v3 (Inputs Only)
+
+We are updating the `vertical/table/v3/` component to output the footer row (`<tr>`) containing only the input fields, completely excluding any button logic/dependencies (Save/Update/Cancel). This ensures the function is robust and won't fail even if action services/configs are not yet provided.
+
+## Proposed Code Changes
+
+### 1. Update `vertical/table/v3/index.js`
+We will:
+* Remove all button component imports (`createSaveButton`, etc.).
+* Enforce robust optional chaining and fallbacks on the `options` parameter.
+* Exclude any button generation from the actions cell (`tdActions`), leaving it as a placeholder to keep layout column alignment.
+* Expose `createTfootRow` globally on `window.createTfootRow`.
+
+#### Code:
+```javascript
 import createInputRows from "../../../commonInputBuilder/createInputRows.js";
 
 /**
@@ -67,3 +82,11 @@ export const createTfootRow = ({ options, inputs, inServices, inConfig, element 
 window.createTfootRow = createTfootRow;
 
 export default createTfootRow;
+```
+
+### 2. Cleanup `v3/Buttons/`
+We will delete the unused `Buttons` directory under `vertical/table/v3/` since it is no longer referenced.
+
+---
+
+*I will proceed with applying these changes.*
