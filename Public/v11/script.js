@@ -14,13 +14,13 @@ function loadScriptAsModuleCommon(src) {
 async function ensureKSComponents() {
     async function tryTable() {
         try {
-            const fromPromise = await loadScriptAsModuleCommon("https://keshavsoft.github.io/ks-web-comp-table/dist/v3.12/KSComponents.js");
+            const fromPromise = await loadScriptAsModuleCommon("https://keshavsoft.github.io/ks-web-comp-table/dist/v3.13/KSComponents.js");
 
-            console.log("KSComponents loaded from git : ks-web-comp-table-3.12");
+            console.log("KSComponents loaded from git : ks-web-comp-table-3.13");
 
             if (fromPromise) return true;
         } catch {
-            console.log("KSComponents -failed- from git : ks-web-comp-table-3.12");
+            console.log("KSComponents -failed- from git : ks-web-comp-table-3.13");
             return false
         };
 
