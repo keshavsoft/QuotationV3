@@ -1,7 +1,10 @@
 import "./Header/index.js";
 
 import "./dataListInput/index.js";
-import "./inputDefault/index.js";
+// import "./inputDefault/index.js";
+
+import "./table/footer/input/v2/index.js";
+
 import "./inputForVertical/index.js";
 import "./inputForTableRow/index.js";
 import "./tableBodyOptionsCell/index.js";

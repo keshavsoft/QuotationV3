@@ -7,7 +7,8 @@ import setCellContent from "./setCellContent.js";
 const createDataCell = ({
     value,
     searchValue,
-    inCellConfig = {}
+    inCellConfig = {}, inOnKeyDownType,
+    inEnterAsTab, inEvalformula, inEvalToControl
 }) => {
 
     const width =
@@ -16,7 +17,8 @@ const createDataCell = ({
 
     const td = createTd({
         inValue: value, inRightAlign: inCellConfig.rightAlign,
-        inWidth: width, inSearchValue: searchValue
+        inWidth: width, inSearchValue: searchValue,
+        inEnterAsTab, inEvalformula, inEvalToControl, inOnKeyDownType
     });
 
     return td;

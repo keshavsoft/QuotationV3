@@ -5,7 +5,15 @@ const createEditButton = ({ item, index, onEditFunc }) => {
 
     editBtn.textContent = "Edit";
     editBtn.className = "px-2 py-1 bg-yellow-400 text-white rounded";
-    editBtn.onclick = () => onEditFunc?.({ item, index, presentPk: item?.pk });
+    editBtn.onclick = (event) => {
+        const localCurrentTarget = event.currentTarget;
+        const closestTable = localCurrentTarget.closest("table");
+        const footerInputs = closestTable.querySelectorAll("tfoot tr input");
+
+        console.log("sssssssssssssss", footerInputs);
+
+        onEditFunc?.({ item, index, presentPk: item?.pk });
+    };
 
     return editBtn;
 };

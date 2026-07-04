@@ -33,27 +33,6 @@ const buildDeleteHandler = ({
         if (inConfig?.callbacks?.table?.onEdit) {
             inConfig?.callbacks?.table?.onEdit({ item, index, presentPk });
         };
-
-        //   presentPk, inOnDelete: inConfig?.callbacks?.table?.onDelete
-        // const userConfirm = confirm(`Are you sure to delete row ${presentPk} ?`);
-
-        // if (userConfirm === false) return;
-
-        // const fromDelete = await deleteFromServer({ presentPk, inEndPoints, inServices });
-
-        // if (fromDelete.ok) {
-        //     const fromClient = await runDeleteCallback({
-        //         presentPk, inOnDelete: inConfig?.callbacks?.table?.onDelete
-        //     });
-
-        //     if (fromClient.ok) {
-        //         refreshAfterDelete();
-
-        //         showToast({
-        //             message: `Row ${presentPk} deleted successfully`
-        //         });
-        //     };
-        // };
     };
 
     return localDeleteHandler;
