@@ -65,6 +65,11 @@
             color: #c41d14;
             /* Example color */
         }
+
+        #kSTableContainer, #kSVerticalContainer {
+            max-width: 100% !important;
+            width: 100% !important;
+        }
     </style>
 
     <style>
@@ -111,12 +116,38 @@
                 lg:max-w-5xl 
                 xl:max-w-6xl">
 
-            <!-- Table container -->
-
-            <div id="kSTableContainer">
+            <!-- Split Control Buttons -->
+            <div class="flex items-center justify-between mb-4 bg-white p-3 rounded-lg shadow-sm border border-gray-200">
+                <span class="text-gray-700 font-semibold text-sm flex items-center gap-2">
+                    <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                    </svg>
+                    Split Ratio (Left : Right)
+                </span>
+                <div class="inline-flex rounded-md shadow-sm">
+                    <button type="button" id="btn48" class="px-4 py-2 text-xs font-bold text-white bg-blue-600 rounded-l-lg border border-blue-600 hover:bg-blue-700 z-10 focus:outline-none transition-all duration-200">
+                        4 : 8
+                    </button>
+                    <button type="button" id="btn66" class="px-4 py-2 text-xs font-bold text-gray-700 bg-white border border-gray-200 -ml-px hover:bg-gray-50 hover:text-blue-600 focus:outline-none transition-all duration-200">
+                        6 : 6
+                    </button>
+                    <button type="button" id="btn84" class="px-4 py-2 text-xs font-bold text-gray-700 bg-white border border-gray-200 -ml-px rounded-r-lg hover:bg-gray-50 hover:text-blue-600 focus:outline-none transition-all duration-200">
+                        8 : 4
+                    </button>
+                </div>
             </div>
-            
-            <div id="kSVerticalContainer">
+
+            <!-- Table container -->
+            <div id="splitParent" class="grid grid-cols-12 gap-4">
+                <div id="tableWrapper" class="col-span-4 min-w-0 transition-all duration-300">
+                    <div id="kSTableContainer">
+                    </div>
+                </div>
+                
+                <div id="verticalWrapper" class="col-span-8 min-w-0 transition-all duration-300">
+                    <div id="kSVerticalContainer">
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -159,6 +190,40 @@
     <script>
         let ksTable1;
         let ksTable2;
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const tableWrapper = document.getElementById("tableWrapper");
+            const verticalWrapper = document.getElementById("verticalWrapper");
+            const btn48 = document.getElementById("btn48");
+            const btn66 = document.getElementById("btn66");
+            const btn84 = document.getElementById("btn84");
+
+            function setRatio(tableCols, verticalCols, activeBtn) {
+                // Remove previous col-span classes
+                tableWrapper.classList.remove("col-span-4", "col-span-6", "col-span-8");
+                verticalWrapper.classList.remove("col-span-4", "col-span-6", "col-span-8");
+
+                tableWrapper.classList.add(`col-span-${tableCols}`);
+                verticalWrapper.classList.add(`col-span-${verticalCols}`);
+
+                // Update button styles
+                [btn48, btn66, btn84].forEach(btn => {
+                    if (btn === activeBtn) {
+                        btn.classList.add("bg-blue-600", "text-white", "border-blue-600", "z-10");
+                        btn.classList.remove("bg-white", "text-gray-700", "border-gray-200", "hover:bg-gray-50", "hover:text-blue-600");
+                    } else {
+                        btn.classList.add("bg-white", "text-gray-700", "border-gray-200", "hover:bg-gray-50", "hover:text-blue-600");
+                        btn.classList.remove("bg-blue-600", "text-white", "border-blue-600", "z-10");
+                    }
+                });
+            }
+
+            if (btn48 && btn66 && btn84) {
+                btn48.addEventListener("click", () => setRatio(4, 8, btn48));
+                btn66.addEventListener("click", () => setRatio(6, 6, btn66));
+                btn84.addEventListener("click", () => setRatio(8, 4, btn84));
+            }
+        });
     </script>
 
     <script type="module" src="./Index/start.js"></script>

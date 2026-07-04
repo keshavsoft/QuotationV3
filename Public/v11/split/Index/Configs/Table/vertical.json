@@ -196,7 +196,7 @@
                     "evalToControl": "OrigRate"
                 }
             },
-            "isVisible": false,
+            "isVisible": true,
             "tableFooterDataListShow": true,
             "type": "number"
         },
@@ -233,7 +233,7 @@
                     "evalToControl": "Amount"
                 }
             },
-            "isVisible": false,
+            "isVisible": true,
             "tableFooterDataListShow": true,
             "type": "number",
             "dataListFillName": "RateInc"
@@ -278,7 +278,7 @@
                     "evalToControl": "RateInc"
                 }
             },
-            "isVisible": false,
+            "isVisible": true,
             "tableFooterDataListShow": true,
             "allowOnChange": true,
             "onKeyDown": true,

@@ -26,7 +26,7 @@ const buildDeleteHandler = ({
     };
 
     const localDeleteHandler = async ({ presentPk }) => {
-        console.log(" :", presentPk, inConfig?.callbacks?.table);
+        // console.log(" :", presentPk, inConfig?.callbacks?.table);
 
         if (inConfig?.callbacks?.table?.onEdit) {
             inConfig?.callbacks?.table?.onEdit(presentPk);
