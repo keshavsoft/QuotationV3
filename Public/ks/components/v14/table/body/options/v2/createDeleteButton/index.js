@@ -1,8 +1,7 @@
 import setContent from "./setContent.js";
 import applyStyle from "./applyStyle.js";
-import attachClick from "./attachClick.js";
 
-const createDeleteButton = ({ item, index, onDeleteFunc, deleteType, deleteIconSize }) => {
+const createDeleteButton = ({ deleteType, deleteIconSize }) => {
     const deleteBtn = document.createElement("button");
 
     setContent({
@@ -12,13 +11,6 @@ const createDeleteButton = ({ item, index, onDeleteFunc, deleteType, deleteIconS
     });
 
     applyStyle({ inButton: deleteBtn });
-
-    attachClick({
-        inButton: deleteBtn,
-        item,
-        index,
-        onDeleteFunc
-    });
 
     return deleteBtn;
 };

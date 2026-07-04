@@ -1,15 +1,13 @@
 import setContent from "./setContent.js";
 import applyStyle from "./applyStyle.js";
-import attachClick from "./attachClick.js";
 
-const createEditButton = () => {
-    const editBtn = document.createElement("button");
+const createCancelButton = () => {
+    const cancelBtn = document.createElement("button");
 
-    setContent({ inButton: editBtn });
-    applyStyle({ inButton: editBtn });
-    attachClick({ inButton: editBtn });
+    setContent({ inButton: cancelBtn });
+    applyStyle({ inButton: cancelBtn });
 
-    return editBtn;
+    return cancelBtn;
 };
 
-export default createEditButton;
+export default createCancelButton;
