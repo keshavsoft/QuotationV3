@@ -71,6 +71,9 @@ const startFunc = ({ event, item, index, onEditFunc }) => {
         replaceCellWithFooterInput(td, footerTds[i], item);
     });
 
+    const updateButton = actionsCell.querySelector("button.updateButton")
+    updateButton.style.display = "";
+
     const cancelBtn = actionsCell.querySelector("button.cancelButton")
     cancelBtn.style.display = "";
 
