@@ -41,12 +41,12 @@ export const replaceCellWithFooterInput = (td, footerTd, item) => {
     if (!footerInput) return;
 
     const clonedInput = cloneFooterInput(footerInput);
-    
+
     // Set the initial value on the cloned input based on current row item data
-    const fieldName = footerInput.getAttribute("ksname") || 
-                      footerInput.getAttribute("source") || 
-                      footerInput.getAttribute("name") ||
-                      footerInput.ksName;
+    const fieldName = footerInput.getAttribute("ksname") ||
+        footerInput.getAttribute("source") ||
+        footerInput.getAttribute("name") ||
+        footerInput.ksName;
 
     if (fieldName && item) {
         const val = item[fieldName] !== undefined ? item[fieldName] : "";
@@ -64,6 +64,15 @@ export const replaceCellWithFooterInput = (td, footerTd, item) => {
  * Hides Edit and Delete, then displays Update and Cancel buttons.
  */
 const startFunc = ({ event, item, index, onEditFunc }) => {
+    const editBtn = event.currentTarget;
+    const actionsCell = editBtn.parentElement;
+    const closestTable = editBtn.closest("table");
+    const closestTr = editBtn.closest("tr");
+
+    onEditFunc?.({ item, index, presentPk: item?.pk });
+};
+
+const startFunc1 = ({ event, item, index, onEditFunc }) => {
     const editBtn = event.currentTarget;
     const actionsCell = editBtn.parentElement;
     const closestTable = editBtn.closest("table");
@@ -91,26 +100,6 @@ const startFunc = ({ event, item, index, onEditFunc }) => {
     updateBtn.textContent = "Update";
     updateBtn.className = "px-2 py-1 bg-green-500 text-white rounded mr-2";
 
-    const cancelBtn = document.createElement("button");
-    cancelBtn.textContent = "Cancel";
-    cancelBtn.className = "px-2 py-1 bg-gray-500 text-white rounded";
-
-    // Revert handler (Cancel)
-    cancelBtn.onclick = () => {
-        // Revert cells to original text
-        tds.forEach((td, i) => {
-            td.replaceChildren(...originalNodes[i]);
-        });
-
-        // Remove new buttons
-        updateBtn.remove();
-        cancelBtn.remove();
-
-        // Restore original buttons
-        editBtn.style.display = "";
-        if (deleteBtn) deleteBtn.style.display = "";
-    };
-
     // Update handler
     updateBtn.onclick = () => {
         // Gather new values from inputs in row cells
@@ -118,11 +107,11 @@ const startFunc = ({ event, item, index, onEditFunc }) => {
         tds.forEach((td, i) => {
             const input = td.querySelector("ks-table-footer-input, ks-input, input");
             if (input) {
-                const fieldName = input.getAttribute("ksname") || 
-                                  input.getAttribute("source") || 
-                                  input.getAttribute("name") ||
-                                  input.ksName;
-                
+                const fieldName = input.getAttribute("ksname") ||
+                    input.getAttribute("source") ||
+                    input.getAttribute("name") ||
+                    input.ksName;
+
                 const nativeInput = input.querySelector("input") || input;
                 if (fieldName && nativeInput) {
                     updatedItem[fieldName] = nativeInput.value;
@@ -152,9 +141,7 @@ const startFunc = ({ event, item, index, onEditFunc }) => {
     };
 
     actionsCell.appendChild(updateBtn);
-    actionsCell.appendChild(cancelBtn);
 
     onEditFunc?.({ item, index, presentPk: item?.pk });
 };
-
 export default startFunc;
