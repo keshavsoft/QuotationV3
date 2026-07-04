@@ -2,6 +2,9 @@ import getOptions from "./getOptions.js";
 import applyStyle from "./applyStyle.js";
 import createEditButton from "./createEditButton.js";
 import createDeleteButton from "./createDeleteButton.js";
+import createUpdateButton from "./createUpdateButton.js";
+import createCancelButton from "./createCancelButton.js";
+import hookEvents from "./hookEvents.js";
 import render from "./render.js";
 
 class KsTableBodyOptionsCell extends HTMLElement {
@@ -12,11 +15,24 @@ class KsTableBodyOptionsCell extends HTMLElement {
 
         const editBtn = localOptions.showEdit ? createEditButton(localOptions) : null;
         const deleteBtn = localOptions.showDelete ? createDeleteButton(localOptions) : null;
+        const updateBtn = createUpdateButton();
+        const cancelBtn = createCancelButton();
+
+        hookEvents({
+            editBtn,
+            deleteBtn,
+            updateBtn,
+            cancelBtn,
+            options: localOptions,
+            inElement: this
+        });
 
         render({
             inElement: this,
             editBtn,
-            deleteBtn
+            deleteBtn,
+            updateBtn,
+            cancelBtn
         });
     }
 }
