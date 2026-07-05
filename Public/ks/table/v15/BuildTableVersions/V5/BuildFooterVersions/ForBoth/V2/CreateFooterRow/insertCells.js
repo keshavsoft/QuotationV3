@@ -28,11 +28,7 @@ const startFunc = ({ keys, tr, options = {}, inDefaultRow,
             inDataListSource: loopColumn?.dataListSource,
             inDataStore,
             inDataListFillName: loopColumn?.dataListFillName,
-            inOnKeyDownType: loopColumn?.tableConfig?.footerConfig?.onKeyDownType,
-            inEnterAsTab: loopColumn?.tableConfig?.footerConfig?.enterAsTab,
-            inEvalformula: loopColumn?.tableConfig?.footerConfig?.evalformula,
-            inEvalToControl: loopColumn?.tableConfig?.footerConfig?.evalToControl,
-            inIsNotEmpty: loopColumn?.tableConfig?.footerConfig?.isNotEmpty
+            inFooterConfig: loopColumn?.tableConfig?.footerConfig
         });
 
         tr.appendChild(createdFooterCell);

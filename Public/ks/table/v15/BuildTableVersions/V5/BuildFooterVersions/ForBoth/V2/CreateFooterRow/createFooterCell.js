@@ -2,9 +2,9 @@ import inputComponent from "./InputComponent/v2/createInput.js";
 
 const createFooterCell = ({ key, onChangeFunc, showDataList, inColumnsConfig,
     inDefaultValue, inTdClass = "px-4 py-2 border", inAllowOnChange = false, inOnChangeType,
-    inOnKeyDown, inOnKeyDownType, inDefaultRow, inType, inRightAlign,
+    inOnKeyDown, inDefaultRow, inType, inRightAlign,
     inWidth, inputClassName, inDataListSource, inDataStore, inDataListFillName,
-    inEnterAsTab, inEvalformula, inEvalToControl, inIsNotEmpty }) => {
+    inFooterConfig }) => {
 
     let localChangeFunc;
 
@@ -16,11 +16,10 @@ const createFooterCell = ({ key, onChangeFunc, showDataList, inColumnsConfig,
     };
 
     const input = inputComponent({
-        key, inOnKeyDown, inOnKeyDownType, inDataListSource,
+        key, inOnKeyDown, inDataListSource,
         showDataList, inColumnsConfig, inDefaultValue, inOnChangeType,
         inDefaultRow, inType, inRightAlign, inWidth, inputClassName,
-        inDataStore, inDataListFillName, inEnterAsTab,
-        inEvalformula, inEvalToControl, inIsNotEmpty
+        inDataStore, inDataListFillName, inFooterConfig
     });
 
     const div = document.createElement("div");

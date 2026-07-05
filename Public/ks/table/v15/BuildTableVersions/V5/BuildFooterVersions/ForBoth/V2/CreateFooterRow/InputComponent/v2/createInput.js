@@ -3,10 +3,11 @@ const createInput = ({
     key, inDataStore,
     className, inputClassName,
     inOnKeyDown, inColumnsConfig, inOnChangeType,
-    inOnKeyDownType, showDataList, onChangeFunc, inRightAlign,
-    inWidth, inDataListSource, inDataListFillName, inEnterAsTab,
-    inEvalformula, inEvalToControl, inIsNotEmpty
+    showDataList, inRightAlign,
+    inWidth, inDataListSource, inDataListFillName,
+    inFooterConfig
 } = {}) => {
+    console.log("inFooterConfig : ", inFooterConfig);
 
     let input = document.createElement("ks-table-footer-input");
 
@@ -25,7 +26,6 @@ const createInput = ({
     input.ksInputClassName = inputClassName;
 
     input.ksOnKeyDown = inOnKeyDown;
-    // input.ksOnKeyDownType = inOnKeyDownType;
     input.ksShowDataList = showDataList;
     input.ksInColumnsConfig = inColumnsConfig;
 
@@ -38,15 +38,20 @@ const createInput = ({
 
     input.setAttribute("ksDataListSource", inDataListSource);
     input.setAttribute("ksDataListFillName", inDataListFillName);
-    input.setAttribute("onKeyDownType", inOnKeyDownType);
+
     input.setAttribute("type", inType);
-    input.setAttribute("isNotEmpty", inIsNotEmpty);
 
-    if (inEnterAsTab) input.setAttribute("enterAsTab", inEnterAsTab);
+    if (inFooterConfig) {
+        input.setAttribute("isNotEmpty", inFooterConfig?.isNotEmpty);
+        input.setAttribute("onKeyDownType", inFooterConfig?.onKeyDownType);
 
-    if (inEvalformula) input.setAttribute("evalformula", inEvalformula);
+        if ("enterAsTab" in inFooterConfig) input.setAttribute("enterAsTab", inFooterConfig.enterAsTab);
 
-    if (inEvalToControl) input.setAttribute("evalToControl", inEvalToControl);
+        if ("evalformula" in inFooterConfig) input.setAttribute("evalformula", inFooterConfig.evalformula);
+
+        if ("evalToControl" in inFooterConfig) input.setAttribute("evalToControl", inFooterConfig.evalToControl);
+
+    };
 
     return input;
 };

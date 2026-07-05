@@ -42,6 +42,8 @@ const getBoolAttr = (el, names) => {
 };
 
 const getInputOptions = ({ inElement }) => {
+    // console.log("inElement---------- : ", Object.keys(inElement));
+
     const localName =
         inElement.ksName ||
         getAttr(inElement, ["ksName", "ks-name", "name"]) ||

@@ -21,7 +21,7 @@ const startFunc = ({
     inConfig
 }) => {
     // debugger
-    console.log("callbacks------------- ", callbacks);
+    // console.log("callbacks------------- ", callbacks);
 
     const visibleColumns = dataStore.getVisibleColumns();
     const visibleColumnsConfig = dataStore.getVisibleColumnsConfig();

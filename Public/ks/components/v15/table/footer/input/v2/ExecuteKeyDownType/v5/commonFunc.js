@@ -25,7 +25,6 @@ const startFunc = ({
         el = el.parentElement;
     };
 
-
     const formula = el.getAttribute("evalformula");
     const evalToControl = el.getAttribute("evalToControl");
     const allInputs = closestTr.querySelectorAll("input");
@@ -34,13 +33,15 @@ const startFunc = ({
     const values = Object.fromEntries(
         [...allInputs].map(i => [i.name, Number(i.value) || 0])
     );
-    console.log("currentInput----------- : ", values, allInputs, currentInput, inClosestControl, el);
+    // console.log("currentInput----------- : ", values, allInputs, currentInput, inClosestControl, el);
 
     const toShowValue = evaluateFormula({
         formula, values
     });
+    const toShowControl = closestTr.querySelector(`input[name="${evalToControl}"]`);
 
-    closestTr.querySelector(`input[name="${evalToControl}"]`).value = toShowValue.toFixed(2);
+    if (!toShowControl) return;
+    toShowControl.value = toShowValue.toFixed(2);
 
     showCalcMessage({
         input: currentInput,
