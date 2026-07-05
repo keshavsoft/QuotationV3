@@ -360,7 +360,13 @@
                     "rowClass": "flex items-center space-x-4 w-1/2"
                 }
             },
-            "isConsider": true
+            "isConsider": true,
+            "tableConfig": {
+                "footerConfig": {
+                    "enterAsTab": false,
+                    "isNotEmpty": false
+                }
+            }
         },
         {
             "field": "pk",

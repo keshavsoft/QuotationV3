@@ -42,7 +42,7 @@ const getBoolAttr = (el, names) => {
 };
 
 const getInputOptions = ({ inElement }) => {
-    // console.log("inElement---------- : ", Object.keys(inElement));
+    // console.log("inElement---------- : ", Object.keys(inElement), inElement.getAttribute("isNotEmpty"));
 
     const localName =
         inElement.ksName ||
@@ -144,6 +144,11 @@ const getInputOptions = ({ inElement }) => {
         getAttr(inElement, ["value", "ksInValue"]) ||
         defaultOptions.value;
 
+    const isNotEmpty =
+        inElement.isNotEmpty ||
+        getAttr(inElement, ["isNotEmpty"]) ||
+        defaultOptions.isNotEmpty;
+
     return {
         inPlaceholder: placeholder,
         name: localName,
@@ -165,7 +170,8 @@ const getInputOptions = ({ inElement }) => {
         enterAsTab,
         evalformula,
         evalToControl,
-        value
+        value,
+        isNotEmpty
     };
 };
 

@@ -7,7 +7,7 @@ const createInput = ({
     inWidth, inDataListSource, inDataListFillName,
     inFooterConfig
 } = {}) => {
-    console.log("inFooterConfig : ", inFooterConfig);
+    // console.log("inFooterConfig : ", inFooterConfig);
 
     let input = document.createElement("ks-table-footer-input");
 
@@ -50,7 +50,6 @@ const createInput = ({
         if ("evalformula" in inFooterConfig) input.setAttribute("evalformula", inFooterConfig.evalformula);
 
         if ("evalToControl" in inFooterConfig) input.setAttribute("evalToControl", inFooterConfig.evalToControl);
-
     };
 
     return input;

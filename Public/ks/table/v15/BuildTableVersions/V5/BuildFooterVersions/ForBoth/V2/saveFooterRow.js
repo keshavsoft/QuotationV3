@@ -12,7 +12,7 @@ const saveFooterRow = async ({
     inTableBody,
     inTableFooter, canSave
 }) => {
-    console.log("ssssssssss----------ppppppp", callbacks);
+    // console.log("ssssssssss----------ppppppp", callbacks);
     callbacks.onSave({ canSave });
     if (!canSave) return;
 
