@@ -14,7 +14,7 @@ class KsTableBodyOptionsCell extends HTMLElement {
         const localOptions = getOptions({ inElement: this });
 
         applyStyle({ inElement: this });
-        console.log("localOptions : ", localOptions);
+        // console.log("localOptions : ", localOptions);
 
         const editBtn = localOptions.showEdit ? createEditButton() : null;
         const deleteBtn = localOptions.showDelete ? createDeleteButton(localOptions) : null;
@@ -27,6 +27,7 @@ class KsTableBodyOptionsCell extends HTMLElement {
             deleteBtn,
             updateBtn,
             cancelBtn,
+            showBtn,
             options: localOptions,
             inElement: this
         });
