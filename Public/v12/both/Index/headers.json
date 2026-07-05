@@ -10,6 +10,16 @@
     },
     "items": [
         {
+            "text": "vFind",
+            "id": "vFindHtmlId",
+            "icon": [],
+            "uiClasses": {
+                "aClass": "",
+                "svgDivClass": "size-10"
+            },
+            "svgName": "squaresPlus"
+        },
+        {
             "text": "vertical",
             "id": "verticalHtmlId",
             "icon": [],
