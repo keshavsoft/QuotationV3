@@ -1,6 +1,6 @@
 {
     "containerId": "kSTableContainer",
-    "tableName": "",
+    "tableName": "Quotations",
     "mode": "create",
     "layout": {
         "verticalPosition": "top",
