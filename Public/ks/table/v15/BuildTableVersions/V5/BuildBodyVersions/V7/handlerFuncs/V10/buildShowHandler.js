@@ -27,7 +27,7 @@ const buildDeleteHandler = ({
     // };
 
     const localDeleteHandler = async (options) => {
-        console.log("options----------- : ", inConfig, options);
+        // console.log("options----------- : ", inConfig, options);
         inCallBack(options);
         // const userConfirm = confirm(`Are you sure to delete row ${presentPk} ?`);
 
