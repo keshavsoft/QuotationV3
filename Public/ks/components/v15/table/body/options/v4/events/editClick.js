@@ -1,4 +1,4 @@
-import { replaceCellWithFooterInput } from "../createEditButton/start.js";
+import { replaceCellWithFooterInput } from "../Buttons/createEditButton/start.js";
 
 const editClick = ({ event, options }) => {
     const editBtn = event.currentTarget;

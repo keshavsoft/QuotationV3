@@ -1,9 +1,9 @@
 import getOptions from "./getOptions.js";
 import applyStyle from "./applyStyle.js";
-import createEditButton from "./createEditButton.js";
-import createDeleteButton from "./createDeleteButton.js";
-import createUpdateButton from "./createUpdateButton.js";
-import createCancelButton from "./createCancelButton/index.js";
+import createEditButton from "./Buttons/createEditButton/index.js";
+import createDeleteButton from "./Buttons/createDeleteButton/index.js";
+import createUpdateButton from "./Buttons/createUpdateButton.js";
+import createCancelButton from "./Buttons/createCancelButton/index.js";
 import hookEvents from "./events/index.js";
 import render from "./render.js";
 
