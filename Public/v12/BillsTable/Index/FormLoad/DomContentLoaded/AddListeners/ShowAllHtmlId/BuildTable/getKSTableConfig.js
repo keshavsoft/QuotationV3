@@ -1,17 +1,10 @@
-import { fetchConfig } from "./getKSTableConfig/fetchConfig.js";
-import { fetchLastRecord } from "./getKSTableConfig/fetchLastRecord.js";
-import { transformConfig } from "./getKSTableConfig/transformConfig.js";
-
 export const getKSTableConfig = async () => {
-    try {
-        const [configJson, lastPk] = await Promise.all([
-            fetchConfig(),
-            fetchLastRecord()
-        ]);
+    const config = await fetch("./Index/Configs/showAll/config.json");
+    // debugger;
+    const configJson = await config.json();
+    configJson.callbacks.table.footer.onSave = fromKSLibrary => {
+        console.log("fromKSLibrary : ", fromKSLibrary);
+    };
 
-        return await transformConfig({ configJson, lastPk });
-    } catch (error) {
-        console.error("Error loading table configuration:", error);
-        throw error;
-    }
+    return configJson;
 };

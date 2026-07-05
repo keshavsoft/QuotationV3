@@ -1,6 +1,6 @@
 {
     "containerId": "kSTableContainer",
-    "tableName": "Show All",
+    "tableName": "",
     "mode": "create",
     "layout": {
         "verticalPosition": "top",
@@ -17,17 +17,12 @@
         ],
         "table": {
             "showFooterRows": false,
-            "showDataList": false,
-            "showSave": false,
+            "showDataList": true,
+            "showSave": true,
             "showActions": true,
             "showSerial": true,
             "showFooter": false,
-            "footer": {
-                "showAggregateRows": true,
-                "createNewRow": true,
-                "showBalance": false,
-                "showTotals": true
-            },
+            "footer": {},
             "body": {
                 "showEdit": true,
                 "showDelete": true,
@@ -40,14 +35,20 @@
         "table": {
             "onDelete1": "function",
             "onReadFail": "function",
-            "onEdit": "function"
+            "body": {
+                "update": "function"
+            },
+            "footer": {
+                "onSave": "function"
+            }
         }
     },
     "endPoints": {
-        "create": "/Api/v1/ItemsTable/insertGenPk",
+        "create": "/Api/v5/BillsTable/insertWithMeta",
         "update": "",
-        "delete": "/Api/v1/ItemsTable/del",
-        "read": "/Api/v4/ItemsTable/groupBy",
+        "delete": "/Api/v5/BillsTable/del",
+        "read": "/Api/V5/BillsTable/ShowAll",
+        "read1": "/Api/V1/ItemsTable/ShowAll",
         "find": "",
         "filter": "",
         "dataLists": {},
@@ -55,108 +56,71 @@
     },
     "columnsConfig": [
         {
-            "field": "ParentPk",
-            "title": "Number",
-            "columnName": "ParentPk",
-            "isVisible": true,
-            "defaultValue": 16,
+            "columnName": "LedgerName",
+            "title": "LedgerName",
+            "field": "LedgerName",
             "cellConfig": {
-                "width": "60px"
+                "width": "400px",
+                "tdClass": "px-4 py-2 border"
+            },
+            "dataListSource": "LedgerName.LedgerName",
+            "tableFooterDataListShow": true,
+            "uiClasses": {
+                "form": {
+                    "rowClass": "flex items-center space-x-4"
+                }
+            },
+            "allowOnChange": true,
+            "onChangeType": "onDataListChange",
+            "isConsider": true,
+            "tableConfig": {
+                "footerConfig": {
+                    "enterAsTab": true,
+                    "isNotEmpty": true
+                }
             }
         },
         {
-            "columnName": "Qty",
-            "title": "Qty",
-            "field": "Qty",
+            "columnName": "InvoiceDate",
+            "title": "InvoiceDate",
+            "field": "InvoiceDate",
             "cellConfig": {
-                "width": "75px",
-                "rightAlign": true,
-                "uiClasses": {
-                    "table": {
-                        "tfoot": {
-                            "inputClass": "w-full border rounded px-2 py-1 text-lg"
-                        }
-                    }
-                },
-                "tableFooter": {
-                    "showTotal": true
-                },
-                "showThousandsSeperator": true
+                "width": "150px"
             },
-            "isConsider": true,
-            "verticalConfig": {
-                "allowOnChange": true,
-                "onKeyDown": true,
-                "onKeyDownType": "Amount",
-                "type": "number",
-                "inputClass": "w-56 border rounded px-3 py-2 text-right text-2xl",
-                "labelClass": "w-24 text-2xl font-medium",
-                "rowClass": "flex items-center justify-between"
-            },
-            "tableConfig": {
-                "footerConfig": {
-                    "allowOnChange": true,
-                    "onKeyDown": true,
-                    "onKeyDownType": "Amount",
-                    "type": "number",
-                    "enterAsTab": true,
-                    "evalformula": "Amount / Qty",
-                    "evalToControl": "RateInc"
+            "uiClasses": {
+                "form": {
+                    "rowClass": "flex items-center space-x-4 w-1/2",
+                    "labelClass": "w-36 text-sm font-medium"
                 }
             },
-            "isVisible": true,
-            "tableFooterDataListShow": true,
-            "allowOnChange": true,
-            "onKeyDown": true,
-            "onKeyDownType": "Amount",
-            "type": "number"
+            "isDate": true,
+            "defaultToday": true,
+            "isReadonly": false,
+            "autoFocus": false,
+            "isSearch": false,
+            "type": "date",
+            "isConsider": true
         },
         {
-            "columnName": "Amount",
-            "title": "Amount",
-            "field": "Amount",
+            "columnName": "PartyGSTIN",
+            "title": "PartyGSTIN",
+            "field": "PartyGSTIN",
+            "dataListFillName": "PartyGSTIN",
             "cellConfig": {
-                "width": "75px",
-                "rightAlign": true,
-                "uiClasses": {
-                    "table": {
-                        "tfoot": {
-                            "inputClass": "w-full border rounded px-2 py-1 text-lg"
-                        }
-                    }
-                },
-                "tableFooter": {
-                    "showTotal": true
-                },
-                "showThousandsSeperator": true
+                "width": "200px"
             },
-            "isConsider": true,
-            "verticalConfig": {
-                "allowOnChange": true,
-                "onKeyDown": true,
-                "onKeyDownType": "Amount",
-                "type": "number",
-                "inputClass": "w-56 border rounded px-3 py-2 text-right text-2xl",
-                "labelClass": "w-24 text-2xl font-medium",
-                "rowClass": "flex items-center justify-between"
-            },
-            "tableConfig": {
-                "footerConfig": {
-                    "allowOnChange": true,
-                    "onKeyDown": true,
-                    "onKeyDownType": "Amount",
-                    "type": "number",
-                    "enterAsTab": true,
-                    "evalformula": "Amount / Qty",
-                    "evalToControl": "RateInc"
+            "uiClasses": {
+                "form": {
+                    "rowClass": "flex items-center space-x-4 w-1/2"
                 }
             },
-            "isVisible": true,
-            "tableFooterDataListShow": true,
-            "allowOnChange": true,
-            "onKeyDown": true,
-            "onKeyDownType": "Amount",
-            "type": "number"
+            "isConsider": true,
+            "tableConfig": {
+                "footerConfig": {
+                    "enterAsTab": false,
+                    "isNotEmpty": false
+                }
+            }
         },
         {
             "field": "pk",
