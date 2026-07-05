@@ -6,6 +6,8 @@ export const createInputRow = ({ inCol, inDefaultRow, inDataStore }) => {
 
     let row;
 
+    if (window.ksShowLogTree.vertical) console.log("inCol : ", inCol);
+
     if ("verticalConfig" in inCol) {
         if ("dataListSource" in inCol) {
             row = createDataListInput({ inCol, inDefaultRow, inDataStore });

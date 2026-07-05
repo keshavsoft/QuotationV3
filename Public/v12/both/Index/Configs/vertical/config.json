@@ -31,6 +31,11 @@
                 "deleteType": "icon",
                 "deleteIconSize": "xl"
             }
+        },
+        "vertical": {
+            "isCreate": true,
+            "isEdit": false,
+            "layoutType": "inputsStacked"
         }
     },
     "callbacks": {
@@ -43,6 +48,9 @@
             "footer": {
                 "onSave": "function"
             }
+        },
+        "vertical": {
+            "onSuccess": "function"
         }
     },
     "endPoints": {
@@ -309,7 +317,7 @@
                 "width": "400px",
                 "tdClass": "px-4 py-2 border"
             },
-            "dataListSource": "LedgerName.LedgerName",
+            "dataListSource1": "LedgerName.LedgerName",
             "tableFooterDataListShow": true,
             "uiClasses": {
                 "form": {
@@ -324,6 +332,12 @@
                     "enterAsTab": true,
                     "isNotEmpty": true
                 }
+            },
+            "verticalConfig": {
+                "allowOnChange": true,
+                "onKeyDown": true,
+                "onKeyDownType": "onDataListChange",
+                "type": ""
             }
         },
         {
@@ -345,7 +359,13 @@
             "autoFocus": false,
             "isSearch": false,
             "type": "date",
-            "isConsider": true
+            "isConsider": true,
+            "verticalConfig": {
+                "allowOnChange": true,
+                "onKeyDown": true,
+                "onKeyDownType": "",
+                "type": "date"
+            }
         },
         {
             "columnName": "PartyGSTIN",
@@ -366,6 +386,12 @@
                     "enterAsTab": false,
                     "isNotEmpty": false
                 }
+            },
+            "verticalConfig": {
+                "allowOnChange": true,
+                "onKeyDown": true,
+                "onKeyDownType": "",
+                "type": ""
             }
         },
         {

@@ -6,6 +6,12 @@ const startFunc = async () => {
     ksVertical = new window.ks.classes.vertical(config);
 
 
+    ksVertical.callbacks.vertical.onSuccess = fromService => {
+        console.log("aaaaaaaaaaaaaabbbbbbbbbbbb : ", fromService);
+
+    };
+
+
     // ksVertical = new window.KSAiVertical(config);
     ksVertical.initCreate();
 

@@ -6,6 +6,7 @@ import { createUpdateButton } from "./createUpdateButton.js";
 
 export const appendButtons = ({ form, element, options = {}, inServices, inConfig }) => {
     // console.log("options ----------: ", options);
+    if (window.ksShowLogTree.htmlForm) console.log("window.ksShowLogTree.htmlForm - appendButtons options : ", options);
 
     const showSaveButton = options.showSaveButton || false;
     const isEdit = options?.inVerticalOptions?.isEdit || false;

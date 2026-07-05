@@ -42,9 +42,9 @@ const startFunc = ({
     const showSaveButton = options.vertical.showSaveButton;
     const verticalOptions = options.vertical;
 
-    console.log("verticalOptions------------ : ", visibleColumnsConfig);
+    console.log("findDataFromParams------------ : ", findDataFromParams);
 
-    debugger
+    // debugger
 
     buildFullUI({
         containerEl: containerEl,
