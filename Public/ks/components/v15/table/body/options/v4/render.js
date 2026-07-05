@@ -1,6 +1,9 @@
-const render = ({ inElement, editBtn, deleteBtn, updateBtn, cancelBtn }) => {
+const render = ({ inElement, editBtn, deleteBtn, updateBtn, cancelBtn,
+    showBtn
+}) => {
     if (editBtn) inElement.appendChild(editBtn);
     if (deleteBtn) inElement.appendChild(deleteBtn);
+    if (showBtn) inElement.appendChild(showBtn);
     if (updateBtn) inElement.appendChild(updateBtn);
     if (cancelBtn) inElement.appendChild(cancelBtn);
 };
