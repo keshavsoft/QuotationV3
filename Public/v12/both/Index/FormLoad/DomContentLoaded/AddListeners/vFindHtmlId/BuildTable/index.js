@@ -53,7 +53,7 @@ const startFunc = async () => {
     let pk = prompt("Enter quotaion number : ");
 
     const config = await verticalConfig(pk);
-    console.log("aaaaaaaaaaaaaabbbbbbbbbbbb : ", config);
+    // console.log("aaaaaaaaaaaaaabbbbbbbbbbbb : ", config);
     ksVertical = new window.ks.classes.vertical(config);
 
     ksVertical.callbacks.vertical.onSuccess = fromService => {
@@ -63,6 +63,10 @@ const startFunc = async () => {
     ksVertical.initCreate();
 
     const itemsConfig = await itemsTableConfig(pk);
+
+    itemsConfig.callbacks.table.body.update = fromService => {
+        console.log("----- : ", fromService);
+    };
 
     ksTable1 = new window.ks.classes.compTable(itemsConfig);
 

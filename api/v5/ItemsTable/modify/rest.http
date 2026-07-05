@@ -3,5 +3,5 @@ Content-Type: application/json
 
 {
     "pk":1,
-    "OrigRate":300
+  "ItemName": "item1"
 }

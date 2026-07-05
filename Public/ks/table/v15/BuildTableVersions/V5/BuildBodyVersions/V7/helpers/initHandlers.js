@@ -37,8 +37,17 @@ const initHandlers = ({
         inVisibleColumnsConfig,
         inShowSerial: showSerial,
         inTableBody: tableBody,
-        inTableFooter
+        inTableFooter,
+        inUpdateService: inServices.actions.table.update,
+        inUpdateEndPoint: inEndPoints.update,
+        inClientUpdate: inConfig?.callbacks?.table.body.update
     });
+
+    // if (inConfig?.callbacks?.table.body.update) {
+    //         inConfig?.callbacks?.table.body.update(updatedItem);
+    //     };
+
+    // await inServices.actions.table.update({ inEndPoint: inEndPoints.update, payload: updatedItem })
 
     const showFunc = buildShowHandler({
         inServices,

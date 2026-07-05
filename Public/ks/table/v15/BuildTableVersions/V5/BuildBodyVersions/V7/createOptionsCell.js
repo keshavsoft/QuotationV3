@@ -16,7 +16,7 @@ const createOptionsCell = ({ item, index, onDeleteFunc, onEditFunc,
     ksTd.ksOnShowFunc = onShow;
 
     // ksTd.ksOnEditFunc = onEditFunc;
-    console.log("onEditFunc----------- : ", onShow);
+    // console.log("onEditFunc----------- : ", onShow);
 
     ksTd.setAttribute("show-edit", inShowEdit);
     ksTd.setAttribute("show-delete", inShowDelete);

@@ -14,7 +14,7 @@ const startFunc = ({ event, options }) => {
 
     // 1. Gather values from inputs in row cells to construct an object
     const updatedItem = extractRowData({ closestTr, options });
-
+    // debugger;
     if (options.onUpdateFunc) {
         options.onUpdateFunc({ updatedItem });
     };

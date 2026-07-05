@@ -30,7 +30,7 @@ const hookEvents = ({ editBtn, deleteBtn, updateBtn, cancelBtn, showBtn, options
     };
 
     if (showBtn) {
-        console.log("showBtn ---------------: ", showBtn);
+        // console.log("showBtn ---------------: ", showBtn);
 
         showBtn.onclick = (event) => {
             showClick({ event, options });
