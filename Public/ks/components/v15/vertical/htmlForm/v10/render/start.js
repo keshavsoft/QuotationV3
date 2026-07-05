@@ -37,13 +37,18 @@ const renderForm = ({ element, options }) => {
 
     fieldset.appendChild(inputsFragment);
 
-    appendButtons({
-        form,
-        element,
-        options,
-        inServices,
-        inConfig
-    });
+    if (inVerticalOptions?.showButtons) {
+
+
+        appendButtons({
+            form,
+            element,
+            options,
+            inServices,
+            inConfig
+        });
+
+    };
 
     element.appendChild(form);
 };

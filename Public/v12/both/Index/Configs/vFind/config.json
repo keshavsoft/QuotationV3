@@ -34,8 +34,9 @@
         },
         "vertical": {
             "isCreate": false,
-            "isEdit": true,
-            "layoutType": "inputsStacked"
+            "isEdit": false,
+            "layoutType": "singleLine",
+            "showButtons": false
         }
     },
     "callbacks": {
