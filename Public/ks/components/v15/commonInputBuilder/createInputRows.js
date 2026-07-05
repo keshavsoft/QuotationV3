@@ -5,6 +5,8 @@ const createInputRows = ({ inColumnsConfig, inDefaultRow, inDataStore, inputs })
 
     // console.log("createInputRows ---------: ", inColumnsConfig, inDefaultRow, inDataStore, inputs);
 
+    if (window.ksShowLogTree.components.vertical.htmlForm) console.log("window.ksShowLogTree.components.vertical.htmlForm - createInputRow : ", inColumnsConfig, inDefaultRow, inDataStore, inputs);
+
     inColumnsConfig.forEach(col => {
 
         const row = createInputRow({

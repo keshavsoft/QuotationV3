@@ -1,5 +1,5 @@
 const applyDefaultValue = ({
-    inInput, type
+    inInput, type, inDefaultValue
 }) => {
     switch (type) {
         case "date":
@@ -10,6 +10,9 @@ const applyDefaultValue = ({
             inInput.value = `${year}-${month}-${day}`;
             break;
         default:
+
+            inInput.value = inDefaultValue;
+
             break;
     }
 };

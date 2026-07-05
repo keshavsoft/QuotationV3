@@ -137,6 +137,10 @@ const getInputOptions = ({ inElement }) => {
         getAttr(inElement, ["evalToControl"]) ||
         defaultOptions.evalToControl;
 
+    const defaultValue = inElement.ksInValue ||
+        getAttr(inElement, ["ksInValue"]) ||
+        defaultOptions.ksInValue;
+
     return {
         inPlaceholder: placeholder,
         name: localName,
@@ -157,7 +161,8 @@ const getInputOptions = ({ inElement }) => {
         type,
         enterAsTab,
         evalformula,
-        evalToControl
+        evalToControl,
+        defaultValue
     };
 };
 

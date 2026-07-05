@@ -16,6 +16,8 @@ const renderForm = ({ element, options }) => {
         inVerticalOptions
     } = options;
 
+    if (window.ksShowLogTree.components.vertical.htmlForm) console.log("window.ksShowLogTree.components.vertical.htmlForm - renderForm options : ", options);
+
     const isEdit = inVerticalOptions?.isEdit || false;
     const isCreate = inVerticalOptions?.isCreate || false;
     const isModeDefined = inVerticalOptions ? (("isEdit" in inVerticalOptions) || ("isCreate" in inVerticalOptions)) : false;

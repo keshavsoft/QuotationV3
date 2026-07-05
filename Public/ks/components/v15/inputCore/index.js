@@ -24,6 +24,8 @@ class KsTableFooterInputCore extends HTMLElement {
                 inElement: this
             });
 
+        if (window.ksShowLogTree.components.inputCore) console.log("window.ksShowLogTree.components.inputCore - localOptions : ", localOptions);
+
         this.localOptions = localOptions;
 
         applyParentCellStyle({
@@ -36,7 +38,8 @@ class KsTableFooterInputCore extends HTMLElement {
 
         applyDefaultValue({
             inInput: localInput,
-            type: localOptions.type
+            type: localOptions.type,
+            inDefaultValue: localOptions.defaultValue
         });
 
         applyDataList({

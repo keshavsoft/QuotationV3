@@ -18,7 +18,7 @@ class KsTableFooterInputCore extends classFromInputCore {
 
         const wrapper = createWrapper({ inRowClass });
         const label = createLabel({ labelText: inLabel, inLabelClass });
-        console.log("inInput : ", inInput);
+        // console.log("inInput : ", inInput);
 
         wrapper.append(label, inInput);
 

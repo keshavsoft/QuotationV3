@@ -2,9 +2,12 @@ export const createDefaultInput = ({ inCol, inDefaultRow, inDataStore, inDataLis
     const col = inCol.columnName;
     const row = document.createElement("ks-input");
     // console.log("row : ", row);
-    if (window.ksShowLogTree.vertical) console.log("row : ", row);
 
     const defaultValue = col in inDefaultRow ? inDefaultRow[col] : "";
+
+    if (window.ksShowLogTree.components.vertical.htmlForm) console.log("window.ksShowLogTree.components.vertical.htmlForm - createDefaultInput : ", inDefaultRow, defaultValue, row, defaultValue);
+
+    // if (window.ksShowLogTree.vertical) console.log("window.ksShowLogTree.vertical - row : ", inDefaultRow, defaultValue, row);
 
     row.setAttribute("label", inCol.title);
     row.setAttribute("ksName", col);

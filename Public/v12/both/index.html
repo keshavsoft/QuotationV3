@@ -160,10 +160,16 @@
     <!-- <script src="../comps/v10/index.js" type="module"></script> -->
 
     <script>
-        window.ksShowLog = true;
+        window.ksShowLog = false;
         window.ksShowLogTree = {};
-        window.ksShowLogTree.vertical = true;
-        window.ksShowLogTree.htmlForm = true;
+        window.ksShowLogTree.vertical = false;
+        window.ksShowLogTree.htmlForm = false;
+
+        window.ksShowLogTree.components = {};
+
+        window.ksShowLogTree.components.inputCore = true;
+        window.ksShowLogTree.components.vertical = {};
+        window.ksShowLogTree.components.vertical.htmlForm = false;
 
         let ksTable1;
         let ksTable2;

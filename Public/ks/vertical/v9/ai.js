@@ -24,7 +24,7 @@ class KSAiVertical {
 
         const { containerId, options, endPoints, columnsConfig,
             uiClasses, callbacks } = config;
-        console.log("bbbbbbbbbbbbbbbbb========== : ", inConfig);
+        // console.log("bbbbbbbbbbbbbbbbb========== : ", inConfig);
 
         this.config = config;
         this.containerEl = document.getElementById(containerId);

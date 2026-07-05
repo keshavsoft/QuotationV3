@@ -42,7 +42,7 @@ const startFunc = ({
     const showSaveButton = options.vertical.showSaveButton;
     const verticalOptions = options.vertical;
 
-    console.log("findDataFromParams------------ : ", findDataFromParams);
+    // console.log("findDataFromParams------------ : ", findDataFromParams);
 
     // debugger
 
