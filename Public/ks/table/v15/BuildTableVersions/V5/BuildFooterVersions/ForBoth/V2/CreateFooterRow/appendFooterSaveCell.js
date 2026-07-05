@@ -16,12 +16,13 @@ const appendFooterSaveCell = ({ inOnSaveFunc }) => {
         const currentTarget = e.currentTarget;
         const closestFooter = currentTarget.closest("tfoot");
         const inputs = closestFooter.querySelectorAll("input");
-        
+
         const data = {};
 
         inputs.forEach((input) => {
             data[input.name] = input.value;
         });
+        console.log("data---------------- : ", data);
 
         inOnSaveFunc({
             dataFromDom: data, inCurrentTarget: currentTarget,

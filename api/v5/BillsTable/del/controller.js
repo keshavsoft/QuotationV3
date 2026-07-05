@@ -10,7 +10,7 @@ const getFunc = async ({ req, res, inTablePath }) => {
             inTablePath
         });
 
-        res.type("application/json").send(fromService);
+        res.type("text/plain").send(fromService);
     } catch (err) {
 
         if (err instanceof ConflictError)
