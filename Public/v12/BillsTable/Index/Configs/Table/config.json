@@ -39,6 +39,9 @@
             "onReadFail": "function",
             "body": {
                 "update": "function"
+            },
+            "footer": {
+                "onSave": "function"
             }
         }
     },
@@ -315,7 +318,13 @@
             },
             "allowOnChange": true,
             "onChangeType": "onDataListChange",
-            "isConsider": true
+            "isConsider": true,
+            "tableConfig": {
+                "footerConfig": {
+                    "enterAsTab": true,
+                    "isNotEmpty": true
+                }
+            }
         },
         {
             "columnName": "InvoiceDate",

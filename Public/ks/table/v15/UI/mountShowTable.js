@@ -21,7 +21,7 @@ const startFunc = ({
     inConfig
 }) => {
     // debugger
-    // console.log("v14");
+    console.log("callbacks------------- ", callbacks);
 
     const visibleColumns = dataStore.getVisibleColumns();
     const visibleColumnsConfig = dataStore.getVisibleColumnsConfig();
@@ -113,7 +113,7 @@ const startFunc = ({
             inDataStore: dataStore,
             inTableBody: tableBody,
             inOptions: footerOptions,
-            inToSaveRow: toSaveRow
+            inToSaveRow: toSaveRow, callbacks: callbacks?.table?.footer
         });
     };
 

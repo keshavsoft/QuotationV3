@@ -4,6 +4,9 @@ export const getKSTableConfig = async () => {
     const config = await fetch("./Index/Configs/Table/config.json");
     // debugger;
     const configJson = await config.json();
+    configJson.callbacks.table.footer.onSave = fromKSLibrary => {
+        console.log("fromKSLibrary : ", fromKSLibrary);
 
+    };
     return configJson;
 };

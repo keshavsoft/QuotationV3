@@ -9,7 +9,7 @@ import forSummary from "../../ForSummary/V9/CreateFooterRow/V4/start.js";
 const buildFooter = ({ inVisibleColumnsConfig, inDefaultRow, keys,
     inTableFooter, inShowDataList, inDataStore, inOptions,
     inServices, inEndPoints, inTableBody,
-    inData, inToSaveRow
+    inData, inToSaveRow, callbacks
 }) => {
     // debugger;
     const createNewRow = inOptions.createNewRow;
@@ -22,10 +22,9 @@ const buildFooter = ({ inVisibleColumnsConfig, inDefaultRow, keys,
 
     const oldShowActions = inTableFooter.getAttribute("ks-showActions");
     const oldShowSerial = inTableFooter.getAttribute("ks-showSerial");
-
-    const localHandleSave = ({ dataFromDom, inCurrentTarget }) => {
+    // console.log("objectToSave--------------- : ", callbacks);
+    const localHandleSave = ({ dataFromDom, inCurrentTarget, canSave }) => {
         const objectToSave = { ...inToSaveRow, ...dataFromDom, ...inDefaultRow };
-        // console.log("objectToSave : ", inToSaveRow, objectToSave);
 
         createHandleSave({
             inServices, inEndPoints, inPayload: objectToSave,
@@ -33,7 +32,7 @@ const buildFooter = ({ inVisibleColumnsConfig, inDefaultRow, keys,
             inVisibleColumnsConfig: localVisibleColumns,
             inShowSerial: oldShowSerial,
             inShowActions: oldShowActions, inCurrentTarget,
-            inTableFooter
+            inTableFooter, canSave, callbacks
         });
     };
 
