@@ -113,7 +113,8 @@ const startFunc = ({
             inDataStore: dataStore,
             inTableBody: tableBody,
             inOptions: footerOptions,
-            inToSaveRow: toSaveRow, callbacks: callbacks?.table?.footer
+            inToSaveRow: toSaveRow, callbacks: callbacks?.table?.footer,
+            inConfig
         });
     };
 

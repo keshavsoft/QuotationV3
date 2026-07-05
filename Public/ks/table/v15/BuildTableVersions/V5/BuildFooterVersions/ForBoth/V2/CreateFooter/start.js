@@ -2,7 +2,7 @@ import { startFunc as createFooterRow } from "../CreateFooterRow/start.js";
 
 const startFunc = ({
     inData,
-    keys,
+    keys, inConfig,
     inOnSaveFunc,
     onChangeFunc,
     inVisibleColumnsConfig,
@@ -24,7 +24,7 @@ const startFunc = ({
         inShowDataList,
         inShowSave,
         inOnSaveFunc,
-        onChangeFunc,
+        onChangeFunc, inConfig,
         inVisibleColumnsConfig, inDataStore
     });
 

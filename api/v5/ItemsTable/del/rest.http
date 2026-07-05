@@ -1,0 +1,1 @@
+DELETE http://localhost:9011/api/v5/ItemsTable/del/1

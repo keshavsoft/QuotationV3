@@ -9,7 +9,7 @@ import forSummary from "../../ForSummary/V9/CreateFooterRow/V4/start.js";
 const buildFooter = ({ inVisibleColumnsConfig, inDefaultRow, keys,
     inTableFooter, inShowDataList, inDataStore, inOptions,
     inServices, inEndPoints, inTableBody,
-    inData, inToSaveRow, callbacks
+    inData, inToSaveRow, callbacks, inConfig
 }) => {
     // debugger;
     const createNewRow = inOptions.createNewRow;
@@ -32,7 +32,7 @@ const buildFooter = ({ inVisibleColumnsConfig, inDefaultRow, keys,
             inVisibleColumnsConfig: localVisibleColumns,
             inShowSerial: oldShowSerial,
             inShowActions: oldShowActions, inCurrentTarget,
-            inTableFooter, canSave, callbacks
+            inTableFooter, canSave, callbacks, inConfig
         });
     };
 
@@ -52,7 +52,8 @@ const buildFooter = ({ inVisibleColumnsConfig, inDefaultRow, keys,
             inDefaultRow, inShowDataList, keys,
             onChangeFunc: localHandleOnChange,
             inShowSave: oldShowActions, inOnSaveFunc: localHandleSave,
-            inShowSerial: oldShowSerial, inDataStore
+            inShowSerial: oldShowSerial, inDataStore,
+            inConfig
         });
 
         if (localTr) inTableFooter.appendChild(localTr);

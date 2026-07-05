@@ -8,7 +8,7 @@ const startFunc = async ({
     inDataStore,
     inServices,
     inEndPoints,
-    inTableBody,
+    inTableBody, inConfig,
     inVisibleColumnsConfig, inTableFooter,
     inIsUpdateFooter
 }) => {
@@ -19,13 +19,24 @@ const startFunc = async ({
         });
 
         inDataStore.setData(dataFromFetch);
-
+        //debugger
         const dataToShow = inDataStore.getData();
 
+        // buildBody({
+        //     inData: dataToShow, inDataStore,
+        //     inTableBody, inEndPoints,
+        //     inVisibleColumnsConfig, inServices
+        // });
+
         buildBody({
-            inData: dataToShow, inDataStore,
-            inTableBody, inEndPoints,
-            inVisibleColumnsConfig, inServices
+            inVisibleColumnsConfig,
+            inTableBody,
+            inData: dataToShow,
+            inServices,
+            inEndPoints,
+            inDataStore,
+            inConfig,
+            inTableFooter
         });
 
         setFocus({ inContainerEl: inTableFooter });

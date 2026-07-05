@@ -2,7 +2,7 @@ import { createFooterCell } from "./createFooterCell.js";
 
 const startFunc = ({ keys, tr, options = {}, inDefaultRow,
     inShowDataList, onChangeFunc, inVisibleColumnsConfig,
-    inDataStore }) => {
+    inDataStore, inConfig }) => {
 
     const defaultRow = inDefaultRow;
 

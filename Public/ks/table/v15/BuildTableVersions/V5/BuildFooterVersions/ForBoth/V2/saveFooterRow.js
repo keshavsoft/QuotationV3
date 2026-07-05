@@ -8,7 +8,7 @@ const saveFooterRow = async ({
     inVisibleColumnsConfig,
     inShowActions,
     inShowSerial,
-    inPayload,
+    inPayload, inConfig,
     inTableBody,
     inTableFooter, canSave
 }) => {
@@ -27,7 +27,7 @@ const saveFooterRow = async ({
                 inDataStore, inServices, inEndPoints,
                 inTableBody, inVisibleColumnsConfig,
                 inShowSerial, inShowActions, inTableFooter,
-                inIsUpdateFooter: true
+                inIsUpdateFooter: true, inConfig
             });
 
         };
