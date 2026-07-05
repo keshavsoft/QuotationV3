@@ -89,7 +89,7 @@ const ensureKSVertical = () => loadResource({
     name: "KSVertical",
     isLoaded: () => !!window.KSAiVertical,
     sources: [
-        { type: "js", url: "/ks/vertical/v8/ai.js", label: "Local" },
+        { type: "js", url: "/ks/vertical/v9/ai.js", label: "Local" },
         { type: "js", url: "https://keshavsoft.github.io/tailwind-vertical-dom/dist/v2.8/ksvertical.js", label: "git" }
     ]
 });

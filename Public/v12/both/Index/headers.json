@@ -10,6 +10,16 @@
     },
     "items": [
         {
+            "text": "vertical",
+            "id": "verticalHtmlId",
+            "icon": [],
+            "uiClasses": {
+                "aClass": "",
+                "svgDivClass": "size-10"
+            },
+            "svgName": "squaresPlus"
+        },
+        {
             "text": "Create",
             "id": "CreateHtmlId",
             "icon": [],
