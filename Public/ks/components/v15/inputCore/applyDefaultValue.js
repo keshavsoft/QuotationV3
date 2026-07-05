@@ -11,7 +11,7 @@ const applyDefaultValue = ({
             break;
         default:
 
-            inInput.value = inDefaultValue;
+            if (inDefaultValue) inInput.value = inDefaultValue;
 
             break;
     }

@@ -8,7 +8,7 @@ export const getKSTableConfig = async () => {
 
     const last = await fetch("/api/v2/ItemsTable/lastRecord");
     // debugger;
-    
+
     let lastJson = { ParentPk: 0 };
     if (last.ok) {
         const text = await last.text();
@@ -18,10 +18,6 @@ export const getKSTableConfig = async () => {
     }
 
     const pk = (lastJson.ParentPk || 0) + 1;
-
-    // const pk = prompt("Enter PK");
-
-    // if (pk === null || pk.trim() === "") return;
 
     configJson.callbacks.table.onReadFail = onReadFail;
 

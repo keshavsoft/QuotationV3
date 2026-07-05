@@ -13,7 +13,7 @@ const saveFooterRow = async ({
     inTableFooter, canSave
 }) => {
     // console.log("ssssssssss----------ppppppp", callbacks);
-    callbacks.onSave({ canSave });
+    // callbacks.onSave({ canSave });
     if (!canSave) return;
 
     try {
@@ -29,7 +29,6 @@ const saveFooterRow = async ({
                 inShowSerial, inShowActions, inTableFooter,
                 inIsUpdateFooter: true, inConfig
             });
-
         };
     } catch (err) {
         console.error(err);
