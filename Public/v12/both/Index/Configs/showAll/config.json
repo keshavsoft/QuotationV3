@@ -1,5 +1,5 @@
 {
-    "containerId": "kSTableContainer",
+    "containerId": "kSHeadContainer",
     "tableName": "Quotations",
     "mode": "create",
     "layout": {
@@ -8,7 +8,7 @@
     },
     "options": {
         "firstRow": {
-            "showSearch": true
+            "showSearch": false
         },
         "enabledSections": [
             "vertical",
@@ -36,7 +36,8 @@
             "onDelete1": "function",
             "onReadFail": "function",
             "body": {
-                "update": "function"
+                "update": "function",
+                "show": "function"
             },
             "footer": {
                 "onSave": "function"

@@ -2,7 +2,7 @@
 
 const createOptionsCell = ({ item, index, onDeleteFunc, onEditFunc,
     inShowEdit, inShowDelete, inDeleteType, inDeleteIconSize,
-    onUpdate
+    onUpdate, onShow
 }) => {
     const td = document.createElement("td");
     td.className = "px-4 py-2 border";
@@ -13,9 +13,10 @@ const createOptionsCell = ({ item, index, onDeleteFunc, onEditFunc,
     ksTd.ksOnDeleteFunc = onDeleteFunc;
     ksTd.ksOnEditFunc = onEditFunc;
     ksTd.ksOnUpdateFunc = onUpdate;
+    ksTd.ksOnShowFunc = onShow;
 
     // ksTd.ksOnEditFunc = onEditFunc;
-    // console.log("onEditFunc----------- : ", onEditFunc);
+    console.log("onEditFunc----------- : ", onShow);
 
     ksTd.setAttribute("show-edit", inShowEdit);
     ksTd.setAttribute("show-delete", inShowDelete);

@@ -1,84 +1,50 @@
-import { buildRow } from "./buildRow.js";
-import buildDeleteHandler from "./handlerFuncs/V10/buildDeleteHandler.js";
-import buildAlterHandler from "./handlerFuncs/V10/buildAlterHandler.js";
-import buildUpdateHandler from "./handlerFuncs/V10/buildUpdateHandler.js";
-import buildShowHandler from "./handlerFuncs/V10/buildShowHandler.js";
+import readTableBodyAttributes from "./helpers/readTableBodyAttributes.js";
+import initHandlers from "./helpers/initHandlers.js";
+import renderRows from "./helpers/renderRows.js";
 
-const buildBody = ({ inVisibleColumnsConfig, inTableBody, inData,
-    inServices, inEndPoints, inDataStore, inConfig, inTableFooter
+/**
+ * Orchestrates the rendering and handler initialization of the table body.
+ */
+const buildBody = ({
+    inVisibleColumnsConfig,
+    inTableBody,
+    inData,
+    inServices,
+    inEndPoints,
+    inDataStore,
+    inConfig,
+    inTableFooter
 }) => {
-
-    const dataToShow = inData;
     const tableBody = inTableBody;
-
-    const oldShowActions = tableBody.getAttribute("ks-showActions");
-    const oldShowSerial = tableBody.getAttribute("ks-showSerial");
-    const showEdit = tableBody.getAttribute("ks-showEdit");
-    const showDelete = tableBody.getAttribute("ks-showDelete");
-    const deleteType = tableBody.getAttribute("ks-deleteType");
-    const deleteIconSize = tableBody.getAttribute("ks-deleteIconSize");
-
     tableBody.innerHTML = '';
-    // tableBody.setAttribute("ks-showActions", inShowActions);
 
-    const deleteFunc = buildDeleteHandler({
+    // 1. Read table body parameters and options from attributes
+    const attributes = readTableBodyAttributes(tableBody);
+
+    // 2. Initialize active event handlers (Delete, Edit, Update)
+    const handlers = initHandlers({
         inServices,
         inEndPoints,
         inConfig,
         inDataStore,
         inVisibleColumnsConfig,
-        inShowSerial: oldShowSerial,
-        inTableBody: tableBody, inTableFooter
+        showSerial: attributes.showSerial,
+        tableBody,
+        inTableFooter
     });
 
-    const editFunc = buildAlterHandler({
-        inServices,
-        inEndPoints,
-        inConfig,
-        inDataStore,
+    // 3. Render and append rows to the table body
+    renderRows({
+        tableBody,
+        dataToShow: inData,
         inVisibleColumnsConfig,
-        inShowSerial: oldShowSerial,
-        inTableBody: tableBody, inTableFooter
-    });
-
-    const updateFunc = buildUpdateHandler({
-        inServices,
-        inEndPoints,
-        inConfig,
-        inDataStore,
-        inVisibleColumnsConfig,
-        inShowSerial: oldShowSerial,
-        inTableBody: tableBody, inTableFooter
-    });
-
-    const handleDelete = ({ item, index, presentPk }) => {
-        deleteFunc({ presentPk });
-    };
-
-    const handleEdit = ({ item, index, presentPk, updatedItem }) => {
-        editFunc({ item, index, presentPk, updatedItem });
-    };
-
-    const handleUpdate = ({ item, index, presentPk, updatedItem }) => {
-        updateFunc({ item, index, presentPk, updatedItem });
-    };
-
-    // debugger;
-    dataToShow.forEach((item, index) => {
-        const row = buildRow({
-            item, index, inVisibleColumnsConfig,
-            inShowSerial: oldShowSerial === "true",
-            inShowActions: oldShowActions === "true",
-            onDeleteFunc: handleDelete,
-            onEditFunc: handleEdit,
-            onUpdate: handleUpdate,
-            inShowEdit: showEdit,
-            inShowDelete: showDelete,
-            inDeleteType: deleteType,
-            inDeleteIconSize: deleteIconSize
-        });
-
-        tableBody.appendChild(row);
+        showSerial: attributes.showSerial,
+        showActions: attributes.showActions,
+        showEdit: attributes.showEdit,
+        showDelete: attributes.showDelete,
+        deleteType: attributes.deleteType,
+        deleteIconSize: attributes.deleteIconSize,
+        handlers
     });
 };
 

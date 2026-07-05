@@ -6,7 +6,7 @@ import { createOptionsCell } from "./createOptionsCell.js";
 const buildRow = ({ item, index, inVisibleColumnsConfig, searchValue,
     inShowSerial, inShowActions = false, onDeleteFunc, onEditFunc,
     inShowEdit, inShowDelete, inDeleteType, inDeleteIconSize,
-    onUpdate
+    onUpdate, onShow
 }) => {
     const tr = createRow({
         inClassName: "border-t hover:bg-blue-100 odd:bg-gray-100",
@@ -22,7 +22,7 @@ const buildRow = ({ item, index, inVisibleColumnsConfig, searchValue,
 
     if (inShowActions) {
         appendActionCell({
-            tr, item, index, onDeleteFunc, onUpdate,
+            tr, item, index, onDeleteFunc, onUpdate, onShow,
             onEditFunc, inShowEdit, inShowDelete, inDeleteType, inDeleteIconSize
         });
     };
@@ -54,7 +54,7 @@ const appendDataCells = ({ tr, item, columns, searchValue }) => {
 };
 
 const appendActionCell = ({ tr, item, index,
-    onDeleteFunc, onEditFunc, onUpdate,
+    onDeleteFunc, onEditFunc, onUpdate, onShow,
     inShowEdit, inShowDelete, inDeleteType, inDeleteIconSize }) => {
     // debugger;
 
@@ -62,7 +62,7 @@ const appendActionCell = ({ tr, item, index,
         createOptionsCell({
             item,
             index, onUpdate,
-            onDeleteFunc, onEditFunc,
+            onDeleteFunc, onEditFunc, onShow,
             inShowEdit, inShowDelete, inDeleteType, inDeleteIconSize
         })
     );

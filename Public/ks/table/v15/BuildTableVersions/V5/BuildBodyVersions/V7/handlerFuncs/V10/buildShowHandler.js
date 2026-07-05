@@ -12,39 +12,42 @@ const buildDeleteHandler = ({
     inDataStore,
     inVisibleColumnsConfig,
     inShowSerial,
-    inTableBody, inTableFooter
+    inTableBody, inTableFooter,
+    inCallBack
 }) => {
-    const refreshAfterDelete = () => {
-        afterMutation({
-            inDataStore,
-            inServices,
-            inEndPoints,
-            inTableBody,
-            inVisibleColumnsConfig,
-            inShowSerial, inTableFooter
-        });
-    };
+    // const refreshAfterDelete = () => {
+    //     afterMutation({
+    //         inDataStore,
+    //         inServices,
+    //         inEndPoints,
+    //         inTableBody,
+    //         inVisibleColumnsConfig,
+    //         inShowSerial, inTableFooter
+    //     });
+    // };
 
-    const localDeleteHandler = async ({ presentPk }) => {
-        const userConfirm = confirm(`Are you sure to delete row ${presentPk} ?`);
+    const localDeleteHandler = async (options) => {
+        console.log("options----------- : ", inConfig, options);
+        inCallBack(options);
+        // const userConfirm = confirm(`Are you sure to delete row ${presentPk} ?`);
 
-        if (userConfirm === false) return;
+        // if (userConfirm === false) return;
 
-        const fromDelete = await deleteFromServer({ presentPk, inEndPoints, inServices });
+        // const fromDelete = await deleteFromServer({ presentPk, inEndPoints, inServices });
 
-        if (fromDelete.ok) {
-            const fromClient = await runDeleteCallback({
-                presentPk, inOnDelete: inConfig?.callbacks?.table?.onDelete
-            });
+        // if (fromDelete.ok) {
+        //     const fromClient = await runDeleteCallback({
+        //         presentPk, inOnDelete: inConfig?.callbacks?.table?.onDelete
+        //     });
 
-            if (fromClient.ok) {
-                refreshAfterDelete();
+        //     if (fromClient.ok) {
+        //         refreshAfterDelete();
 
-                showToast({
-                    message: `Row ${presentPk} deleted successfully`
-                });
-            };
-        };
+        //         showToast({
+        //             message: `Row ${presentPk} deleted successfully`
+        //         });
+        //     };
+        // };
     };
 
     return localDeleteHandler;

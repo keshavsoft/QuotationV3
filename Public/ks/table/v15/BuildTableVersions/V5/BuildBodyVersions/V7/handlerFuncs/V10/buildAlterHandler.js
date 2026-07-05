@@ -14,18 +14,18 @@ const buildDeleteHandler = ({
     inShowSerial,
     inTableBody, inTableFooter
 }) => {
-    console.log("aaaaaaaaaaa :");
+    // console.log("aaaaaaaaaaa :");
 
-    const refreshAfterDelete = () => {
-        afterMutation({
-            inDataStore,
-            inServices,
-            inEndPoints,
-            inTableBody,
-            inVisibleColumnsConfig,
-            inShowSerial, inTableFooter
-        });
-    };
+    // const refreshAfterDelete = () => {
+    //     afterMutation({
+    //         inDataStore,
+    //         inServices,
+    //         inEndPoints,
+    //         inTableBody,
+    //         inVisibleColumnsConfig,
+    //         inShowSerial, inTableFooter
+    //     });
+    // };
 
     const localDeleteHandler = async ({ item, index, presentPk, updatedItem }) => {
         if (inConfig?.callbacks?.table?.onEdit) {
