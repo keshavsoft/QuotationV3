@@ -124,10 +124,14 @@
             }
         },
         {
+            "columnName": "pk",
             "field": "pk",
             "title": "pk",
             "primary": true,
-            "isVisible": false
+            "isVisible": true,
+            "cellConfig": {
+                "width": "50px"
+            }
         }
     ]
 }
