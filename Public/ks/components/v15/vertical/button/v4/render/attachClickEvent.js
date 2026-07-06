@@ -1,17 +1,32 @@
+const getClosestButton = (target, tagName) => target.closest(tagName);
+
+const getForm = (element) => element?.closest("form");
+
+const getFormData = (form) => {
+    if (!form) return {};
+    const inputs = [...form.querySelectorAll("input")];
+    return Object.fromEntries(inputs.map(input => [input.name, input.value]));
+};
+
+const getPk = (form) => {
+    const fieldset = form.querySelector("fieldset");
+    // console.log("aaaaaaa : ", fieldset.dataset);
+
+    return fieldset.dataset?.pk;
+};
+
 const attachClickEvent = (button, inTagName = "ks-button") => {
     button.addEventListener("click", event => {
         event.preventDefault();
 
-        const ksButton = event.currentTarget.closest(inTagName);
-        
+        const ksButton = getClosestButton(event.currentTarget, inTagName);
         if (!ksButton) return;
 
-        const form = ksButton.closest("form");
-
-        const data = form ? Object.fromEntries(
-            [...form.querySelectorAll("input")]
-                .map(input => [input.name, input.value])
-        ) : {};
+        const form = getForm(ksButton);
+        const data = getFormData(form);
+        const pk = getPk(form);
+        // console.log("bbbbbb : ", pk);
+        if (pk) data.pk = pk;
 
         ksButton.onClick?.(data);
     });

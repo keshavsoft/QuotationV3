@@ -25,9 +25,8 @@ export const createUpdateButton = ({ options = {}, inServices, inConfig }) => {
     });
 
     button.onClick = async (data) => {
-        console.log("ssssssssss : ", inConfig.endPoints.update, inServices.actions.vertical.update);
+        console.log("ssssssssss : ", data);
 
-        // toggleButtons({ inButton: button });
 
         let fromService;
 
@@ -36,7 +35,15 @@ export const createUpdateButton = ({ options = {}, inServices, inConfig }) => {
             payload: data
         });
 
-        console.log("data------------ : ", data, fromService);
+        // console.log("data------------ : ", data, fromService);
+
+
+        if (fromService.ok) {
+            toggleButtons({ inButton: button });
+
+        };
+
+
         // if (inServices?.actionsFetchOnly?.update) {
         //     fromService = await inServices.actionsFetchOnly.update({
         //         inEndPoint: inConfig.endPoints.update,
