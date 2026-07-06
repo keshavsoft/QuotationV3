@@ -63,7 +63,9 @@ export const defaultOptionsInputsStacked = {
         form: {
             class: 'flex flex-col gap-4',
             fieldset: {
-                class: 'grid grid-cols-1 gap-x-8 gap-y-4 p-2 verticalForm [&_ks-input>div]:flex-col [&_ks-input>div]:items-start [&_ks-input>div]:space-x-0 [&_ks-input>div]:gap-1 [&_ks-datalist-input>div]:flex-col [&_ks-datalist-input>div]:items-start [&_ks-datalist-input>div]:space-x-0 [&_ks-datalist-input>div]:gap-1 [&_label]:w-full [&_label]:text-left'
+                class1: 'grid grid-cols-1 gap-x-8 gap-y-4 p-2 verticalForm [&_ks-input>div]:flex-col [&_ks-input>div]:items-start [&_ks-input>div]:space-x-0 [&_ks-input>div]:gap-1 [&_ks-datalist-input>div]:flex-col [&_ks-datalist-input>div]:items-start [&_ks-datalist-input>div]:space-x-0 [&_ks-datalist-input>div]:gap-1 [&_label]:w-full [&_label]:text-left',
+                class: 'grid grid-cols-1 gap-x-8 gap-y-4 p-2 verticalForm'
+
             },
             buttonRow: {
                 class: 'flex gap-2 self-center',

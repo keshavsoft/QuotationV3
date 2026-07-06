@@ -3,9 +3,11 @@ const attachClickEvent = (button, inTagName = "ks-button") => {
         event.preventDefault();
 
         const ksButton = event.currentTarget.closest(inTagName);
+        
         if (!ksButton) return;
 
         const form = ksButton.closest("form");
+
         const data = form ? Object.fromEntries(
             [...form.querySelectorAll("input")]
                 .map(input => [input.name, input.value])
