@@ -1,5 +1,22 @@
 import defaultOptions from "../defaultOptions.js";
 
+const toggleButtons = ({ inButton }) => {
+    const button = inButton;
+
+    const closestButtonsRow = button.closest(".buttonsRow");
+    const saveBtn = closestButtonsRow.querySelector(".saveButtonClass");
+    const editBtn = closestButtonsRow.querySelector(".editButtonClass");
+    const updateBtn = closestButtonsRow.querySelector(".updateButtonClass");
+    const cancelBtn = closestButtonsRow.querySelector(".cancelButtonClass");
+
+    button.style.display = "none";      // Hides Update button
+    cancelBtn.style.display = "none";   // Hides Cancel button
+    editBtn.style.display = "";         // Shows Edit button
+
+    const fieldset = closestButtonsRow.closest("form")?.querySelector("fieldset");
+    if (fieldset) fieldset.setAttribute("disabled", "true");
+};
+
 export const createUpdateButton = ({ options = {}, inServices, inConfig }) => {
     const button = document.createElement("ks-button");
     button.init({
@@ -8,15 +25,9 @@ export const createUpdateButton = ({ options = {}, inServices, inConfig }) => {
     });
 
     button.onClick = async (data) => {
-        const closestButtonsRow = button.closest(".buttonsRow");
-        const saveBtn = closestButtonsRow.querySelector(".saveButtonClass");
-        const editBtn = closestButtonsRow.querySelector(".editButtonClass");
-        const updateBtn = closestButtonsRow.querySelector(".updateButtonClass");
-        const cancelBtn = closestButtonsRow.querySelector(".cancelButtonClass");
+        console.log("ssssssssss : ", inServices.actions.vertical.update);
 
-        button.style.display = "none";      // Hides Update button
-        cancelBtn.style.display = "none";   // Hides Cancel button
-        editBtn.style.display = "";         // Shows Edit button
+        // toggleButtons({ inButton: button });
 
         let fromService;
         // console.log("data------------ : ", data, options);

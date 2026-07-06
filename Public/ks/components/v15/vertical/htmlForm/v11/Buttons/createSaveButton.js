@@ -1,5 +1,20 @@
 import defaultOptions from "../defaultOptions.js";
 
+const toggleButtons = ({ inButton }) => {
+    const button = inButton;
+    const closestButtonsRow = button.closest(".buttonsRow");
+    const saveBtn = closestButtonsRow.querySelector(".saveButtonClass");
+    const editBtn = closestButtonsRow.querySelector(".editButtonClass");
+    const updateBtn = closestButtonsRow.querySelector(".updateButtonClass");
+    const cancelBtn = closestButtonsRow.querySelector(".cancelButtonClass");
+
+    button.style.display = "none";
+    editBtn.style.display = "";
+
+    const fieldset = closestButtonsRow.closest("form")?.querySelector("fieldset");
+    if (fieldset) fieldset.setAttribute("disabled", "true");
+};
+
 export const createSaveButton = ({ options = {}, inServices, inConfig }) => {
     const button = document.createElement("ks-button");
     button.init({
@@ -8,23 +23,16 @@ export const createSaveButton = ({ options = {}, inServices, inConfig }) => {
     });
 
     button.onClick = async (data) => {
-        const closestButtonsRow = button.closest(".buttonsRow");
-        const saveBtn = closestButtonsRow.querySelector(".saveButtonClass");
-        const editBtn = closestButtonsRow.querySelector(".editButtonClass");
-        const updateBtn = closestButtonsRow.querySelector(".updateButtonClass");
-        const cancelBtn = closestButtonsRow.querySelector(".cancelButtonClass");
+        const fromService = await inServices.actionsFetchOnly.create({
+            inEndPoint: inConfig.endPoints.create,
+            payload: data
+        });
 
-        button.style.display = "none";
-        editBtn.style.display = "";
+        if (fromService.ok) {
+            toggleButtons({ inButton: button });
+        };
 
-        console.log("Buttons found:", { saveBtn, editBtn, updateBtn, cancelBtn });
-        console.log("aaaaaaaaa : ", closestButtonsRow, data);
-        // const fromService = await inServices.actionsFetchOnly.create({
-        //     inEndPoint: inConfig.endPoints.create,
-        //     payload: data
-        // });
-
-        // inConfig.callbacks.vertical.onSuccess(fromService);
+        inConfig.callbacks.vertical.onSuccess(fromService);
     };
 
     return button;

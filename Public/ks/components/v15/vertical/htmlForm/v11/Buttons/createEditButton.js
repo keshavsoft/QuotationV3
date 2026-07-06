@@ -18,6 +18,9 @@ export const createEditButton = ({ options = {}, element }) => {
         updateBtn.style.display = "";
         cancelBtn.style.display = "";
 
+        const fieldset = closestButtonsRow.closest("form")?.querySelector("fieldset");
+        if (fieldset) fieldset.removeAttribute("disabled");
+
         // if (element.options && element.options.inVerticalOptions) {
         //     element.options.inVerticalOptions.isEdit = true;
         // }

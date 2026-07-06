@@ -28,6 +28,17 @@ export const createServices = ({ tableName }) => {
                     });
 
                     return await res;
+                },
+                update: async ({ inEndPoint, payload }) => {
+                    const res = await fetch(inEndPoint, {
+                        method: "PUT",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(payload)
+                    });
+
+                    return await res;
                 }
             },
             table: {

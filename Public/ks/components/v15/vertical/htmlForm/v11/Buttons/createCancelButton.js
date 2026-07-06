@@ -18,6 +18,9 @@ export const createCancelButton = ({ options = {}, element }) => {
         updateBtn.style.display = "none";   // Hides Update button
         editBtn.style.display = "";         // Shows Edit button
 
+        const fieldset = closestButtonsRow.closest("form")?.querySelector("fieldset");
+        if (fieldset) fieldset.setAttribute("disabled", "true");
+
         // if (element.options && element.options.inVerticalOptions) {
         //     element.options.inVerticalOptions.isEdit = false;
         // }
