@@ -17,6 +17,6 @@ import "./inputForTableRow/index.js";
 import "./table/index.js";
 import "./vertical/index.js";
 
-console.log("KS Components v11 loaded to DOM");
+if (window?.ksShowLogTree?.components?.main) console.log("KS Components v15 loaded to DOM");
 
 export default {};
