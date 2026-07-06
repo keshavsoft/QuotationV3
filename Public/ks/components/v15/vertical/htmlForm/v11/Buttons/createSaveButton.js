@@ -34,12 +34,13 @@ export const createSaveButton = ({ options = {}, inServices, inConfig }) => {
             const fieldset = button.closest("form")?.querySelector("fieldset");
             fieldset.dataset.pk = fromServiceResponseBody;
 
+            inConfig.callbacks.vertical.onSuccess(fromServiceResponseBody);
             // console.log("fromServiceResponseBody : ", fromServiceResponseBody);
 
             toggleButtons({ inButton: button });
+        } else {
+            inConfig.callbacks.vertical.onSuccess(false);
         };
-
-        inConfig.callbacks.vertical.onSuccess(fromService);
     };
 
     return button;

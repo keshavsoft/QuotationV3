@@ -32,22 +32,6 @@ const verticalConfig = async (inPk) => {
     return configJson;
 };
 
-const startFunc1 = async () => {
-    const config = await getKSTableConfig();
-
-    let pk = prompt("Enter quotaion number : ");
-
-    config.endPoints.findFromParams = config.endPoints.findFromParams.replace("<pk>", pk);
-
-    ksVertical = new window.ks.classes.vertical(config);
-
-    ksVertical.callbacks.vertical.onSuccess = fromService => {
-        console.log("aaaaaaaaaaaaaabbbbbbbbbbbb : ", fromService);
-    };
-
-    ksVertical.initCreate();
-};
-
 const startFunc = async () => {
 
     let pk = prompt("Enter quotaion number : ");
