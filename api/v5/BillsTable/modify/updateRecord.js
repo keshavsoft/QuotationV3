@@ -1,4 +1,10 @@
+const convertPkToInt = ({ inRequestBody, pk }) => {
+    inRequestBody[pk] = parseInt(inRequestBody[pk]);
+};
+
 const updateRecord = ({ data, inRequestBody, pk }) => {
+    convertPkToInt({ inRequestBody, pk });
+
     const reqPkValue = inRequestBody[pk];
     const index = data.findIndex(item => item[pk] == reqPkValue);
 

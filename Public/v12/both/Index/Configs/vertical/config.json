@@ -35,7 +35,8 @@
         "vertical": {
             "isCreate": true,
             "isEdit": false,
-            "layoutType": "inputsStacked",
+            "layoutType1": "inputsStacked",
+            "layoutType": "singleLine",
             "showButtons": true
         }
     },
