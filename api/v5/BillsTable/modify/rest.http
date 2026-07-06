@@ -1,0 +1,7 @@
+PUT http://localhost:9011/api/v5/BillsTable/modify
+Content-Type: application/json
+
+ {
+    "LedgerName": "l1111111",
+    "pk": 1
+  }

@@ -29,6 +29,13 @@ export const createSaveButton = ({ options = {}, inServices, inConfig }) => {
         });
 
         if (fromService.ok) {
+            const fromServiceResponseBody = await fromService.text();
+
+            const fieldset = button.closest("form")?.querySelector("fieldset");
+            fieldset.dataset.pk = fromServiceResponseBody;
+
+            // console.log("fromServiceResponseBody : ", fromServiceResponseBody);
+
             toggleButtons({ inButton: button });
         };
 
