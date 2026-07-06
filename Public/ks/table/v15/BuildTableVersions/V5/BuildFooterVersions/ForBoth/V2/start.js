@@ -57,8 +57,6 @@ const buildFooter = ({ inVisibleColumnsConfig, inDefaultRow, keys,
         });
 
         if (localTr) inTableFooter.appendChild(localTr);
-        // // debugger;
-
     };
 
     if (showAggregateRows) {

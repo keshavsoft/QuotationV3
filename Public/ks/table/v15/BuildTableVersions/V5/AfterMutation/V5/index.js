@@ -2,7 +2,7 @@ import buildBody from "../../BuildBodyVersions/V7/start.js";
 
 import setFocus from "../../../../SetFocus/V4/index.js";
 
-import updateFooter from "./UpdateFooter/V1/start.js";
+import updateFooter from "./UpdateFooter/V2/start.js";
 
 const startFunc = async ({
     inDataStore,

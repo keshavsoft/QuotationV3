@@ -1,3 +1,5 @@
+import UpdateFooter from "../../../../AfterMutation/V5/UpdateFooter/V2/start.js";
+
 const buildUpdateHandler = ({
     inServices,
     inEndPoints,
@@ -10,26 +12,29 @@ const buildUpdateHandler = ({
     inUpdateEndPoint, inClientUpdate
 }) => {
     const localDeleteHandler = async ({ item, index, presentPk, updatedItem }) => {
-        // await inServices.actions.table.update({ inEndPoint: inEndPoints.update, payload: updatedItem })
-
         const fromService = await inUpdateService({ inEndPoint: inUpdateEndPoint, payload: updatedItem })
 
-        // async ({ inEndPoint, payload }) => {…}
-        // console.log("inServices,    inEndPoints, : ", inConfig);
+        // console.log("vvvvvvvvvvv : ", fromService);
+        if (fromService.ok) {
+            const dataFromFetch = await inServices.actions.getData({
+                inEndPoint: inEndPoints.read
+            });
 
-        // debugger;
-        // if (inConfig?.callbacks?.table.body.update) {
-        //     inConfig?.callbacks?.table.body.update(updatedItem);
-        // };
+            inDataStore.setData(dataFromFetch);
+            
+            const data = inDataStore.getData();
+
+            UpdateFooter({
+                inTableFooter,
+                inData: data, inShowSerial,
+                inShowFooterRows: true,
+                inShowTotals: true
+            });
+        };
 
         if (inClientUpdate) {
             inClientUpdate(updatedItem);
         };
-
-        // itemsConfig.callbacks.table.body.update = fromService => {
-        //     console.log("----- : ", fromService);
-        // };
-
     };
 
     return localDeleteHandler;
