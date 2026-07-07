@@ -3,6 +3,15 @@ import createFieldset from "./createFieldset.js";
 import createInputRows from "../../../../commonInputBuilder/createInputRows.js";
 import { appendButtons } from "../Buttons/index.js";
 
+const localIsFormDisabled = ({ isModeDefined, isEdit, isCreate, inIsDisabled }) => {
+    if (!isModeDefined) return inIsDisabled || false;
+
+    if (isCreate) return false;
+    if (isEdit) return true;
+
+    return true;
+};
+
 const renderForm = ({ element, options }) => {
     const {
         showSaveButton = false,
@@ -23,10 +32,16 @@ const renderForm = ({ element, options }) => {
     const isCreate = inVerticalOptions?.isCreate || false;
     const isModeDefined = inVerticalOptions ? (("isEdit" in inVerticalOptions) || ("isCreate" in inVerticalOptions)) : false;
 
-    const isFormDisabled = isModeDefined ? (!isEdit && !isCreate) : (inIsDisabled || false);
-    debugger
+    const isFormDisabled = localIsFormDisabled({ isModeDefined, isEdit, isCreate, inIsDisabled });
+    // debugger
+
+
     const form = createForm({ uiClasses });
-    const fieldset = createFieldset({ uiClasses, inIsDisabled: isFormDisabled });
+
+    const fieldset = createFieldset({
+        uiClasses, inIsDisabled: isFormDisabled,
+        inPk: inDefaultRow?.pk
+    });
 
     form.appendChild(fieldset);
 

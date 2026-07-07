@@ -21,10 +21,6 @@ export const createCancelButton = ({ options = {}, element }) => {
         const fieldset = closestButtonsRow.closest("form")?.querySelector("fieldset");
         if (fieldset) fieldset.setAttribute("disabled", "true");
 
-        // if (element.options && element.options.inVerticalOptions) {
-        //     element.options.inVerticalOptions.isEdit = false;
-        // }
-        // element.render();
     };
 
     return button;

@@ -25,9 +25,6 @@ export const createUpdateButton = ({ options = {}, inServices, inConfig }) => {
     });
 
     button.onClick = async (data) => {
-        console.log("ssssssssss : ", data);
-
-
         let fromService;
 
         fromService = await inServices?.actions?.vertical?.update({
@@ -35,12 +32,8 @@ export const createUpdateButton = ({ options = {}, inServices, inConfig }) => {
             payload: data
         });
 
-        // console.log("data------------ : ", data, fromService);
-
-
         if (fromService.ok) {
             toggleButtons({ inButton: button });
-
         };
 
 
