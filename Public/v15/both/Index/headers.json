@@ -49,6 +49,17 @@
             },
             "svgName": "search"
         },
+           {
+            "text": "Dashboard",
+            "id": "DashboardHtmlId",
+            "icon": [],
+            "uiClasses": {
+                "aClass": "",
+                "svgDivClass": "size-10"
+            },
+            "svgName": "squaresPlus",
+            "href":"../BillsTable/index.html"
+        },
         {
             "text": "Print",
             "id": "PrintHtmlId",

@@ -96,6 +96,32 @@
             }
         }
     </style>
+
+    <style>
+        /* Stack ks-input elements vertically */
+        .verticalForm ks-input>div {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.25rem;
+            /* equivalent to gap-1 */
+        }
+
+        /* Stack ks-datalist-input elements vertically */
+        .verticalForm ks-datalist-input>div {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.25rem;
+            /* equivalent to gap-1 */
+        }
+
+        /* Style labels inside the form */
+        .verticalForm label {
+            width: 100%;
+            text-align: left;
+        }
+    </style>
 </head>
 
 <body class="bg-gray-100 flex flex-col min-h-screen">
@@ -113,6 +139,9 @@
 
             <!-- Table container -->
 
+            <div id="kSHeadContainer">
+            </div>
+
             <div id="kSTableContainer">
             </div>
 
@@ -125,7 +154,7 @@
     </main>
     <footer class="bg-gray-200 text-gray-700 text-center py-4">
         <div class="max-w-6xl mx-auto px-4">
-            © 2026 KeshavSoft • v-12 </div>
+            © 2026 KeshavSoft • v-15 </div>
     </footer>
 
     <!-- Login Modal -->
@@ -157,9 +186,22 @@
     <!-- <script src="../comps/v10/index.js" type="module"></script> -->
 
     <script>
-        window.ksShowLog = true;
+        window.ksShowLog = false;
+        window.ksShowLogTree = {};
+        window.ksShowLogTree.vertical = false;
+        window.ksShowLogTree.htmlForm = false;
+
+        window.ksShowLogTree.components = {};
+
+        window.ksShowLogTree.components.main = false;
+
+        window.ksShowLogTree.components.inputCore = false;
+        window.ksShowLogTree.components.vertical = {};
+        window.ksShowLogTree.components.vertical.htmlForm = false;
+
         let ksTable1;
         let ksTable2;
+        let ksVertical;
     </script>
 
     <script type="module" src="./Index/start.js"></script>
