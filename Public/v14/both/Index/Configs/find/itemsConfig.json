@@ -85,7 +85,8 @@
                 "uiClasses": {
                     "table": {
                         "tfoot": {
-                            "inputClass": "w-full border rounded px-1 py-1 text-base"
+                            "inputClass": "w-full border rounded px-1 py-1 text-base",
+                            "tdClass": "px-1 py-1 border"
                         }
                     }
                 },
@@ -128,7 +129,8 @@
                 "uiClasses": {
                     "table": {
                         "tfoot": {
-                            "inputClass": "w-full border rounded px-1 py-1 text-base"
+                            "inputClass": "w-full border rounded px-1 py-1 text-base",
+                            "tdClass": "px-1 py-1 border"
                         }
                     }
                 }
@@ -166,7 +168,8 @@
                 "uiClasses": {
                     "table": {
                         "tfoot": {
-                            "inputClass": "w-full border rounded px-1 py-1 text-base"
+                            "inputClass": "w-full border rounded px-1 py-1 text-base",
+                            "tdClass": "px-1 py-1 border"
                         }
                     }
                 },
@@ -208,7 +211,8 @@
                 "uiClasses": {
                     "table": {
                         "tfoot": {
-                            "inputClass": "w-full border rounded px-1 py-1 text-base"
+                            "inputClass": "w-full border rounded px-1 py-1 text-base",
+                            "tdClass": "px-1 py-1 border"
                         }
                     }
                 }
@@ -246,7 +250,8 @@
                 "uiClasses": {
                     "table": {
                         "tfoot": {
-                            "inputClass": "w-full border rounded px-1 py-1 text-base"
+                            "inputClass": "w-full border rounded px-1 py-1 text-base",
+                            "tdClass": "px-1 py-1 border"
                         }
                     }
                 },
