@@ -1,7 +1,7 @@
 {
     "uiClasses": {
         "ulClass1": "[&_svg]:size-6",
-        "navClass": "bg-red-800 text-white",
+        "navClass": "bg-blue-800 text-white",
         "brandClass1": "text-sm"
     },
     "title": {
