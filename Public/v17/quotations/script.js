@@ -62,7 +62,7 @@ const ensureTailwind = () => loadResource({
 const ensureKSComponents = () => loadResource({
     name: "KSComponents",
     sources: [
-        { type: "js", url: "/ks/components/v17/index.js", label: "Local" },
+        { type: "js", url: "/ks/components/v18/index.js", label: "Local" },
         { type: "js", url: "https://keshavsoft.github.io/ks-web-comp-table/dist/v3.15/KSComponents.js", label: "git" }
     ]
 });
