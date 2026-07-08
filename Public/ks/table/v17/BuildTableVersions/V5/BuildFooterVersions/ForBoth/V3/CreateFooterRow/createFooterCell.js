@@ -1,0 +1,28 @@
+import inputComponent from "./InputComponent/v2/createInput.js";
+
+const createFooterCell = ({ key, showDataList, inColumnsConfig,
+    inDefaultValue, inTdClass = "px-4 py-2 border", inOnChangeType,
+    inOnKeyDown, inDefaultRow, inType, inRightAlign,
+    inWidth, inputClassName, inDataListSource, inDataStore, inDataListFillName,
+    inFooterConfig }) => {
+
+    const td = document.createElement("td");
+    td.className = inTdClass;
+
+    const input = inputComponent({
+        key, inOnKeyDown, inDataListSource,
+        showDataList, inColumnsConfig, inDefaultValue, inOnChangeType,
+        inDefaultRow, inType, inRightAlign, inWidth, inputClassName,
+        inDataStore, inDataListFillName, inFooterConfig
+    });
+
+    const div = document.createElement("div");
+    div.className = "calc-message";
+
+    td.appendChild(input);
+    td.appendChild(div);
+
+    return td;
+};
+
+export { createFooterCell };
