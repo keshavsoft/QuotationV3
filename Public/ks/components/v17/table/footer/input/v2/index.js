@@ -1,4 +1,4 @@
-import classFromInputCore from "../../../../commonInputBuilder/inputCore/v2/index.js";
+import classFromInputCore from "../../../../commonInputBuilder/inputCore/v3/index.js";
 import attachEnterKeyEvent from "./attachEnterKeyEvent.js";
 
 class KsTableFooterInputCore extends classFromInputCore {

@@ -52,7 +52,9 @@
         "find": "",
         "filter": "",
         "dataLists": {},
-        "dataListEndpoints": {}
+        "dataListEndpoints": {
+            "StockItems": "/api/v6/StockItems/showAll"
+        }
     },
     "columnsConfig": [
         {
@@ -72,7 +74,7 @@
             },
             "isVisible": true,
             "tableFooterDataListShow": true,
-            "dataListSource": "ItemName.StockItemName",
+            "dataListSource": "StockItems.StockItemName",
             "allowOnChange": true,
             "onChangeType": "onDataListChange"
         },
