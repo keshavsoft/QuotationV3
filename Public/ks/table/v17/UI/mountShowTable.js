@@ -55,8 +55,9 @@ const startFunc = ({
     const showSave = options?.table?.showSave;
     const toSaveRow = dataStore.getToSaveRow();
 
-    // console.log("defaultRow : ", toSaveRow, defaultRow);
+    // console.log("defaultRow : ", options?.table?.body);
 
+    const inShowShow = options?.table?.body?.showShow;
     const inShowEdit = options?.table?.body?.showEdit;
     const inShowDelete = options?.table?.body?.showDelete;
     const inDeleteType = options?.table?.body?.deleteType;
@@ -69,7 +70,7 @@ const startFunc = ({
         inIsShowHeaderRow: showSearch,
         inShowSerial: showSerial,
         inSerialWidth: serialWidth,
-        inShowActions: showActions,
+        inShowActions: showActions, inShowShow,
         inShowEdit, inShowDelete, inDeleteType, inDeleteIconSize
     });
 

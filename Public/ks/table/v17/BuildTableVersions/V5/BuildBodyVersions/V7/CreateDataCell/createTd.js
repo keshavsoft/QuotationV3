@@ -1,6 +1,8 @@
 const createTd = ({ inValue, inRightAlign, inWidth, inSearchValue,
-    inEnterAsTab, inEvalformula, inEvalToControl, inOnKeyDownType
+    inEnterAsTab, inEvalformula, inEvalToControl, inOnKeyDownType,
+    inShowThousandsSeperator
 }) => {
+
     const td = document.createElement("td");
 
     td.className = "px-4 py-2 border";
@@ -11,24 +13,11 @@ const createTd = ({ inValue, inRightAlign, inWidth, inSearchValue,
     ksTd.ksWidth = inWidth;
     ksTd.ksSearchValue = inSearchValue;
 
+    if (inShowThousandsSeperator) ksTd.setAttribute("ks-showThousandsSeperator", inShowThousandsSeperator);
+
     td.appendChild(ksTd);
 
-    // const k1 = document.createElement("ks-table-body-cell");
-
-    // let footerInput = document.createElement("ks-table-footer-input");
-
-    // if (inOnKeyDownType) footerInput.setAttribute("onKeyDownType", inOnKeyDownType);
-
-    // if (inEnterAsTab) footerInput.setAttribute("enterAsTab", inEnterAsTab);
-
-    // if (inEvalformula) footerInput.setAttribute("evalformula", inEvalformula);
-
-    // if (inEvalToControl) footerInput.setAttribute("evalToControl", inEvalToControl);
-
-    // td.appendChild(footerInput);
-
     return td;
-
 };
 
 export default createTd;

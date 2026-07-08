@@ -8,7 +8,8 @@ import buildTableShell from "../BuilderVersions/V2/buildTableShell.js";
 export const buildFullUI = ({ containerEl, inTableName, inIsDataListNeeded = true,
     inIsTableNeeded = true, inIsShowHeaderRow = false,
     inUiClasses, clearOld = true, inShowSerial, inShowActions,
-    inShowEdit, inShowDelete, inDeleteType, inDeleteIconSize }) => {
+    inShowEdit, inShowDelete, inDeleteType, inDeleteIconSize,
+    inShowShow }) => {
     // console.log("aaaaaaaaaa : ", inShowEdit, inShowDelete, inDeleteType, inDeleteIconSize);
 
     const root = containerEl;
@@ -27,7 +28,7 @@ export const buildFullUI = ({ containerEl, inTableName, inIsDataListNeeded = tru
     if (inIsTableNeeded) {
         const { wrapper } = buildTableShell({
             inTableClassName: inUiClasses?.table?.tableClass,
-            inShowSerial, inShowActions,
+            inShowSerial, inShowActions, inShowShow,
             inShowEdit, inShowDelete, inDeleteType, inDeleteIconSize
         });
 

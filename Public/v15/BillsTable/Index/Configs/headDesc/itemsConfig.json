@@ -134,7 +134,8 @@
                             "tdClass": "px-1 py-1 border"
                         }
                     }
-                }
+                },
+                "showThousandsSeperator": true
             },
             "isConsider": true,
             "verticalConfig": {
@@ -216,7 +217,8 @@
                             "tdClass": "px-1 py-1 border"
                         }
                     }
-                }
+                },
+                "showThousandsSeperator": true
             },
             "isConsider": true,
             "verticalConfig": {

@@ -1,5 +1,5 @@
 const buildTableShell = ({ inTableClassName = "table bg-white table-fixed w-[1000px]",
-    inShowSerial, inShowActions,
+    inShowSerial, inShowActions, inShowShow,
     inShowEdit, inShowDelete, inDeleteType, inDeleteIconSize
 }) => {
 
@@ -22,6 +22,8 @@ const buildTableShell = ({ inTableClassName = "table bg-white table-fixed w-[100
     tbody.setAttribute("ks-showSerial", inShowSerial);
     tbody.setAttribute("ks-showEdit", inShowEdit);
     tbody.setAttribute("ks-showDelete", inShowDelete);
+    tbody.setAttribute("ks-showShow", inShowShow);
+
     tbody.setAttribute("ks-deleteType", inDeleteType);
     tbody.setAttribute("ks-deleteIconSize", inDeleteIconSize);
 

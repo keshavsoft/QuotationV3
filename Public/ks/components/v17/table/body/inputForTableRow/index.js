@@ -6,7 +6,8 @@ class KsTableBodyCell extends HTMLElement {
         const rightAlign = this.ksRightAlign;
         const width = this.ksWidth;
         const searchValue = this.ksSearchValue;
-        const showThousandsSeperator = this.getAttribute("showThousandsSeperator") ?? false;
+        const showThousandsSeperator = this.getAttribute("ks-showThousandsSeperator") ?? false;
+        // console.log("showThousandsSeperator : ", showThousandsSeperator);
 
         const closestTd = this.closest("td");
 
