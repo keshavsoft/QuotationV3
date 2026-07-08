@@ -17,9 +17,11 @@ const extractFooterData = (currentTarget) => {
     return data;
 };
 
-const attachClickListener = ({ htmlButtonElement, inOnSaveFunc }) => {
-    htmlButtonElement.onclick = (e) => {
-        e.preventDefault();
+const attachClickListener = ({ htmlElement, inOnSaveFunc }) => {
+    htmlElement.onclick = (e) => {
+        if (e && typeof e.preventDefault === "function") {
+            e.preventDefault();
+        }
 
         const currentTarget = e.currentTarget;
         const tableFooter = currentTarget.closest("tfoot");

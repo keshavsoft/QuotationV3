@@ -9,7 +9,7 @@ class KsSaveButton extends HTMLElement {
         this.appendChild(btn);
 
         attachClickListener({
-            htmlButtonElement: btn,
+            htmlElement: this,
             inOnSaveFunc: (args) => {
                 if (typeof this.onSave === "function") {
                     this.onSave(args);
