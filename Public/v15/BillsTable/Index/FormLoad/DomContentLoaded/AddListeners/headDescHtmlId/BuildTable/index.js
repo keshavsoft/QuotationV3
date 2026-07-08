@@ -19,9 +19,9 @@ const getHeadData = async () => {
 
 const addTimeSpan = (rawData) => {
     const now = new Date();
-
+// debugger
     const processedData = Array.isArray(rawData) ? rawData.map((row) => {
-        console.log("dddddddd L ", row.DateTime);
+        
 
         if (!row.DateTime) {
             return { ...row, DateTimeDiff: "" };

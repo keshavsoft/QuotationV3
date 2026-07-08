@@ -162,10 +162,10 @@
             "field": "DateTimeDiff",
             "cellConfig": {
                 "width": "200px",
-                "rightAlign": true,
-                "showThousandsSeperator": true,
+                "rightAlign": false,
+                "showThousandsSeperator": false,
                 "tableFooter": {
-                    "showTotal": true
+                    "showTotal": false
                 }
             },
             "uiClasses": {
