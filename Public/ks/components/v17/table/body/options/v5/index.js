@@ -11,12 +11,16 @@ import render from "./render.js";
 
 class KsTableBodyOptionsCell extends HTMLElement {
     connectedCallback() {
-        const localOptions = getOptions({ inElement: this });
+        const closestBody = this.closest("tbody");
+
+        const localOptions = getOptions({
+            inElement: this,
+            inClosestBody: closestBody
+        });
 
         applyStyle({ inElement: this });
 
-        const closestBody = this.closest("tbody");
-        console.log("closestBody : ", closestBody);
+        // console.log("localOptions : ", localOptions);
 
         const editBtn = localOptions.showEdit ? createEditButton() : null;
         const deleteBtn = localOptions.showDelete ? createDeleteButton(localOptions) : null;

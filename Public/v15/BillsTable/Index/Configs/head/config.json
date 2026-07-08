@@ -62,10 +62,10 @@
     "columnsConfig": [
         {
             "columnName": "ParentPk",
-            "title": "ParentPk",
+            "title": "pk",
             "field": "ParentPk",
             "cellConfig": {
-                "width": "400px",
+                "width": "50px",
                 "tdClass": "px-4 py-2 border"
             },
             "dataListSource": "LedgerName.LedgerName",
@@ -83,6 +83,26 @@
                     "enterAsTab": true,
                     "isNotEmpty": true
                 }
+            }
+        },
+        {
+            "columnName": "LedgerName",
+            "field": "LedgerName",
+            "title": "LedgerName",
+            "primary": true,
+            "isVisible": true,
+            "cellConfig": {
+                "width": "150px"
+            }
+        },
+        {
+            "columnName": "InvoiceDate",
+            "field": "InvoiceDate",
+            "title": "InvoiceDate",
+            "primary": true,
+            "isVisible": true,
+            "cellConfig": {
+                "width": "100px"
             }
         },
         {
@@ -134,16 +154,6 @@
                     "enterAsTab": false,
                     "isNotEmpty": false
                 }
-            }
-        },
-        {
-            "columnName": "pk",
-            "field": "pk",
-            "title": "pk",
-            "primary": true,
-            "isVisible": true,
-            "cellConfig": {
-                "width": "50px"
             }
         }
     ],

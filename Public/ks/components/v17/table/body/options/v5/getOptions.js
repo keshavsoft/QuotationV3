@@ -14,11 +14,24 @@ const getDeleteType = (el) => {
     return "both";
 };
 
-const getShowEdit = (el, onEditFunc) => {
-    if (el.ksShowEdit !== undefined) return el.ksShowEdit;
-    if (el.hasAttribute("ks-show-edit")) return el.getAttribute("ks-show-edit") !== "false";
-    if (el.hasAttribute("show-edit")) return el.getAttribute("show-edit") !== "false";
-    return !!onEditFunc;
+const getShowEdit = ({ inElement, inOnEditFunc, inClosestBody }) => {
+    // console.log("aaaaaaaa : ", inElement, inClosestBody);
+
+    if (inClosestBody.hasAttribute("ks-show-edit")) return inClosestBody.getAttribute("ks-show-edit") !== "false";
+    if (inElement.ksShowEdit !== undefined) return inElement.ksShowEdit;
+    if (inElement.hasAttribute("ks-show-edit")) return inElement.getAttribute("ks-show-edit") !== "false";
+    if (inElement.hasAttribute("show-edit")) return inElement.getAttribute("show-edit") !== "false";
+    return !!inOnEditFunc;
+};
+
+const getShowShow = ({ inElement, inOnEditFunc, inClosestBody }) => {
+    // console.log("aaaaaaaa : ", inClosestBody.hasAttribute("ks-showshow"));
+
+    if (inClosestBody && inClosestBody.hasAttribute("ks-showshow")) return inClosestBody.getAttribute("ks-showshow") !== "false";
+    if (inElement.ksShowEdit !== undefined) return inElement.ksShowEdit;
+    if (inElement.hasAttribute("ks-show-edit")) return inElement.getAttribute("ks-show-edit") !== "false";
+    if (inElement.hasAttribute("show-edit")) return inElement.getAttribute("show-edit") !== "false";
+    return !!inOnEditFunc;
 };
 
 const getShowDelete = (el, onDeleteFunc) => {
@@ -44,7 +57,7 @@ const getDeleteIconSize = (el) => {
     return "medium";
 };
 
-const getOptions = ({ inElement }) => {
+const getOptions = ({ inElement, inClosestBody }) => {
     return {
         item: inElement.ksItem,
         index: inElement.ksIndex,
@@ -53,9 +66,16 @@ const getOptions = ({ inElement }) => {
         onUpdateFunc: inElement.ksOnUpdateFunc,
         onShowFunc: inElement.ksOnShowFunc,
         deleteType: getDeleteType(inElement),
-        showEdit: getShowEdit(inElement, inElement.ksOnEditFunc),
+        showEdit: getShowEdit({
+            inElement, inOnEditFunc: inElement.ksOnEditFunc,
+            inClosestBody
+        }),
         showDelete: getShowDelete(inElement, inElement.ksOnDeleteFunc),
-        deleteIconSize: getDeleteIconSize(inElement)
+        deleteIconSize: getDeleteIconSize(inElement),
+        showShow: getShowShow({
+            inElement, inOnEditFunc: inElement.ksOnEditFunc,
+            inClosestBody
+        })
     };
 };
 
