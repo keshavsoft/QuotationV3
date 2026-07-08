@@ -1,4 +1,11 @@
-import { startFunc as createSaveButton } from "./SaveButton/v6/start.js";
+// import { startFunc as createSaveButton } from "../../../../../../../../components/v18/saveButton/start.js";
+
+const startFunc = ({ inOnSaveFunc }) => {
+    const customEl = document.createElement("ks-save-button");
+    customEl.onSave = inOnSaveFunc;
+
+    return customEl;
+};
 
 const appendFooterSaveCell = ({ inOnSaveFunc }) => {
     // debugger
@@ -8,9 +15,10 @@ const appendFooterSaveCell = ({ inOnSaveFunc }) => {
     td.className = "px-4 py-2 border";
     td.style.width = "100px";
 
-    const btn = createSaveButton({ inOnSaveFunc });
+    const customEl = document.createElement("ks-save-button");
+    customEl.onSave = inOnSaveFunc;
 
-    td.appendChild(btn);
+    td.appendChild(customEl);
     // debugger
     return td;
 };
