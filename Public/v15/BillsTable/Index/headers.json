@@ -49,6 +49,16 @@
                 "svgDivClass": "size-10"
             },
             "svgName": "arrowDown"
+        },
+        {
+            "text": "Descend",
+            "id": "headDescHtmlId",
+            "icon": [],
+            "uiClasses": {
+                "aClass": "",
+                "svgDivClass": "size-10"
+            },
+            "svgName": "arrowDown"
         }
     ]
 }

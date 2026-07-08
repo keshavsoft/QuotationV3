@@ -41,9 +41,6 @@ const startFunc = async () => {
 
     config.defaults.data = await clubData();
 
-    console.log("cccccc : ", config.defaults.data);
-
-
     ksTable1 = new window.ks.classes.tableShowOnly(config);
     ksTable1.initShowTable();
 

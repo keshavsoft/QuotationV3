@@ -17,7 +17,7 @@ class KSAiTableShowOnly {
 
         const { containerId, options, endPoints, columnsConfig,
             uiClasses, callbacks, defaults } = config;
-        console.log("defaults : ", defaults);
+        // console.log("callbacks---------- : ", callbacks);
 
         this.config = config;
         this.containerEl = document.getElementById(containerId);
