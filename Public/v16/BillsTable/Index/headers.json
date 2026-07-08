@@ -1,0 +1,75 @@
+{
+    "uiClasses": {
+        "ulClass1": "[&_svg]:size-6",
+        "navClass": "bg-red-800 text-white",
+        "brandClass1": "text-sm"
+    },
+    "title": {
+        "text": "Show All",
+        "htmlId": "htmlId"
+    },
+    "items": [
+        {
+            "text": "Create",
+            "id": "createHtmlId",
+            "icon": [],
+            "uiClasses": {
+                "aClass": "",
+                "svgDivClass": "size-10"
+            },
+            "svgName": "squaresPlus",
+            "href1": "../both/index.html"
+        },
+        {
+            "text": "ShowAll",
+            "id": "ShowAllHtmlId",
+            "icon": [],
+            "uiClasses": {
+                "aClass": "",
+                "svgDivClass": "size-10"
+            },
+            "svgName": "tableCells"
+        },
+        {
+            "text": "Amount",
+            "id": "withAmountHtmlId",
+            "icon": [],
+            "uiClasses": {
+                "aClass": "",
+                "svgDivClass": "size-10"
+            },
+            "svgName": "arrowDown"
+        },
+        {
+            "text": "Head",
+            "id": "headHtmlId",
+            "icon": [],
+            "uiClasses": {
+                "aClass": "",
+                "svgDivClass": "size-10"
+            },
+            "svgName": "arrowDown"
+        },
+        {
+            "text": "Descend",
+            "id": "headDescHtmlId",
+            "icon": [],
+            "uiClasses": {
+                "aClass": "",
+                "svgDivClass": "size-10"
+            },
+            "svgName": "arrowDown"
+        },
+        {
+            "text": "Print",
+            "id": "PrintHtmlId",
+            "icon": [],
+            "uiClasses": {
+                "aClass": "",
+                "svgDivClass": "size-10"
+            },
+            "svgName": "printer",
+            "href": "javascript:window.print()"
+        }
+    ]
+}

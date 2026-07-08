@@ -1,0 +1,75 @@
+{
+    "uiClasses": {
+        "ulClass1": "[&_svg]:size-6",
+        "navClass1": "bg-red-800 text-white",
+        "brandClass1": "text-sm"
+    },
+    "title": {
+        "text": "Quotations",
+        "htmlId": "htmlId"
+    },
+    "items": [
+        {
+            "text": "Create",
+            "id": "verticalHtmlId",
+            "icon": [],
+            "uiClasses": {
+                "aClass": "",
+                "svgDivClass": "size-10"
+            },
+            "svgName": "squaresPlus"
+        },
+        {
+            "text": "ShowAll",
+            "id": "ShowAllHtmlId",
+            "icon": [],
+            "uiClasses": {
+                "aClass": "",
+                "svgDivClass": "size-10"
+            },
+            "svgName": "tableCells"
+        },
+        {
+            "text": "Last",
+            "id": "LastHtmlId",
+            "icon": [],
+            "uiClasses": {
+                "aClass": "",
+                "svgDivClass": "size-10"
+            },
+            "svgName": "arrowDown"
+        },
+        {
+            "text": "Find",
+            "id": "FindHtmlId",
+            "icon": [],
+            "uiClasses": {
+                "aClass": "",
+                "svgDivClass": "size-10"
+            },
+            "svgName": "search"
+        },
+           {
+            "text": "Dashboard",
+            "id": "DashboardHtmlId",
+            "icon": [],
+            "uiClasses": {
+                "aClass": "",
+                "svgDivClass": "size-10"
+            },
+            "svgName": "squaresPlus",
+            "href":"../BillsTable/index.html"
+        },
+        {
+            "text": "Print",
+            "id": "PrintHtmlId",
+            "icon": [],
+            "uiClasses": {
+                "aClass": "",
+                "svgDivClass": "size-10"
+            },
+            "svgName": "printer",
+            "href": "javascript:window.print()"
+        }
+    ]
+}
