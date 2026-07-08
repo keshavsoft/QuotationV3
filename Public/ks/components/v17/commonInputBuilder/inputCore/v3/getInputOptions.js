@@ -124,7 +124,7 @@ const getInputOptions = ({ inElement }) => {
     const type =
         getAttr(inElement, ["ksType", "ks-type", "type"]) ||
         defaultOptions.type;
-    console.log("bbbbbbbbbyyyyy : ", getAttr(inElement, ["enterAsTab"]));
+    // console.log("bbbbbbbbbyyyyy : ", getAttr(inElement, ["enterAsTab"]));
 
     const enterAsTab = getAttr(inElement, ["enterAsTab"]) === "true" ||
         defaultOptions.enterAsTab;

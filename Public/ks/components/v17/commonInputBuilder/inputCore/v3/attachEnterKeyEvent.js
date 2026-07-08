@@ -14,7 +14,7 @@ const startFunc = (input) => {
             currentInput.closest("body");
 
         if (tr) {
-            const inputs = [...tr.querySelectorAll("input")];
+            const inputs = [...tr.querySelectorAll("input, button")].filter(el => el.tabIndex !== -1 && !el.disabled);
 
             const currentIndex = inputs.indexOf(currentInput);
 
@@ -23,7 +23,9 @@ const startFunc = (input) => {
 
             if (nextInput) {
                 nextInput.focus();
-                nextInput.select();
+                if (typeof nextInput.select === "function") {
+                    nextInput.select();
+                }
             };
         };
     });
