@@ -33,8 +33,6 @@ const renderForm = ({ element, options }) => {
     const isModeDefined = inVerticalOptions ? (("isEdit" in inVerticalOptions) || ("isCreate" in inVerticalOptions)) : false;
 
     const isFormDisabled = localIsFormDisabled({ isModeDefined, isEdit, isCreate, inIsDisabled });
-    // debugger
-
 
     const form = createForm({ uiClasses });
 

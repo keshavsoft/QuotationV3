@@ -6,6 +6,7 @@ export const buildButton = ({
 
     button.className = inClass;
     button.textContent = inText;
+    button.setAttribute("type", "button");
 
     return button;
 };
