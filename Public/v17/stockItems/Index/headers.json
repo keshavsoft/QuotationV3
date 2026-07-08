@@ -1,0 +1,34 @@
+{
+    "uiClasses": {
+        "ulClass1": "[&_svg]:size-6",
+        "navClass": "bg-blue-800 text-white",
+        "brandClass1": "text-sm"
+    },
+    "title": {
+        "text": "StockItems",
+        "htmlId": "htmlId"
+    },
+    "items": [
+        {
+            "text": "ShowAll",
+            "id": "ShowAllHtmlId",
+            "icon": [],
+            "uiClasses": {
+                "aClass": "",
+                "svgDivClass": "size-10"
+            },
+            "svgName": "tableCells"
+        },
+        {
+            "text": "Print",
+            "id": "PrintHtmlId",
+            "icon": [],
+            "uiClasses": {
+                "aClass": "",
+                "svgDivClass": "size-10"
+            },
+            "svgName": "printer",
+            "href": "javascript:window.print()"
+        }
+    ]
+}
