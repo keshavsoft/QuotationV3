@@ -1,4 +1,7 @@
-const createTd = ({ inValue, inRightAlign, inWidth, inSearchValue }) => {
+const createTd = ({ inValue, inRightAlign, inWidth, inSearchValue,
+    inShowThousandsSeperator
+}) => {
+
     const td = document.createElement("td");
 
     td.className = "px-4 py-2 border";
@@ -8,6 +11,8 @@ const createTd = ({ inValue, inRightAlign, inWidth, inSearchValue }) => {
     ksTd.ksRightAlign = inRightAlign;
     ksTd.ksWidth = inWidth;
     ksTd.ksSearchValue = inSearchValue;
+    // console.log("inShowThousandsSeperator : ", inShowThousandsSeperator);
+    if (inShowThousandsSeperator) ksTd.setAttribute("showThousandsSeperator", inShowThousandsSeperator);
 
     td.appendChild(ksTd);
 

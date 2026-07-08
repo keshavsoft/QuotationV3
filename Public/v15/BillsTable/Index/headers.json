@@ -18,7 +18,7 @@
                 "svgDivClass": "size-10"
             },
             "svgName": "squaresPlus",
-            "href":"../both/index.html"
+            "href": "../both/index.html"
         },
         {
             "text": "ShowAll",
@@ -33,6 +33,16 @@
         {
             "text": "Amount",
             "id": "withAmountHtmlId",
+            "icon": [],
+            "uiClasses": {
+                "aClass": "",
+                "svgDivClass": "size-10"
+            },
+            "svgName": "arrowDown"
+        },
+        {
+            "text": "Head",
+            "id": "headHtmlId",
             "icon": [],
             "uiClasses": {
                 "aClass": "",

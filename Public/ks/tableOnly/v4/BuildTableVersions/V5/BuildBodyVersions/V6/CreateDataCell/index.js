@@ -12,11 +12,12 @@ const createDataCell = ({
 
     const width =
         inCellConfig.width;
-    // console.log("gggggggggg : ", value, searchValue, inCellConfig);
+    // console.log("gggggggggg : ", inCellConfig);
 
     const td = createTd({
         inValue: value, inRightAlign: inCellConfig.rightAlign,
-        inWidth: width, inSearchValue: searchValue
+        inWidth: width, inSearchValue: searchValue,
+        inShowThousandsSeperator: inCellConfig.showThousandsSeperator
     });
 
     return td;

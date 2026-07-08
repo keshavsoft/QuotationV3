@@ -67,7 +67,7 @@ const startFunc = ({
         inTableBody: tableBody,
         inData: data
     });
-    // debugger;
+    debugger;
     if (showFooter) {
         buildFooter({
             inVisibleColumnsConfig: visibleColumnsConfig,

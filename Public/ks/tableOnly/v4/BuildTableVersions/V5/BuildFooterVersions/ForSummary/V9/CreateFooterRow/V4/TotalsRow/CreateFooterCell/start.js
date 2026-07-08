@@ -5,7 +5,7 @@ const startFunc = ({
     inCellConfig = {},
     inData
 }) => {
-    console.log("inCellConfig : ", inCellConfig);
+    // console.log("inCellConfig : ", inCellConfig);
 
     const showTotal =
         inCellConfig?.tableFooter?.showTotal || false;
