@@ -1,6 +1,6 @@
 {
     "containerId": "kSHeadContainer",
-    "tableName": "Quotations",
+    "tableName": "Show All",
     "mode": "create",
     "layout": {
         "verticalPosition": "top",
@@ -8,7 +8,7 @@
     },
     "options": {
         "firstRow": {
-            "showSearch": false
+            "showSearch": true
         },
         "enabledSections": [
             "vertical",
@@ -17,15 +17,15 @@
         ],
         "table": {
             "showFooterRows": false,
-            "showDataList": true,
-            "showSave": true,
-            "showActions": true,
+            "showDataList": false,
+            "showSave": false,
+            "showActions": false,
             "showSerial": true,
             "showFooter": false,
             "footer": {},
             "body": {
-                "showEdit": true,
-                "showDelete": true,
+                "showEdit": false,
+                "showDelete": false,
                 "deleteType": "icon",
                 "deleteIconSize": "xl"
             }
@@ -48,7 +48,7 @@
         "create": "/Api/v5/BillsTable/insertWithMeta",
         "update": "",
         "delete": "/Api/v5/BillsTable/del",
-        "read": "/Api/V5/BillsTable/ShowAll",
+        "read": "/Api/v6/StockItems/ShowAll",
         "read1": "/Api/V1/ItemsTable/ShowAll",
         "find": "",
         "filter": "",
@@ -57,14 +57,14 @@
     },
     "columnsConfig": [
         {
-            "columnName": "LedgerName",
-            "title": "LedgerName",
-            "field": "LedgerName",
+            "columnName": "StockItemName",
+            "title": "StockItemName",
+            "field": "StockItemName",
             "cellConfig": {
                 "width": "400px",
                 "tdClass": "px-4 py-2 border"
             },
-            "dataListSource": "LedgerName.LedgerName",
+            "dataListSource": "",
             "tableFooterDataListShow": true,
             "uiClasses": {
                 "form": {
@@ -82,9 +82,9 @@
             }
         },
         {
-            "columnName": "InvoiceDate",
-            "title": "InvoiceDate",
-            "field": "InvoiceDate",
+            "columnName": "StockBaseUnits",
+            "title": "StockBaseUnits",
+            "field": "StockBaseUnits",
             "cellConfig": {
                 "width": "150px"
             },
@@ -103,10 +103,10 @@
             "isConsider": true
         },
         {
-            "columnName": "PartyGSTIN",
-            "title": "PartyGSTIN",
-            "field": "PartyGSTIN",
-            "dataListFillName": "PartyGSTIN",
+            "columnName": "Uom",
+            "title": "Uom",
+            "field": "Uom",
+            "dataListFillName": "",
             "cellConfig": {
                 "width": "200px"
             },
@@ -128,7 +128,7 @@
             "field": "pk",
             "title": "pk",
             "primary": true,
-            "isVisible": true,
+            "isVisible": false,
             "cellConfig": {
                 "width": "50px"
             }
