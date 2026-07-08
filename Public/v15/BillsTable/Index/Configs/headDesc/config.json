@@ -110,7 +110,7 @@
             "title": "Qty",
             "field": "Qty",
             "cellConfig": {
-                "width": "150px",
+                "width": "100px",
                 "rightAlign": true,
                 "showThousandsSeperator": true,
                 "tableFooter": {
@@ -136,7 +136,7 @@
             "title": "Amount",
             "field": "Amount",
             "cellConfig": {
-                "width": "200px",
+                "width": "150px",
                 "rightAlign": true,
                 "showThousandsSeperator": true,
                 "tableFooter": {
@@ -158,10 +158,10 @@
         },
         {
             "columnName": "DateTimeDiff",
-            "title": "DateTimeDiff",
+            "title": "TimeSpan",
             "field": "DateTimeDiff",
             "cellConfig": {
-                "width": "200px",
+                "width": "100px",
                 "rightAlign": false,
                 "showThousandsSeperator": false,
                 "tableFooter": {

@@ -28,6 +28,7 @@
             "body": {
                 "showEdit": true,
                 "showDelete": true,
+                "showShow": false,
                 "deleteType": "icon",
                 "deleteIconSize": "xl"
             }

@@ -59,6 +59,17 @@
                 "svgDivClass": "size-10"
             },
             "svgName": "arrowDown"
+        },
+        {
+            "text": "Print",
+            "id": "PrintHtmlId",
+            "icon": [],
+            "uiClasses": {
+                "aClass": "",
+                "svgDivClass": "size-10"
+            },
+            "svgName": "printer",
+            "href": "javascript:window.print()"
         }
     ]
 }
