@@ -1,15 +1,10 @@
-import { createButton } from "./createButton.js";
-import { attachClickListener } from "./attachClickListener.js";
+import "./index.js";
 
 const startFunc = ({ inOnSaveFunc }) => {
-    const btn = createButton();
+    const customEl = document.createElement("ks-save-button");
+    customEl.onSave = inOnSaveFunc;
 
-    attachClickListener({
-        htmlButtonElement: btn,
-        inOnSaveFunc
-    });
-
-    return btn;
+    return customEl;
 };
 
 export { startFunc };
