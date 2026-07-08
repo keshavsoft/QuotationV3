@@ -27,8 +27,9 @@
                 "showTotals": true
             },
             "body": {
-                "showEdit": true,
-                "showDelete": true,
+                "showEdit": false,
+                "showDelete": false,
+                "showShow": true,
                 "deleteType": "icon",
                 "deleteIconSize": "xl"
             }

@@ -29,6 +29,7 @@ const startFunc = ({
     const optionsWidth = options.table.optionsWidth;
     const footerOptions = options.table?.footer;
 
+    const inShowShow = options?.table?.body?.showShow;
     const inShowEdit = options?.table?.body?.showEdit;
     const inShowDelete = options?.table?.body?.showDelete;
     const inDeleteType = options?.table?.body?.deleteType;
@@ -43,7 +44,7 @@ const startFunc = ({
         inIsShowHeaderRow: showSearch,
         inShowSerial: showSerial,
         inSerialWidth: serialWidth,
-        inShowActions: showActions,
+        inShowActions: showActions, inShowShow,
         inShowEdit, inShowDelete, inDeleteType, inDeleteIconSize
     });
 
@@ -67,7 +68,7 @@ const startFunc = ({
         inTableBody: tableBody,
         inData: data
     });
-    debugger;
+    // debugger;
     if (showFooter) {
         buildFooter({
             inVisibleColumnsConfig: visibleColumnsConfig,
