@@ -1,5 +1,5 @@
-import { createButton } from "./createButton.js";
-import { attachClickListener } from "./attachClickListener.js";
+import { createButton } from "./create/createButton.js";
+import { attachClickListener } from "./listeners/attachClickListener.js";
 
 class KsSaveButton extends HTMLElement {
     connectedCallback() {

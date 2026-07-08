@@ -1,4 +1,4 @@
-import checkFooterInputsNonEmpty from "./checkFooterInputsNonEmpty.js";
+import checkFooterInputsNonEmpty from "../validation/checkFooterInputsNonEmpty.js";
 
 /**
  * Helper to query and extract all input names and values from the closest footer element.

@@ -1,8 +1,8 @@
-import isFocusableInput from "./isFocusableInput.js";
-import isRequiredInput from "./isRequiredInput.js";
-import resetCustomValidity from "./resetCustomValidity.js";
-import findFirstEmptyInput from "./findFirstEmptyInput.js";
-import reportInvalidInput from "./reportInvalidInput.js";
+import isFocusableInput from "./helpers/isFocusableInput.js";
+import isRequiredInput from "./helpers/isRequiredInput.js";
+import resetCustomValidity from "./helpers/resetCustomValidity.js";
+import findFirstEmptyInput from "./helpers/findFirstEmptyInput.js";
+import reportInvalidInput from "./helpers/reportInvalidInput.js";
 
 const startFunc = ({ inTableFooter }) => {
     if (!inTableFooter) return true;
