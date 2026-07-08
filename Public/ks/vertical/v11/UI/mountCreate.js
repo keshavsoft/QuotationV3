@@ -20,7 +20,7 @@ const startFunc = ({
     const showSearch = options?.firstRow?.showSearch;
 
     const findDataFromParams = dataStore.getFindFromParams();
-debugger
+// debugger
     const isFormDisabled = options.vertical.isFormDisabled;
     const showSaveButton = options.vertical.showSaveButton;
     const verticalOptions = options.vertical;

@@ -1,6 +1,6 @@
 const createTextInput = ({
     type, inShowDataList,
-    inPlaceholder,
+    inPlaceholder, tabIndex,
     name, isNotEmpty, inDataListSource,
     inClassName, inputClassName, inputClass
 }) => {
@@ -22,6 +22,10 @@ const createTextInput = ({
 
     if (inDataListSource) {
         localInput.setAttribute("list", `${name}List`);
+    };
+
+    if (tabIndex && tabIndex !== "undefined") {
+        localInput.setAttribute("tabindex", tabIndex);
     };
 
     return localInput;

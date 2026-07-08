@@ -141,6 +141,10 @@ const getInputOptions = ({ inElement }) => {
         getAttr(inElement, ["ksInValue"]) ||
         defaultOptions.ksInValue;
 
+    const tabIndex = getAttr(inElement, ["tabIndex"]) ||
+        defaultOptions.ksTabIndex;
+    // console.log("tabIndex : ", tabIndex);
+
     return {
         inPlaceholder: placeholder,
         name: localName,
@@ -162,7 +166,8 @@ const getInputOptions = ({ inElement }) => {
         enterAsTab,
         evalformula,
         evalToControl,
-        defaultValue
+        defaultValue,
+        tabIndex
     };
 };
 

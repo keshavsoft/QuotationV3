@@ -1,17 +1,19 @@
-export const createDefaultInput = ({ inCol, inDefaultRow, inDataStore, inDataListFillName, inType }) => {
+export const createDefaultInput = ({ inCol, inDefaultRow, inDataStore,
+    inDataListFillName, inType, inEnterAsTab }) => {
+
     const col = inCol.columnName;
     const row = document.createElement("ks-input");
-    // console.log("row : ", row);
 
     const defaultValue = col in inDefaultRow ? inDefaultRow[col] : "";
 
     if (window.ksShowLogTree.components.vertical.htmlForm) console.log("window.ksShowLogTree.components.vertical.htmlForm - createDefaultInput : ", inDefaultRow, defaultValue, row, defaultValue);
 
-    // if (window.ksShowLogTree.vertical) console.log("window.ksShowLogTree.vertical - row : ", inDefaultRow, defaultValue, row);
-
     row.setAttribute("label", inCol.title);
     row.setAttribute("ksName", col);
     row.setAttribute("source", col);
+    row.setAttribute("tabIndex", inCol.tabIndex);
+
+    // console.log("bbbbbbbbbb : ", inEnterAsTab);
 
     if (inType !== undefined) {
         row.setAttribute("type", inType);
@@ -32,7 +34,11 @@ export const createDefaultInput = ({ inCol, inDefaultRow, inDataStore, inDataLis
 
     if (inDataListFillName) {
         row.setAttribute("ksDataListFillName", inDataListFillName);
-    }
+    };
+
+    if (inEnterAsTab) {
+        row.setAttribute("enterAsTab", inEnterAsTab);
+    };
 
     row.dataStore = inDataStore;
     // inputs[col] = row;

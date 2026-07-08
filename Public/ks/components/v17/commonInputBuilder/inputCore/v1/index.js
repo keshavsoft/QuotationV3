@@ -43,6 +43,7 @@ class KsTableFooterInputCore extends HTMLElement {
             inInput: localInput,
             inDataListFillName: localOptions.inDataListFillName
         });
+        console.log("localOptions : ", localOptions);
 
         if (localOptions.enterAsTab) {
             attachEnterKeyEvent(localInput);

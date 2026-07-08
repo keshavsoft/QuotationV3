@@ -1,7 +1,7 @@
 const createTextInput = ({
     type,
     inPlaceholder,
-    name,
+    name, tabIndex,
     inClassName, inputClassName, inputClass
 }) => {
     const localInput =
@@ -11,7 +11,11 @@ const createTextInput = ({
     localInput.placeholder = inPlaceholder;
     localInput.name = name;
     localInput.setAttribute("class", inputClass || inputClassName || inClassName);
-    // localInput.setAttribute("list", "aaaaaaaaaaa");
+    // console.log("cccccccc : ", tabIndex);
+
+    if (tabIndex && tabIndex !== "undefined") {
+        localInput.setAttribute("tabindex", tabIndex);
+    };
 
     return localInput;
 };
