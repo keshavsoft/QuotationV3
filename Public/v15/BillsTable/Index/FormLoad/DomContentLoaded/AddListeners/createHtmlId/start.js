@@ -1,7 +1,7 @@
 import { clickFuncToRun } from "./clickFunc.js";
 
 const funcToRun = () => {
-    const htmlElement = document.getElementById('verticalHtmlId');
+    const htmlElement = document.getElementById('createHtmlId');
     // debugger;
     htmlElement.addEventListener("click", (event) =>
         clickFuncToRun({ inCurrentTarget: event.currentTarget })

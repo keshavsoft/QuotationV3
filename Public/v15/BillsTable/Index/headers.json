@@ -11,14 +11,14 @@
     "items": [
         {
             "text": "Create",
-            "id": "verticalHtmlId",
+            "id": "createHtmlId",
             "icon": [],
             "uiClasses": {
                 "aClass": "",
                 "svgDivClass": "size-10"
             },
             "svgName": "squaresPlus",
-            "href": "../both/index.html"
+            "href1": "../both/index.html"
         },
         {
             "text": "ShowAll",

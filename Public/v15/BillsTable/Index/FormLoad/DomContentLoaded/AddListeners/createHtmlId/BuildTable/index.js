@@ -1,7 +1,7 @@
 import { getKSTableConfig } from "./getKSTableConfig.js";
 
 const itemsTableConfig = async (inPk) => {
-    const config = await fetch("./Index/Configs/vertical/itemsConfig.json");
+    const config = await fetch("./Index/Configs/create/itemsConfig.json");
     // debugger;
     const configJson = await config.json();
     // debugger;

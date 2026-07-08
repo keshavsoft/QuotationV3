@@ -1,5 +1,5 @@
 export const getKSTableConfig = async () => {
-    const config = await fetch("./Index/Configs/vertical/config.json");
+    const config = await fetch("./Index/Configs/create/config.json");
     // debugger;
     const configJson = await config.json();
 
