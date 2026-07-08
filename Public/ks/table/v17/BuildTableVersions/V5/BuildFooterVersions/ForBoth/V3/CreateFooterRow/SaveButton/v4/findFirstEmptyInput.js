@@ -1,21 +1,14 @@
 const findFirstEmptyInput = (inputs) => {
-    const firstEmptyInput = inputs.find((input) => {
-        console.log("bbbbbbbb : ", input.type);
+    return inputs.find((input) => {
+        const type = input.type?.toLowerCase();
+
+        if (type === "number") {
+            const num = Number(input.value);
+            return isNaN(num) || num <= 0;
+        }
 
         return input.value.trim() === "";
     });
-
-    return firstEmptyInput;
-};
-
-const findFirstEmptyInput1 = (inputs) => {
-    const firstEmptyInput = inputs.find((input) => {
-        console.log("bbbbbbbb : ", input.type);
-
-        return input.value.trim() === "";
-    });
-
-    return firstEmptyInput;
 };
 
 export default findFirstEmptyInput;
