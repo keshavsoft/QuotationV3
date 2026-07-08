@@ -155,6 +155,31 @@
                     "isNotEmpty": false
                 }
             }
+        },
+        {
+            "columnName": "DateTimeDiff",
+            "title": "DateTimeDiff",
+            "field": "DateTimeDiff",
+            "cellConfig": {
+                "width": "200px",
+                "rightAlign": true,
+                "showThousandsSeperator": true,
+                "tableFooter": {
+                    "showTotal": true
+                }
+            },
+            "uiClasses": {
+                "form": {
+                    "rowClass": "flex items-center space-x-4 w-1/2"
+                }
+            },
+            "isConsider": true,
+            "tableConfig": {
+                "footerConfig": {
+                    "enterAsTab": false,
+                    "isNotEmpty": false
+                }
+            }
         }
     ],
     "defaults": {

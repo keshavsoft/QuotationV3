@@ -14,15 +14,37 @@ const aggConfig = {
     max: {
         init: -Infinity,
         update: (accVal, currentVal) => {
-            const val = Number(currentVal);
-            return !isNaN(val) ? Math.max(accVal, val) : accVal;
+            if (accVal === -Infinity) return currentVal;
+            if (currentVal === undefined || currentVal === null) return accVal;
+
+            let valAcc = Number(accVal);
+            let valCur = Number(currentVal);
+
+            if (isNaN(valAcc)) valAcc = Date.parse(accVal);
+            if (isNaN(valCur)) valCur = Date.parse(currentVal);
+
+            if (!isNaN(valAcc) && !isNaN(valCur)) {
+                return valCur > valAcc ? currentVal : accVal;
+            }
+            return String(currentVal) > String(accVal) ? currentVal : accVal;
         }
     },
     min: {
         init: Infinity,
         update: (accVal, currentVal) => {
-            const val = Number(currentVal);
-            return !isNaN(val) ? Math.min(accVal, val) : accVal;
+            if (accVal === Infinity) return currentVal;
+            if (currentVal === undefined || currentVal === null) return accVal;
+
+            let valAcc = Number(accVal);
+            let valCur = Number(currentVal);
+
+            if (isNaN(valAcc)) valAcc = Date.parse(accVal);
+            if (isNaN(valCur)) valCur = Date.parse(currentVal);
+
+            if (!isNaN(valAcc) && !isNaN(valCur)) {
+                return valCur < valAcc ? currentVal : accVal;
+            }
+            return String(currentVal) < String(accVal) ? currentVal : accVal;
         }
     }
 };
