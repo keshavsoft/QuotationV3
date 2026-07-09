@@ -16,19 +16,30 @@
             "footer"
         ],
         "table": {
-            "showFooterRows": false,
+            "showFooterRows": true,
             "showDataList": true,
             "showSave": true,
             "showActions": true,
             "showSerial": true,
-            "showFooter": false,
-            "footer": {},
+            "showFooter": true,
+            "footer": {
+                "showAggregateRows": true,
+                "showTotals": true
+            },
             "body": {
-                "showEdit": true,
-                "showDelete": true,
+                "showEdit": false,
+                "showDelete": false,
+                "showShow": true,
                 "deleteType": "icon",
                 "deleteIconSize": "xl"
             }
+        },
+        "vertical": {
+            "isCreate": false,
+            "isEdit": true,
+            "layoutType1": "inputsStacked",
+            "layoutType": "singleLine",
+            "showButtons": true
         }
     },
     "callbacks": {
@@ -42,6 +53,9 @@
             "footer": {
                 "onSave": "function"
             }
+        },
+        "vertical": {
+            "onSuccess": "function"
         }
     },
     "endPoints": {
@@ -50,18 +64,19 @@
         "delete": "/Api/v5/BillsTable/del",
         "read": "/Api/V5/BillsTable/ShowAll",
         "read1": "/Api/V1/ItemsTable/ShowAll",
+        "findFromParams": "/api/v5/BillsTable/find/<pk>",
         "find": "",
         "filter": "",
         "dataLists": {},
         "dataListEndpoints": {}
     },
-    "columnsConfig": [
+    "columnsConfig1": [
         {
-            "columnName": "LedgerName",
-            "title": "LedgerName",
-            "field": "LedgerName",
+            "columnName": "ParentPk",
+            "title": "pk",
+            "field": "ParentPk",
             "cellConfig": {
-                "width": "400px",
+                "width": "50px",
                 "tdClass": "px-4 py-2 border"
             },
             "dataListSource": "LedgerName.LedgerName",
@@ -79,6 +94,135 @@
                     "enterAsTab": true,
                     "isNotEmpty": true
                 }
+            }
+        },
+        {
+            "columnName": "LedgerName",
+            "field": "LedgerName",
+            "title": "LedgerName",
+            "primary": true,
+            "isVisible": true,
+            "cellConfig": {
+                "width": "150px"
+            }
+        },
+        {
+            "columnName": "InvoiceDate",
+            "field": "InvoiceDate",
+            "title": "InvoiceDate",
+            "primary": true,
+            "isVisible": true,
+            "cellConfig": {
+                "width": "100px"
+            }
+        },
+        {
+            "columnName": "Qty",
+            "title": "Qty",
+            "field": "Qty",
+            "cellConfig": {
+                "width": "100px",
+                "rightAlign": true,
+                "showThousandsSeperator": true,
+                "tableFooter": {
+                    "showTotal": true
+                }
+            },
+            "uiClasses": {
+                "form": {
+                    "rowClass": "flex items-center space-x-4 w-1/2",
+                    "labelClass": "w-36 text-sm font-medium"
+                }
+            },
+            "isDate": true,
+            "defaultToday": true,
+            "isReadonly": false,
+            "autoFocus": false,
+            "isSearch": false,
+            "type": "date",
+            "isConsider": true
+        },
+        {
+            "columnName": "Amount",
+            "title": "Amount",
+            "field": "Amount",
+            "cellConfig": {
+                "width": "150px",
+                "rightAlign": true,
+                "showThousandsSeperator": true,
+                "tableFooter": {
+                    "showTotal": true
+                }
+            },
+            "uiClasses": {
+                "form": {
+                    "rowClass": "flex items-center space-x-4 w-1/2"
+                }
+            },
+            "isConsider": true,
+            "tableConfig": {
+                "footerConfig": {
+                    "enterAsTab": false,
+                    "isNotEmpty": false
+                }
+            }
+        },
+        {
+            "columnName": "DateTimeDiff",
+            "title": "TimeSpan",
+            "field": "DateTimeDiff",
+            "cellConfig": {
+                "width": "100px",
+                "rightAlign": false,
+                "showThousandsSeperator": false,
+                "tableFooter": {
+                    "showTotal": false
+                }
+            },
+            "uiClasses": {
+                "form": {
+                    "rowClass": "flex items-center space-x-4 w-1/2"
+                }
+            },
+            "isConsider": true,
+            "tableConfig": {
+                "footerConfig": {
+                    "enterAsTab": false,
+                    "isNotEmpty": false
+                }
+            }
+        }
+    ],
+    "columnsConfig2": [
+        {
+            "columnName": "LedgerName",
+            "title": "LedgerName",
+            "field": "LedgerName",
+            "cellConfig": {
+                "width": "400px",
+                "tdClass": "px-4 py-2 border"
+            },
+            "dataListSource1": "LedgerName.LedgerName",
+            "tableFooterDataListShow": true,
+            "uiClasses": {
+                "form": {
+                    "rowClass": "flex items-center space-x-4"
+                }
+            },
+            "allowOnChange": true,
+            "onChangeType": "onDataListChange",
+            "isConsider": true,
+            "tableConfig": {
+                "footerConfig": {
+                    "enterAsTab": true,
+                    "isNotEmpty": true
+                }
+            },
+            "verticalConfig": {
+                "allowOnChange": true,
+                "onKeyDown": true,
+                "onKeyDownType": "onDataListChange",
+                "type": ""
             }
         },
         {
@@ -100,7 +244,13 @@
             "autoFocus": false,
             "isSearch": false,
             "type": "date",
-            "isConsider": true
+            "isConsider": true,
+            "verticalConfig": {
+                "allowOnChange": true,
+                "onKeyDown": true,
+                "onKeyDownType": "",
+                "type": "date"
+            }
         },
         {
             "columnName": "PartyGSTIN",
@@ -121,17 +271,145 @@
                     "enterAsTab": false,
                     "isNotEmpty": false
                 }
+            },
+            "verticalConfig": {
+                "allowOnChange": true,
+                "onKeyDown": true,
+                "onKeyDownType": "",
+                "type": ""
             }
         },
         {
-            "columnName": "pk",
             "field": "pk",
             "title": "pk",
             "primary": true,
+            "isVisible": false
+        }
+    ],
+    "columnsConfig": [
+        {
+            "columnName": "ParentPk",
+            "title": "pk",
+            "field": "ParentPk",
+            "cellConfig": {
+                "width": "50px",
+                "tdClass": "px-4 py-2 border"
+            },
+            "dataListSource": "LedgerName.LedgerName",
+            "tableFooterDataListShow": true,
+            "uiClasses": {
+                "form": {
+                    "rowClass": "flex items-center space-x-4"
+                }
+            },
+            "allowOnChange": true,
+            "onChangeType": "onDataListChange",
+            "isConsider": true,
+            "tableConfig": {
+                "footerConfig": {
+                    "enterAsTab": true,
+                    "isNotEmpty": true
+                }
+            }
+        },
+        {
+            "columnName": "LedgerName",
+            "field": "LedgerName",
+            "title": "LedgerName",
+            "primary": true,
             "isVisible": true,
             "cellConfig": {
-                "width": "50px"
+                "width": "150px"
+            }
+        },
+        {
+            "columnName": "InvoiceDate",
+            "field": "InvoiceDate",
+            "title": "InvoiceDate",
+            "primary": true,
+            "isVisible": true,
+            "cellConfig": {
+                "width": "100px"
+            }
+        },
+        {
+            "columnName": "Qty",
+            "title": "Qty",
+            "field": "Qty",
+            "cellConfig": {
+                "width": "100px",
+                "rightAlign": true,
+                "showThousandsSeperator": true,
+                "tableFooter": {
+                    "showTotal": true
+                }
+            },
+            "uiClasses": {
+                "form": {
+                    "rowClass": "flex items-center space-x-4 w-1/2",
+                    "labelClass": "w-36 text-sm font-medium"
+                }
+            },
+            "isDate": true,
+            "defaultToday": true,
+            "isReadonly": false,
+            "autoFocus": false,
+            "isSearch": false,
+            "type": "date",
+            "isConsider": true
+        },
+        {
+            "columnName": "Amount",
+            "title": "Amount",
+            "field": "Amount",
+            "cellConfig": {
+                "width": "150px",
+                "rightAlign": true,
+                "showThousandsSeperator": true,
+                "tableFooter": {
+                    "showTotal": true
+                }
+            },
+            "uiClasses": {
+                "form": {
+                    "rowClass": "flex items-center space-x-4 w-1/2"
+                }
+            },
+            "isConsider": true,
+            "tableConfig": {
+                "footerConfig": {
+                    "enterAsTab": false,
+                    "isNotEmpty": false
+                }
+            }
+        },
+        {
+            "columnName": "DateTimeDiff",
+            "title": "TimeSpan",
+            "field": "DateTimeDiff",
+            "cellConfig": {
+                "width": "100px",
+                "rightAlign": false,
+                "showThousandsSeperator": false,
+                "tableFooter": {
+                    "showTotal": false
+                }
+            },
+            "uiClasses": {
+                "form": {
+                    "rowClass": "flex items-center space-x-4 w-1/2"
+                }
+            },
+            "isConsider": true,
+            "tableConfig": {
+                "footerConfig": {
+                    "enterAsTab": false,
+                    "isNotEmpty": false
+                }
             }
         }
-    ]
+    ],
+    "defaults": {
+        "data": []
+    }
 }
