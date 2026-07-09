@@ -12,7 +12,7 @@ const createInputRows = ({ inColumnsConfig, inDefaultRow, inDataStore, inputs })
                 inDefaultRow,
                 inDataStore,
                 inputs: inputs,
-                inEnterAsTab: col.verticalConfig.enterAsTab
+                inEnterAsTab: col?.verticalConfig?.enterAsTab
             });
 
             if (row) {

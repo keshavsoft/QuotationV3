@@ -42,13 +42,7 @@ const initHandlers = ({
         inUpdateEndPoint: inEndPoints.update,
         inClientUpdate: inConfig?.callbacks?.table.body.update
     });
-
-    // if (inConfig?.callbacks?.table.body.update) {
-    //         inConfig?.callbacks?.table.body.update(updatedItem);
-    //     };
-
-    // await inServices.actions.table.update({ inEndPoint: inEndPoints.update, payload: updatedItem })
-
+// debugger
     const showFunc = buildShowHandler({
         inServices,
         inEndPoints,
@@ -58,7 +52,7 @@ const initHandlers = ({
         inShowSerial: showSerial,
         inTableBody: tableBody,
         inTableFooter,
-        inCallBack: inConfig.callbacks.table.body.show
+        inCallBack: inConfig?.callbacks?.table?.body?.show
     });
 
     return {

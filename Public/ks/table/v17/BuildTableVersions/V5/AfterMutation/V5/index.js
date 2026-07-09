@@ -19,7 +19,7 @@ const startFunc = async ({
         });
 
         inDataStore.setData(dataFromFetch);
-        //debugger
+        // debugger
         const dataToShow = inDataStore.getData();
 
         // buildBody({
