@@ -106,6 +106,31 @@
             }
         },
         {
+            "columnName": "line",
+            "title": "lines",
+            "field": "lines",
+            "cellConfig": {
+                "width": "100px",
+                "rightAlign": false,
+                "showThousandsSeperator": false,
+                "tableFooter": {
+                    "showTotal": false
+                }
+            },
+            "uiClasses": {
+                "form": {
+                    "rowClass": "flex items-center space-x-4 w-1/2"
+                }
+            },
+            "isConsider": true,
+            "tableConfig": {
+                "footerConfig": {
+                    "enterAsTab": false,
+                    "isNotEmpty": false
+                }
+            }
+        },
+        {
             "columnName": "Qty",
             "title": "Qty",
             "field": "Qty",

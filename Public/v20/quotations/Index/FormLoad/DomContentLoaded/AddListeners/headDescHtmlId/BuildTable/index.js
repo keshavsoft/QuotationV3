@@ -59,10 +59,20 @@ const addTimeSpan = (rawData) => {
 
     return processedData;
 };
+const changeGridSummary = (gridSummary) => {
+    const changedArray = gridSummary.map(({ pk: lines, ...rest }) => ({
+        lines,
+        ...rest
+    }));
+
+    return changedArray;
+};
 
 const clubData = async () => {
     const headData = await getHeadData();
-    const gridSummary = await getData();
+    const gridDataFromFetch = await getData();
+    const gridSummary = changeGridSummary(gridDataFromFetch);
+
     // debugger;
     const clubbedData = headData.map(loopHead => {
         const foundGrid = gridSummary.find(loopGrid => {

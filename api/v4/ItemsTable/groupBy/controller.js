@@ -6,7 +6,8 @@ const postFunc = async ({ req, res, inTablePath }) => {
         const columnsToSum = {
             Amount: "sum",
             Qty: "sumQty",
-            DateTime: "max"
+            DateTime: "max",
+            pk: "count"
         };
 
         const fromService = await Service({
