@@ -5,11 +5,23 @@ import { clearTableContainer } from "./helpers/dom/clearTableContainer.js";
 import { initVertical } from "./helpers/ks/vertical.js";
 import { initTable } from "./helpers/ks/table.js";
 
+let jFLocalToInputhtmlId = (inValue) => {
+    let jVarLocalHtmlId = 'htmlId';
+    let jVarLocalhtmlId = document.getElementById(jVarLocalHtmlId);
+
+    if (jVarLocalhtmlId === null === false) {
+        jVarLocalhtmlId.innerHTML = inValue;
+    };
+};
+
 const startFunc = async () => {
     const config = await getKSTableConfig();
 
     const onSuccess = async (fromService) => {
         if (fromService) {
+            // console.log("----- : ", fromService);
+            jFLocalToInputhtmlId(fromService);
+
             const rawItemsConfig = await fetchItemsConfig();
             const itemsConfig = modifyItemsConfig(rawItemsConfig, fromService);
 
