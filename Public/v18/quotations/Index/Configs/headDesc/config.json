@@ -54,6 +54,7 @@
         "delete": "/Api/v5/BillsTable/del",
         "read": "/Api/V5/BillsTable/ShowAll",
         "read1": "/Api/V1/ItemsTable/ShowAll",
+        "findFromParams": "/api/v5/BillsTable/find/<pk>",
         "find": "",
         "filter": "",
         "dataLists": {},
