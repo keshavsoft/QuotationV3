@@ -1,54 +1,29 @@
 import { getKSTableConfig } from "./getKSTableConfig.js";
-
-const itemsTableConfig = async (inPk) => {
-    const config = await fetch("./Index/Configs/create/itemsConfig.json");
-    // debugger;
-    const configJson = await config.json();
-    // debugger;
-    const pk = inPk;
-
-    const findColumn = configJson.columnsConfig.find(element => {
-        return element.field === "ParentPk"
-    });
-
-    findColumn.defaultValue = parseInt(pk);
-
-    configJson.endPoints.read = configJson.endPoints.read.replace("<ParentPk>", pk);
-
-    return configJson;
-};
-
-let jFLocalToInputkSTableContainer = (inValue) => {
-    let jVarLocalHtmlId = 'kSTableContainer';
-    let jVarLocalkSTableContainer = document.getElementById(jVarLocalHtmlId);
-
-    if (jVarLocalkSTableContainer === null === false) {
-        jVarLocalkSTableContainer.innerHTML = inValue;
-    };
-};
+import { fetchItemsConfig } from "./helpers/fetch/itemsConfig.js";
+import { modifyItemsConfig } from "./helpers/pure/modifyItemsConfig.js";
+import { clearTableContainer } from "./helpers/dom/clearTableContainer.js";
+import { initVertical } from "./helpers/ks/vertical.js";
+import { initTable } from "./helpers/ks/table.js";
 
 const startFunc = async () => {
     const config = await getKSTableConfig();
 
-    ksVertical = new window.ks.classes.vertical(config);
-
-    ksVertical.callbacks.vertical.onSuccess = async fromService => {
+    const onSuccess = async (fromService) => {
         if (fromService) {
-            const itemsConfig = await itemsTableConfig(fromService);
+            const rawItemsConfig = await fetchItemsConfig();
+            const itemsConfig = modifyItemsConfig(rawItemsConfig, fromService);
 
-            itemsConfig.callbacks.table.body.update = fromService => {
-                console.log("----- : ", fromService);
+            const onUpdate = (updateFromService) => {
+                console.log("----- : ", updateFromService);
             };
 
-            ksTable1 = new window.ks.classes.compTable(itemsConfig);
-
-            ksTable1.initShowTable();
-        };
+            window.ksTable1 = initTable(itemsConfig, onUpdate);
+        }
     };
-    // ksVertical = new window.KSAiVertical(config);
-    ksVertical.initCreate();
 
-    jFLocalToInputkSTableContainer("");
+    window.ksVertical = initVertical(config, onSuccess);
+
+    clearTableContainer();
 };
 
 export default startFunc;
