@@ -1,7 +1,6 @@
-const buildHeader = async () => {
-    const fromFetch = await fetch("./Index/headers.json");
-    const headerConfig = await fromFetch.json();
+import headerConfig from "./headers.json" with { type: "json" };
 
+const buildHeader = async () => {
     await window.KSHeader(headerConfig);
 };
 
