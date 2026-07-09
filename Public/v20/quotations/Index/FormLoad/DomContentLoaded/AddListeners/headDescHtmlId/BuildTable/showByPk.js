@@ -1,3 +1,6 @@
+import itemsConfigJson from "./itemsConfig.json" with { type: "json" };
+import verticalJson from "./vertical.json" with { type: "json" };
+
 let jFLocalToInputhtmlId = (inValue) => {
     let jVarLocalHtmlId = 'htmlId';
     let jVarLocalhtmlId = document.getElementById(jVarLocalHtmlId);
@@ -9,10 +12,7 @@ let jFLocalToInputhtmlId = (inValue) => {
 
 
 const itemsTableConfig = async (inPk) => {
-    const config = await fetch("./Index/Configs/headDesc/itemsConfig.json");
-    // debugger;
-    const configJson = await config.json();
-    // debugger;
+    const configJson = structuredClone(itemsConfigJson);
     const pk = inPk;
 
     const findColumn = configJson.columnsConfig.find(element => {
@@ -28,9 +28,7 @@ const itemsTableConfig = async (inPk) => {
 
 const getVerticalConfig = async (inPk) => {
     const pk = inPk;
-    const config = await fetch("./Index/Configs/headDesc/vertical.json");
-    // debugger;
-    const configJson = await config.json();
+    const configJson = structuredClone(verticalJson);
 
     configJson.endPoints.findFromParams = configJson.endPoints.findFromParams.replace("<pk>", pk);
 

@@ -1,7 +1,5 @@
-export const getKSTableConfig = async () => {
-    const config = await fetch("./Index/Configs/headDesc/billShow.json");
-    // debugger;
-    const configJson = await config.json();
+import configJson from "./billShow.json" with { type: "json" };
 
-    return configJson;
+export const getKSTableConfig = async () => {
+    return structuredClone(configJson);
 };
