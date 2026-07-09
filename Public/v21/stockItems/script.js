@@ -81,7 +81,7 @@ const ensureKSTable = () => loadResource({
     isLoaded: () => !!window.KSTableComp,
     sources: [
         { type: "js", url: "/ks/table/v17/ai.js", label: "Local" },
-        { type: "js", url: "https://keshavsoft.github.io/tailwind-table-dom-comp/dist/v15/kstablecomp.js", label: "git" }
+        { type: "js", url: "https://keshavsoft.github.io/tailwind-table-dom-comp/dist/v16/kstablecomp.js", label: "git" }
     ]
 });
 
@@ -90,7 +90,7 @@ const ensureKSVertical = () => loadResource({
     isLoaded: () => !!window.KSAiVertical,
     sources: [
         { type: "js", url: "/ks/vertical/v11/ai.js", label: "Local" },
-        { type: "js", url: "https://keshavsoft.github.io/tailwind-vertical-dom/dist/v2.10/ksvertical.js", label: "git" }
+        { type: "js", url: "https://keshavsoft.github.io/tailwind-vertical-dom/dist/v2.11/ksvertical.js", label: "git" }
     ]
 });
 
@@ -99,7 +99,7 @@ const ensureKSTableOnly = () => loadResource({
     isLoaded: () => !!window.KSTableComp,
     sources: [
         { type: "js", url: "/ks/tableOnly/v4/ai.js", label: "Local" },
-        { type: "js", url: "https://keshavsoft.github.io/tailwind-table-dom-comp-show/dist/v3/kstableonly.js", label: "git" }
+        { type: "js", url: "https://keshavsoft.github.io/tailwind-table-dom-comp-show/dist/v4/kstableonly.js", label: "git" }
     ]
 });
 

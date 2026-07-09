@@ -1,6 +1,6 @@
 import { getKSTableConfig } from "./getKSTableConfig.js";
 import showByPk from "./showByPk.js";
-import { clubData } from "./helpers/clubData.js";
+import { getData } from "./helpers/getData.js";
 
 const jFLocalToInputkSTableContainer = (inValue) => {
     const jVarLocalHtmlId = 'kSTableContainer';
@@ -16,7 +16,7 @@ const startFunc = async () => {
 
     const config = await getKSTableConfig();
 
-    config.defaults.data = await clubData();
+    config.defaults.data = await getData();
 
     if (config.callbacks) {
         if (config.callbacks.table.body.show) {

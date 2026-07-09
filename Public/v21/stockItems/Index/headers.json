@@ -5,20 +5,20 @@
         "brandClass1": "text-sm"
     },
     "title": {
-        "text": "quotations",
+        "text": "Stock Items",
         "htmlId": "htmlId"
     },
     "items": [
         {
-            "text": "Create",
-            "id": "createHtmlId",
+            "text": "quotations",
+            "id": "quotationsHtmlId",
             "icon": [],
             "uiClasses": {
                 "aClass": "",
                 "svgDivClass": "size-10"
             },
             "svgName": "squaresPlus",
-            "href1": "../both/index.html"
+            "href": "../quotations/index.html"
         },
         {
             "text": "Descend",
