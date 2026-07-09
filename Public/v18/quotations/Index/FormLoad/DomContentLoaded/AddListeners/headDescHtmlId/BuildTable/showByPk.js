@@ -18,7 +18,7 @@ const itemsTableConfig = async (inPk) => {
 
 const getVerticalConfig = async (inPk) => {
     const pk = inPk;
-    const config = await fetch("./Index/Configs/headDesc/config.json");
+    const config = await fetch("./Index/Configs/headDesc/vertical.json");
     // debugger;
     const configJson = await config.json();
 

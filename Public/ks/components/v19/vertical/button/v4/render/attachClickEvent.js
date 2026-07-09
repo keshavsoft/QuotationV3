@@ -25,9 +25,9 @@ const attachClickEvent = (button, inTagName = "ks-button") => {
         const form = getForm(ksButton);
         const data = getFormData(form);
         const pk = getPk(form);
-        // console.log("bbbbbb : ", pk);
-        if (pk) data.pk = pk;
 
+        if (pk) data.pk = pk;
+        console.log("bbbbbb : ", pk);
         ksButton.onClick?.(data);
     });
 };

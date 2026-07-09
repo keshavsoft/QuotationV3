@@ -63,7 +63,7 @@ const addTimeSpan = (rawData) => {
 const clubData = async () => {
     const headData = await getHeadData();
     const gridSummary = await getData();
-    debugger;
+    // debugger;
     const clubbedData = headData.map(loopHead => {
         const foundGrid = gridSummary.find(loopGrid => {
             return loopGrid.ParentPk === loopHead.pk;
@@ -116,12 +116,12 @@ const startFunc = async () => {
     const config = await getKSTableConfig();
 
     config.defaults.data = await clubData();
-    console.log("config : ", config.defaults.data);
+    // console.log("config : ", config.defaults.data);
 
     if (config.callbacks) {
         if (config.callbacks.table.body.show) {
             config.callbacks.table.body.show = fromLibrary => {
-                console.log("fromLibrary : ", fromLibrary);
+                // console.log("fromLibrary : ", fromLibrary);
 
                 showByPk(fromLibrary.item.pk)
                 // console.log("fromLibrary : ", fromLibrary);
