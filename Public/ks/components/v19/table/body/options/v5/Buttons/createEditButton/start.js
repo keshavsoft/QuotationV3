@@ -26,6 +26,18 @@ const cloneFooterInput = (footerInput) => {
     return clonedInput;
 };
 
+const localCleanValue = ({ inClonedInput, inVal }) => {
+    const type = inClonedInput.getAttribute("ks-type") || inClonedInput.getAttribute("ksType") || inClonedInput.getAttribute("type");
+    // console.log("type : ", type);
+
+    if (type === "number") {
+        if (typeof inVal === "string" && inVal.includes(",")) {
+            return inVal.replace(/,/g, "");
+        }
+    }
+    return inVal;
+};
+
 /**
  * Replaces the content of a row td with a clone of the corresponding footer input element.
  *
@@ -42,7 +54,10 @@ export const replaceCellWithFooterInput = (td, footerTd, item) => {
 
     const clonedInput = cloneFooterInput(footerInput);
 
-    const val = td.dataset.oldValue !== undefined ? td.dataset.oldValue : "";
+    const rawVal = td.dataset.oldValue !== undefined ? td.dataset.oldValue : "";
+    // console.log("rawVal : ", rawVal);
+
+    const val = localCleanValue({ inClonedInput: clonedInput, inVal: rawVal });
     clonedInput.setAttribute("ksInValue", val);
     clonedInput.setAttribute("value", val);
     // clonedInput.value = val;
