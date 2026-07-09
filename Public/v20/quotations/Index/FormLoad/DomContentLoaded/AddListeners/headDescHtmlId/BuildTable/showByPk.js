@@ -1,5 +1,5 @@
-import itemsConfigJson from "./itemsConfig.json" with { type: "json" };
-import verticalJson from "./vertical.json" with { type: "json" };
+import itemsConfigJson from "./configs/itemsConfig.json" with { type: "json" };
+import verticalJson from "./configs/vertical.json" with { type: "json" };
 
 let jFLocalToInputhtmlId = (inValue) => {
     let jVarLocalHtmlId = 'htmlId';
