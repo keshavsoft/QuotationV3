@@ -60,8 +60,9 @@ const addTimeSpan = (rawData) => {
     return processedData;
 };
 const changeGridSummary = (gridSummary) => {
-    const changedArray = gridSummary.map(({ pk: lines, ...rest }) => ({
-        lines,
+    const changedArray = gridSummary.map(({ pk: line, ...rest }) => ({
+        line,
+        lines: line,
         ...rest
     }));
 

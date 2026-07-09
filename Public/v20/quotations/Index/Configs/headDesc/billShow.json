@@ -110,8 +110,8 @@
             "title": "lines",
             "field": "lines",
             "cellConfig": {
-                "width": "100px",
-                "rightAlign": false,
+                "width": "50px",
+                "rightAlign": true,
                 "showThousandsSeperator": false,
                 "tableFooter": {
                     "showTotal": false
