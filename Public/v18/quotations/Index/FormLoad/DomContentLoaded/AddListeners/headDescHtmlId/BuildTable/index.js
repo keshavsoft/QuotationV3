@@ -63,6 +63,26 @@ const addTimeSpan = (rawData) => {
 const clubData = async () => {
     const headData = await getHeadData();
     const gridSummary = await getData();
+    debugger;
+    const clubbedData = headData.map(loopHead => {
+        const foundGrid = gridSummary.find(loopGrid => {
+            return loopGrid.ParentPk === loopHead.pk;
+        });
+
+        return {
+            ...foundGrid,
+            ...loopHead
+        }
+    });
+
+    const withTimeSpan = addTimeSpan(clubbedData);
+
+    return withTimeSpan.toReversed();
+};
+
+const clubDataFromGrid = async () => {
+    const headData = await getHeadData();
+    const gridSummary = await getData();
 
     const clubbedData = gridSummary.map(loopItem => {
         const foundHead = headData.find(loopHead => {
@@ -94,14 +114,16 @@ const startFunc = async () => {
     jFLocalToInputkSTableContainer("");
 
     const config = await getKSTableConfig();
-    // console.log("config : ", config);
 
     config.defaults.data = await clubData();
+    console.log("config : ", config.defaults.data);
 
     if (config.callbacks) {
         if (config.callbacks.table.body.show) {
             config.callbacks.table.body.show = fromLibrary => {
-                showByPk(fromLibrary.item.ParentPk)
+                console.log("fromLibrary : ", fromLibrary);
+
+                showByPk(fromLibrary.item.pk)
                 // console.log("fromLibrary : ", fromLibrary);
             };
         }
