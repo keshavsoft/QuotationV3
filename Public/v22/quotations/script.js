@@ -98,7 +98,7 @@ const ensureKSTableOnly = () => loadResource({
     name: "KSTableOnly",
     isLoaded: () => !!window.KSTableComp,
     sources: [
-        { type: "js", url: "/ks/tableOnly/v4/ai.js", label: "Local" },
+        { type: "js", url: "/ks/tableOnly/v5/ai.js", label: "Local" },
         { type: "js", url: "https://keshavsoft.github.io/tailwind-table-dom-comp-show/dist/v4/kstableonly.js", label: "git" }
     ]
 });

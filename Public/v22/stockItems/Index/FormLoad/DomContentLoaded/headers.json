@@ -15,7 +15,7 @@
             "icon": [],
             "uiClasses": {
                 "aClass": "",
-                "svgDivClass": "size-10"
+                "svgDivClass": "size-6"
             },
             "svgName": "squaresPlus",
             "href": "../quotations/index.html"
@@ -26,7 +26,7 @@
             "icon": [],
             "uiClasses": {
                 "aClass": "",
-                "svgDivClass": "size-10"
+                "svgDivClass": "size-6"
             },
             "svgName": "arrowDown"
         },
@@ -36,7 +36,7 @@
             "icon": [],
             "uiClasses": {
                 "aClass": "",
-                "svgDivClass": "size-10"
+                "svgDivClass": "size-6"
             },
             "svgName": "printer",
             "href": "javascript:window.print()"
