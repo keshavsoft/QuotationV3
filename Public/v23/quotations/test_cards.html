@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KsCards Component Test Page</title>
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800 min-h-screen flex flex-col font-sans">
+
+    <!-- NAVBAR matching app's style -->
+    <header class="bg-[#1e293b] text-white py-4 px-6 shadow-md flex justify-between items-center">
+        <h1 class="text-xl font-bold tracking-wide">quotations</h1>
+        <div class="flex gap-4 text-xs font-semibold text-gray-300">
+            <span class="hover:text-white cursor-pointer">Create</span>
+            <span class="text-white hover:text-white cursor-pointer bg-blue-600 px-2 py-0.5 rounded">Cards Demo</span>
+            <span class="hover:text-white cursor-pointer">Masters</span>
+            <span class="hover:text-white cursor-pointer">Print</span>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="flex-grow mx-auto px-3 py-6 max-w-3xl lg:max-w-5xl xl:max-w-6xl w-full">
+        
+        <!-- Section 1: Default Fallback Sample Data -->
+        <section class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm mb-6">
+            <div class="border-b border-gray-150 pb-3 mb-4">
+                <h2 class="text-lg font-bold text-gray-800">1. Fallback Default Sample Data</h2>
+                <p class="text-gray-500 text-xs mt-0.5">Instantiated via &lt;ks-cards&gt;&lt;/ks-cards&gt; with no custom data passed.</p>
+            </div>
+            
+            <ks-cards id="defaultCards"></ks-cards>
+        </section>
+
+        <!-- Section 2: Dynamic Custom Data Setting -->
+        <section class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm mb-6">
+            <div class="border-b border-gray-150 pb-3 mb-4">
+                <h2 class="text-xl font-bold text-gray-800">2. Custom Dynamic Data</h2>
+                <p class="text-gray-500 text-xs mt-0.5">Injected programmatically via JavaScript property setter.</p>
+            </div>
+
+            <ks-cards id="customCards"></ks-cards>
+        </section>
+
+        <!-- Live Event Logger Console -->
+        <section class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+            <h3 class="text-xs font-bold text-blue-600 uppercase tracking-wider mb-2">Live Event Log Console</h3>
+            <div id="eventConsole" class="bg-gray-50 rounded border border-gray-200 p-3 h-32 overflow-y-auto text-xs font-mono text-gray-700">
+                Waiting for clicks on card buttons...
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-200 text-gray-500 text-center py-4 text-xs border-t border-gray-300">
+        <p>© 2026 KeshavSoft • Component V19 Integration</p>
+    </footer>
+
+    <!-- Component import -->
+    <script type="module">
+        import "/ks/components/v19/index.js";
+
+        // Log component registration
+        console.log("KsCards registered:", !!customElements.get("ks-cards"));
+
+        // Wait for DOM load
+        document.addEventListener("DOMContentLoaded", () => {
+            const consoleEl = document.getElementById("eventConsole");
+
+            function logEvent(message) {
+                const time = new Date().toLocaleTimeString();
+                const newLine = document.createElement("div");
+                newLine.innerHTML = `<span class="text-gray-400">[${time}]</span> ${message}`;
+                consoleEl.appendChild(newLine);
+                consoleEl.scrollTop = consoleEl.scrollHeight;
+            }
+
+            // Set up listener for default cards
+            const defaultCards = document.getElementById("defaultCards");
+            defaultCards.addEventListener("show-detail", (e) => {
+                logEvent(`<strong>Default Cards View:</strong> ID #${e.detail.pk} (${e.detail.item.LedgerName})`);
+            });
+            defaultCards.addEventListener("edit-detail", (e) => {
+                logEvent(`<strong>Default Cards Edit:</strong> ID #${e.detail.pk} (${e.detail.item.LedgerName})`);
+            });
+
+            // Populate custom cards element dynamically
+            const customCards = document.getElementById("customCards");
+            
+            // Set dynamic data array
+            customCards.data = [
+                { pk: 501, LedgerName: "Alpha Distributors", InvoiceDate: "2026-07-10", lines: 8, Qty: 240.50, Amount: 48900.00, TimeSpan: "Just now" },
+                { pk: 502, LedgerName: "Beta Corp Logistics", InvoiceDate: "2026-07-09", lines: 4, Qty: 12.00, Amount: 3100.50, TimeSpan: "3h ago" }
+            ];
+
+            // Set up listener for custom cards
+            customCards.addEventListener("show-detail", (e) => {
+                logEvent(`<strong>Custom Cards View:</strong> ID #${e.detail.pk} (${e.detail.item.LedgerName})`);
+            });
+            customCards.addEventListener("edit-detail", (e) => {
+                logEvent(`<strong>Custom Cards Edit:</strong> ID #${e.detail.pk} (${e.detail.item.LedgerName})`);
+            });
+
+            logEvent("Component demo initialized successfully!");
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+{
+    "containerId": "kSHeadContainer",
+    "tableName": "show all LedgerNames",
+    "mode": "create",
+    "layout": {
+        "verticalPosition": "top",
+        "type": "table"
+    },
+    "options": {
+        "firstRow": {
+            "showSearch": true
+        },
+        "enabledSections": [
+            "vertical",
+            "table",
+            "footer"
+        ],
+        "table": {
+            "showFooterRows": false,
+            "showDataList": false,
+            "showSave": false,
+            "showActions": false,
+            "showSerial": true,
+            "showFooter": false,
+            "footer": {
+                "showAggregateRows": false,
+                "showTotals": false
+            },
+            "body": {
+                "showEdit": false,
+                "showDelete": false,
+                "showShow": false,
+                "deleteType": "icon",
+                "deleteIconSize": "xl"
+            }
+        }
+    },
+    "callbacks": {
+        "table": {
+            "onDelete1": "function",
+            "onReadFail": "function",
+            "body": {
+                "update": "function",
+                "show": "function"
+            },
+            "footer": {
+                "onSave": "function"
+            }
+        }
+    },
+    "endPoints": {
+        "create": "",
+        "update": "",
+        "delete": "",
+        "read": "",
+        "find": "",
+        "filter": "",
+        "dataLists": {},
+        "dataListEndpoints": {}
+    },
+    "columnsConfig": [
+        {
+            "columnName": "LedgerName",
+            "title": "LedgerName",
+            "field": "LedgerName",
+            "cellConfig": {
+                "width": "300px",
+                "tdClass": "px-4 py-2 border"
+            },
+            "dataListSource": "LedgerName.LedgerName",
+            "tableFooterDataListShow": true,
+            "uiClasses": {
+                "form": {
+                    "rowClass": "flex items-center space-x-4"
+                }
+            },
+            "allowOnChange": true,
+            "onChangeType": "onDataListChange",
+            "isConsider": true,
+            "tableConfig": {
+                "footerConfig": {
+                    "enterAsTab": true,
+                    "isNotEmpty": true
+                }
+            }
+        },
+        {
+            "columnName": "LedgerParentName",
+            "field": "LedgerParentName",
+            "title": "LedgerParentName",
+            "primary": true,
+            "isVisible": true,
+            "cellConfig": {
+                "width": "100px"
+            }
+        },
+        {
+            "columnName": "GstRegistrationType",
+            "field": "GstRegistrationType",
+            "title": "GstRegistrationType",
+            "primary": true,
+            "isVisible": true,
+            "cellConfig": {
+                "width": "100px"
+            }
+        },
+        {
+            "columnName": "partygstin",
+            "field": "partygstin",
+            "title": "partygstin",
+            "primary": true,
+            "isVisible": true,
+            "cellConfig": {
+                "width": "100px"
+            }
+        }
+    ],
+    "defaults": {
+        "data": []
+    }
+}
