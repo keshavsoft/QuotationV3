@@ -1,5 +1,6 @@
 import { getKSTableConfig } from "./getKSTableConfig.js";
-import showByPk from "./showByPk.js";
+import showByPk from "./showByPk/index.js";
+import editByPk from "./editByPk/index.js";
 import { clubData } from "./helpers/clubData.js";
 
 const jFLocalToInputkSTableContainer = (inValue) => {
@@ -27,9 +28,9 @@ const startFunc = async () => {
 
         if (config.callbacks.table.body.edit) {
             config.callbacks.table.body.edit = fromLibrary => {
-                console.log("jjjjjjjj------ : ", fromLibrary);
+                // console.log("jjjjjjjj------ : ", fromLibrary);
 
-                //showByPk(fromLibrary.item.pk);
+                editByPk(fromLibrary.item.pk);
             };
         };
     }

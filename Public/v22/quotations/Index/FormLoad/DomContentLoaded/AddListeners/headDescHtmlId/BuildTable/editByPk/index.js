@@ -10,7 +10,6 @@ let jFLocalToInputhtmlId = (inValue) => {
     };
 };
 
-
 const itemsTableConfig = async (inPk) => {
     const configJson = structuredClone(itemsConfigJson);
     const pk = inPk;
