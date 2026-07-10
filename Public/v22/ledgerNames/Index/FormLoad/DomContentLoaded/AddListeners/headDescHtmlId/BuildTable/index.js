@@ -1,0 +1,33 @@
+import { getKSTableConfig } from "./getKSTableConfig.js";
+import showByPk from "./showByPk.js";
+import { getData } from "./helpers/getData.js";
+
+const jFLocalToInputkSTableContainer = (inValue) => {
+    const jVarLocalHtmlId = 'kSTableContainer';
+    const jVarLocalkSTableContainer = document.getElementById(jVarLocalHtmlId);
+
+    if (jVarLocalkSTableContainer) {
+        jVarLocalkSTableContainer.innerHTML = inValue;
+    }
+};
+
+const startFunc = async () => {
+    jFLocalToInputkSTableContainer("");
+
+    const config = await getKSTableConfig();
+
+    config.defaults.data = await getData();
+
+    if (config.callbacks) {
+        if (config.callbacks.table.body.show) {
+            config.callbacks.table.body.show = fromLibrary => {
+                showByPk(fromLibrary.item.pk);
+            };
+        }
+    }
+
+    const ksTable1 = new window.ks.classes.tableShowOnly(config);
+    ksTable1.initShowTable();
+};
+
+export default startFunc;
