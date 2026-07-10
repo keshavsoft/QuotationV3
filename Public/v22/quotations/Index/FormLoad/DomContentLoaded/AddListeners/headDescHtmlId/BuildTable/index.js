@@ -23,7 +23,15 @@ const startFunc = async () => {
             config.callbacks.table.body.show = fromLibrary => {
                 showByPk(fromLibrary.item.pk);
             };
-        }
+        };
+
+        if (config.callbacks.table.body.edit) {
+            config.callbacks.table.body.edit = fromLibrary => {
+                console.log("jjjjjjjj : ", fromLibrary);
+
+                //showByPk(fromLibrary.item.pk);
+            };
+        };
     }
 
     const ksTable1 = new window.ks.classes.tableShowOnly(config);

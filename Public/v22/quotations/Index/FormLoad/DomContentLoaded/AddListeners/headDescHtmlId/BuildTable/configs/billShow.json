@@ -27,7 +27,7 @@
                 "showTotals": true
             },
             "body": {
-                "showEdit": false,
+                "showEdit": true,
                 "showDelete": false,
                 "showShow": true,
                 "deleteType": "icon",
@@ -41,7 +41,8 @@
             "onReadFail": "function",
             "body": {
                 "update": "function",
-                "show": "function"
+                "show": "function",
+                "edit": "function"
             },
             "footer": {
                 "onSave": "function"
