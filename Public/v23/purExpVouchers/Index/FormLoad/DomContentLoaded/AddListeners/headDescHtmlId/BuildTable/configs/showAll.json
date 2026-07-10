@@ -95,9 +95,9 @@
             }
         },
         {
-            "columnName": "GstRegistrationType",
-            "field": "GstRegistrationType",
-            "title": "GstRegistrationType",
+            "columnName": "ledgername",
+            "field": "ledgername",
+            "title": "ledgername",
             "primary": true,
             "isVisible": true,
             "cellConfig": {
@@ -105,9 +105,9 @@
             }
         },
         {
-            "columnName": "partygstin",
-            "field": "partygstin",
-            "title": "partygstin",
+            "columnName": "amount",
+            "field": "amount",
+            "title": "amount",
             "primary": true,
             "isVisible": true,
             "cellConfig": {
