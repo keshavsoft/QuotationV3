@@ -1,0 +1,242 @@
+{
+  "tableName": "purExpVouchers",
+  "columns": [
+    {
+      "field": "LedgerName",
+      "title": "LedgerName",
+      "type": "text",
+      "isInput": false,
+      "isAutoFocus": true,
+      "WidthOptions": {
+        "inPx": 200
+      },
+      "defaultvalue": "Keshav",
+      "isDataList": true,
+      "dataListId": "LedgerNames",
+      "isConsider": true
+    },
+    {
+      "field": "LedgerParentName",
+      "title": "LedgerParentName",
+      "type": "text",
+      "isInput": true,
+      "WidthOptions": {
+        "inPx": 200
+      },
+      "isConsider": true,
+      "showInUi": false
+    },
+    {
+      "field": "PartyGSTIN",
+      "title": "PartyGSTIN",
+      "type": "text",
+      "isInput": true,
+      "isAutoFocus": true,
+      "WidthOptions": {
+        "inPx": 200
+      },
+      "isConsider": true,
+      "showInUi": false
+    },
+    {
+      "field": "InvoiceNo",
+      "title": "InvoiceNo",
+      "type": "number",
+      "isInput": true,
+      "WidthOptions": {
+        "inPx": 200
+      },
+      "isConsider": true
+    },
+    {
+      "field": "InvoiceDate",
+      "title": "InvoiceDate",
+      "isDate": true,
+      "type": "date",
+      "WidthOptions": {
+        "inPx": 200
+      },
+      "defaultvalue": "today",
+      "isConsider": true
+    },
+    {
+      "field": "InvoiceStateCode",
+      "title": "InvoiceStateCode",
+      "defaultvalue": "37",
+      "isInput": true,
+      "WidthOptions": {
+        "inPx": 200
+      },
+      "isConsider": true,
+      "showInUi": false
+    },
+    {
+      "field": "pk",
+      "title": "pk",
+      "primary": true
+    }
+  ],
+  "data": [],
+  "Vertical": [
+    {
+      "field": "LedgerName",
+      "title": "LedgerName",
+      "type": "text",
+      "isInput": false,
+      "isAutoFocus": true,
+      "WidthOptions": {
+        "inPx": 200
+      },
+      "defaultvalue": "Keshav",
+      "isDataList": true,
+      "dataListId": "LedgerNames"
+    },
+    {
+      "field": "LedgerParentName",
+      "title": "LedgerParentName",
+      "type": "text",
+      "isInput": true,
+      "WidthOptions": {
+        "inPx": 200
+      }
+    },
+    {
+      "field": "LedgerGST",
+      "title": "LedgerGST",
+      "type": "text",
+      "isInput": true,
+      "isAutoFocus": true,
+      "WidthOptions": {
+        "inPx": 200
+      }
+    },
+    {
+      "field": "InvoiceNo",
+      "title": "InvoiceNo",
+      "type": "number",
+      "isInput": true,
+      "WidthOptions": {
+        "inPx": 200
+      }
+    },
+    {
+      "field": "InvoiceDate",
+      "title": "InvoiceDate",
+      "isDate": true,
+      "type": "date",
+      "WidthOptions": {
+        "inPx": 200
+      },
+      "defaultvalue": "today"
+    },
+    {
+      "field": "InvoiceStateCode",
+      "title": "InvoiceStateCode",
+      "defaultvalue": "37",
+      "isInput": true,
+      "WidthOptions": {
+        "inPx": 200
+      }
+    }
+  ],
+  "DataTableOptions": {
+    "Header": {
+      "autoFocus": "LedgerName"
+    }
+  },
+  "ForeignkeyTables": [
+    "ItemsTable"
+  ],
+  "DependantTables": [
+    "LedgerNames"
+  ],
+  "NonSecured": {
+    "SubRoutes": [
+      "ShowAll",
+      "Insert",
+      "Find",
+      "InsertAndReturnPk",
+      "FindWithForeignData",
+      "InsertToTally"
+    ]
+  },
+  "PrimarykeyTableNames": [],
+  "PrimarykeyTables": [],
+  "columnsConfig": [
+    {
+      "columnName": "type",
+      "title": "type",
+      "field": "type",
+      "cellConfig": {
+        "width": "400px",
+        "tdClass": "px-4 py-2 border"
+      },
+      "dataListSource": "LedgerName.LedgerName",
+      "tableFooterDataListShow": true,
+      "uiClasses": {
+        "form": {
+          "rowClass": "flex items-center space-x-4"
+        }
+      },
+      "allowOnChange": true,
+      "onChangeType": "onDataListChange",
+      "isConsider": true
+    },
+    {
+      "columnName": "vchtype",
+      "title": "vchtype",
+      "field": "vchtype",
+      "cellConfig": {
+        "width": "150px"
+      },
+      "uiClasses": {
+        "form": {
+          "rowClass": "flex items-center space-x-4 w-1/2",
+          "labelClass": "w-36 text-sm font-medium"
+        }
+      },
+      "isDate": true,
+      "defaultToday": true,
+      "isReadonly": false,
+      "autoFocus": false,
+      "isSearch": false,
+      "type": "date",
+      "isConsider": true
+    },
+    {
+      "columnName": "date",
+      "title": "date",
+      "field": "date",
+      "dataListFillName": "",
+      "cellConfig": {
+        "width": "200px"
+      },
+      "uiClasses": {
+        "form": {
+          "rowClass": "flex items-center space-x-4 w-1/2"
+        }
+      },
+      "isConsider": true
+    },
+    {
+      "columnName": "vouchernumber",
+      "title": "vouchernumber",
+      "field": "vouchernumber",
+      "dataListFillName": "",
+      "cellConfig": {
+        "width": "200px"
+      },
+      "uiClasses": {
+        "form": {
+          "rowClass": "flex items-center space-x-4 w-1/2"
+        }
+      },
+      "isConsider": true
+    },
+    {
+      "field": "pk",
+      "title": "pk",
+      "primary": true
+    }
+  ]
+}

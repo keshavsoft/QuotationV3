@@ -52,6 +52,27 @@
             ]
         },
         {
+            "text": "Transactions",
+            "id": "transactionsHtmlId",
+            "icon": [],
+            "uiClasses": {
+                "aClass": "",
+                "svgDivClass": "size-10"
+            },
+            "svgName": "arrowDown",
+            "dropdownType": "responsive",
+            "dropdownItems": [
+                {
+                    "text": "Pur Exp",
+                    "href": "../purExpVouchers/index.html"
+                },
+                {
+                    "text": "Ledger Names",
+                    "href": "../ledgerNames/index.html"
+                }
+            ]
+        },
+        {
             "text": "Print",
             "id": "PrintHtmlId",
             "icon": [],
