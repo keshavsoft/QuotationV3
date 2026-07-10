@@ -2,7 +2,7 @@ import { buildFullUI } from "./compose/buildFullUI.js";
 
 import buildHeader from "../BuildTableVersions/V5/BuildHeaderVersions/V4/index.js";
 
-import buildBody from "../BuildTableVersions/V5/BuildBodyVersions/V7/start.js";
+import buildBody from "../BuildTableVersions/V5/BuildBodyVersions/V8/start.js";
 import searchFuncs from "../SearchFuncs/V5/index.js";
 import setFocus from "../SetFocus/V4/index.js";
 import buildFooter from "../BuildTableVersions/V5/BuildFooterVersions/ForBoth/V2/start.js";

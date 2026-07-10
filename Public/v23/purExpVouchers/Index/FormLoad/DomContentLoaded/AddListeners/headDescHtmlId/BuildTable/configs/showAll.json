@@ -16,15 +16,15 @@
             "footer"
         ],
         "table": {
-            "showFooterRows": false,
+            "showFooterRows": true,
             "showDataList": false,
             "showSave": false,
             "showActions": false,
             "showSerial": true,
-            "showFooter": false,
+            "showFooter": true,
             "footer": {
-                "showAggregateRows": false,
-                "showTotals": false
+                "showAggregateRows": true,
+                "showTotals": true
             },
             "body": {
                 "showEdit": false,
@@ -64,7 +64,7 @@
             "title": "date",
             "field": "date",
             "cellConfig": {
-                "width": "300px",
+                "width": "150px",
                 "tdClass": "px-4 py-2 border"
             },
             "dataListSource": "",
@@ -86,8 +86,8 @@
         },
         {
             "columnName": "vouchernumber",
-            "field": "vouchernumber",
-            "title": "vouchernumber",
+            "field": "Number",
+            "title": "Number",
             "primary": true,
             "isVisible": true,
             "cellConfig": {
@@ -101,18 +101,38 @@
             "primary": true,
             "isVisible": true,
             "cellConfig": {
-                "width": "100px"
+                "width": "400px"
             }
         },
         {
-            "columnName": "amount",
-            "field": "amount",
-            "title": "amount",
-            "primary": true,
+            "columnName": "credit",
+            "field": "credit",
+            "title": "credit",
             "isVisible": true,
             "cellConfig": {
-                "width": "100px"
-            }
+                "width": "150px",
+                "tableFooter": {
+                    "showTotal": true
+                },
+                "showThousandsSeperator": true,
+                "rightAlign": true
+            },
+            "type": "number"
+        },
+        {
+            "columnName": "debit",
+            "field": "debit",
+            "title": "debit",
+            "isVisible": true,
+            "cellConfig": {
+                "width": "150px",
+                "tableFooter": {
+                    "showTotal": true
+                },
+                "rightAlign": true,
+                "showThousandsSeperator": true
+            },
+            "type": "number"
         }
     ],
     "defaults": {

@@ -2,13 +2,18 @@ const expandLedgerData = (inData) => {
     const toReturnArray = [];
 
     inData.forEach(element => {
-        element.allledgerentries.forEach(loopLedgerentries => {
-            toReturnArray.push({
-                ...element,
-                ledgername: loopLedgerentries.ledgername,
-                amount: loopLedgerentries.amount
+        if ("allledgerentries" in element) {
+
+            element?.allledgerentries.forEach(loopLedgerentries => {
+                toReturnArray.push({
+                    ...element,
+                    ledgername: loopLedgerentries.ledgername,
+                    credit: loopLedgerentries.credit,
+                    debit: loopLedgerentries.debit
+                });
             });
-        });
+
+        };
     });
 
     return toReturnArray;
