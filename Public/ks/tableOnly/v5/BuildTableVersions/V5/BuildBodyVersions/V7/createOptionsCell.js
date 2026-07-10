@@ -7,7 +7,7 @@ const createOptionsCell = ({ item, index, onDeleteFunc, onEditFunc,
     const td = document.createElement("td");
     td.className = "px-4 py-2 border";
 
-    const ksTd = document.createElement("ks-table-body-options-cell");
+    const ksTd = document.createElement("ks-table-only-body-options-cell");
     ksTd.ksItem = item;
     ksTd.ksIndex = index;
     ksTd.ksOnDeleteFunc = onDeleteFunc;

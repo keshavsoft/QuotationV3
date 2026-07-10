@@ -20,8 +20,6 @@ class KsTableBodyOptionsCell extends HTMLElement {
 
         applyStyle({ inElement: this });
 
-        // console.log("localOptions : ", localOptions);
-
         const editBtn = localOptions.showEdit ? createEditButton() : null;
         const deleteBtn = localOptions.showDelete ? createDeleteButton(localOptions) : null;
         const showBtn = localOptions.showShow ? createShowButton(localOptions) : null;
@@ -49,8 +47,16 @@ class KsTableBodyOptionsCell extends HTMLElement {
     }
 }
 
-if (!customElements.get("ks-table-body-options-cell")) {
-    customElements.define("ks-table-body-options-cell", KsTableBodyOptionsCell);
+if (!customElements.get("ks-table-only-body-options-cell")) {
+    customElements.define("ks-table-only-body-options-cell", KsTableBodyOptionsCell);
 };
+
+window.ks = window.ks || {};
+window.ks.components = window.ks.components || {};
+window.ks.components.tableOnly = window.ks.components.tableOnly || {};
+window.ks.components.tableOnly.body = window.ks.components.tableOnly.body || {};
+window.ks.components.tableOnly.body.options = window.ks.components.tableOnly.body.options || {};
+window.ks.components.tableOnly.body.options.version = "v1";
+// window.ks.components.tableOnly.body.options.defaults = defaults;
 
 export { KsTableBodyOptionsCell };

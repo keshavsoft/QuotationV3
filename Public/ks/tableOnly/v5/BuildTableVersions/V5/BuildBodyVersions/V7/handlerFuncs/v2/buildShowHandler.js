@@ -1,6 +1,6 @@
 const buildDeleteHandler = ({ inCallBack }) => {
     const localDeleteHandler = async (options) => {
-        console.log("options----------- : ", options);
+        // console.log("options----------- : ", options);
         inCallBack(options);
     };
 

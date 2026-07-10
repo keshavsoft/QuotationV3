@@ -22,7 +22,8 @@ const buildRow = ({ item, index, inVisibleColumnsConfig, searchValue,
     if (inShowActions) {
         appendActionCell({
             tr, item, index, onDeleteFunc, onShowFunc: handlers.onShow,
-            onEditFunc, inShowEdit, inShowDelete, inDeleteType, inDeleteIconSize
+            onEditFunc: handlers.onEdit, inShowEdit, inShowDelete,
+            inDeleteType, inDeleteIconSize
         });
     };
 

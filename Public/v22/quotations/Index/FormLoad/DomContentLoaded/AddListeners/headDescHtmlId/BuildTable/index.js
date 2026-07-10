@@ -8,7 +8,7 @@ const jFLocalToInputkSTableContainer = (inValue) => {
 
     if (jVarLocalkSTableContainer) {
         jVarLocalkSTableContainer.innerHTML = inValue;
-    }
+    };
 };
 
 const startFunc = async () => {
@@ -27,7 +27,7 @@ const startFunc = async () => {
 
         if (config.callbacks.table.body.edit) {
             config.callbacks.table.body.edit = fromLibrary => {
-                console.log("jjjjjjjj : ", fromLibrary);
+                console.log("jjjjjjjj------ : ", fromLibrary);
 
                 //showByPk(fromLibrary.item.pk);
             };
