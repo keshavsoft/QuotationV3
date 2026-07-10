@@ -11,7 +11,7 @@ import "./vertical/index.js";
 import "./buttons/saveButton/v2/index.js";
 
 import "./tableOnly/index.js";
-import "./cards/v1/index.js";
+import "./cards/v2/index.js";
 
 if (window?.ksShowLogTree?.components?.main) console.log("KS Components v19 loaded to DOM");
 
