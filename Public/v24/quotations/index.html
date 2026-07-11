@@ -107,6 +107,24 @@
             /* equivalent to gap-1 */
         }
 
+        /* Stack ks-input-with-enter elements vertically */
+        .verticalForm ks-input-with-enter>div {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.25rem;
+            /* equivalent to gap-1 */
+        }
+
+        /* Stack ks-input-with-enter-dl elements vertically */
+        .verticalForm ks-input-with-enter-dl>div {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.25rem;
+            /* equivalent to gap-1 */
+        }
+
         /* Stack ks-datalist-input elements vertically */
         .verticalForm ks-datalist-input>div {
             display: flex;
@@ -114,6 +132,14 @@
             align-items: flex-start;
             gap: 0.25rem;
             /* equivalent to gap-1 */
+        }
+
+        /* Reset space-x margin inside vertically stacked inputs */
+        .verticalForm ks-input>div > *,
+        .verticalForm ks-input-with-enter>div > *,
+        .verticalForm ks-input-with-enter-dl>div > *,
+        .verticalForm ks-datalist-input>div > * {
+            margin-left: 0 !important;
         }
 
         /* Style labels inside the form */
