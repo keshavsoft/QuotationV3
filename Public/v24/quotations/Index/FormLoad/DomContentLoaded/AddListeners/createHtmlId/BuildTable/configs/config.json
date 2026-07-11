@@ -36,7 +36,8 @@
             "isCreate": true,
             "isEdit": false,
             "layoutType1": "inputsStacked",
-            "layoutType": "singleLine",
+            "layoutType2": "singleLine",
+            "layoutType": "labelAbove",
             "showButtons": true
         }
     },

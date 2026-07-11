@@ -20,8 +20,7 @@ class KsHtmlForm extends HTMLElement {
     init(options) {
         const layoutType = options?.layoutType || options?.inVerticalOptions?.layoutType;
         const layoutPreset = layouts[layoutType] || layouts.inputsInline;
-        // console.log("options?.uiClasses : ", options?.uiClasses);
-
+        console.log("layoutPreset : ", layoutType, options, layoutPreset);
         // Merge uiClasses recursively to allow override and fallbacks
         const mergedUiClasses = {
             ...layoutPreset.uiClasses,
@@ -72,6 +71,8 @@ if (!customElements.get("ks-html-form")) {
 window.ks = window.ks || {};
 window.ks.components = window.ks.components || {};
 window.ks.components.htmlForm = KsHtmlForm;
+window.ks.components.htmlForm.layouts = layouts;
+
 window.ks.components.htmlForm.version = "v11";
 
 export default KsHtmlForm;

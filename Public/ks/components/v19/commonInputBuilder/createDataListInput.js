@@ -3,7 +3,8 @@ export const createDataListInput = ({ inCol, inDefaultRow, inDataStore }) => {
     // debugger
     const col = inCol.columnName;
     // const row = document.createElement("ks-datalist-input");
-    const row = document.createElement("ks-table-footer-input-dl");
+    // const row = document.createElement("ks-table-footer-input-dl");
+    const row = document.createElement("ks-input-with-enter-dl");
 
     const defaultValue = col in inDefaultRow ? inDefaultRow[col] : "";
 
