@@ -1,0 +1,49 @@
+/* ==========================================================================
+   Vertical labelAbove layout styles scoped under .ks
+   ========================================================================== */
+
+/* Stack ks-input elements vertically */
+.ks .labelAbove ks-input>div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+}
+
+/* Stack ks-input-with-enter elements vertically */
+.ks .labelAbove ks-input-with-enter>div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+}
+
+/* Stack ks-input-with-enter-dl elements vertically */
+.ks .labelAbove ks-input-with-enter-dl>div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+}
+
+/* Stack ks-datalist-input elements vertically */
+.ks .labelAbove ks-datalist-input>div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+}
+
+/* Reset space-x margin inside vertically stacked inputs */
+.ks .labelAbove ks-input>div>*,
+.ks .labelAbove ks-input-with-enter>div>*,
+.ks .labelAbove ks-input-with-enter-dl>div>*,
+.ks .labelAbove ks-datalist-input>div>* {
+    margin-left: 0 !important;
+}
+
+/* Style labels inside the form */
+.ks .labelAbove label {
+    width: 100%;
+    text-align: left;
+}
