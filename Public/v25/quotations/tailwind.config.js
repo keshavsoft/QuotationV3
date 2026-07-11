@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  important: '.ks',
   content: [
     "./Public/v25/quotations/index.html",
     "./Public/v25/quotations/Index/**/*.{html,js,json}",
