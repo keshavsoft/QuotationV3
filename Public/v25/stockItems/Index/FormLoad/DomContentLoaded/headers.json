@@ -1,0 +1,45 @@
+{
+    "uiClasses": {
+        "ulClass1": "[&_svg]:size-6",
+        "navClass1": "bg-red-800 text-white",
+        "brandClass1": "text-sm"
+    },
+    "title": {
+        "text": "Stock Items",
+        "htmlId": "htmlId"
+    },
+    "items": [
+        {
+            "text": "quotations",
+            "id": "quotationsHtmlId",
+            "icon": [],
+            "uiClasses": {
+                "aClass": "",
+                "svgDivClass": "size-6"
+            },
+            "svgName": "squaresPlus",
+            "href": "../quotations/index.html"
+        },
+        {
+            "text": "Show All",
+            "id": "headDescHtmlId",
+            "icon": [],
+            "uiClasses": {
+                "aClass": "",
+                "svgDivClass": "size-6"
+            },
+            "svgName": "arrowDown"
+        },
+        {
+            "text": "Print",
+            "id": "PrintHtmlId",
+            "icon": [],
+            "uiClasses": {
+                "aClass": "",
+                "svgDivClass": "size-6"
+            },
+            "svgName": "printer",
+            "href": "javascript:window.print()"
+        }
+    ]
+}

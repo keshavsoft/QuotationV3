@@ -1,4 +1,7 @@
-export const createDataListInput = ({ inCol, inDefaultRow, inDataStore }) => {
+export const createDataListInput = ({ inCol, inDefaultRow, inDataStore,
+    inEnterAsTab
+}) => {
+
     // console.log("inCol, inDefaultRow, inDataStore : ", inCol, inDefaultRow, inDataStore);
     // debugger
     const col = inCol.columnName;
@@ -14,6 +17,10 @@ export const createDataListInput = ({ inCol, inDefaultRow, inDataStore }) => {
     row.setAttribute("source", col);
     row.setAttribute("ksInValue", defaultValue);
     row.setAttribute("ksDataListSource", inCol.dataListSource);
+
+    if (inEnterAsTab) {
+        row.setAttribute("enterAsTab", inEnterAsTab);
+    };
 
     row.dataStore = inDataStore;
 

@@ -20,7 +20,7 @@ class KsHtmlForm extends HTMLElement {
     init(options) {
         const layoutType = options?.layoutType || options?.inVerticalOptions?.layoutType;
         const layoutPreset = layouts[layoutType] || layouts.inputsInline;
-        console.log("layoutPreset : ", layoutType, options, layoutPreset);
+        // console.log("layoutPreset : ", layoutType, options, layoutPreset);
         // Merge uiClasses recursively to allow override and fallbacks
         const mergedUiClasses = {
             ...layoutPreset.uiClasses,

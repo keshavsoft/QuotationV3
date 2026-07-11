@@ -10,7 +10,10 @@ export const createInputRow = ({ inCol, inDefaultRow, inDataStore, inEnterAsTab 
 
     if ("verticalConfig" in inCol) {
         if ("dataListSource" in inCol) {
-            row = createDataListInput({ inCol, inDefaultRow, inDataStore });
+            row = createDataListInput({
+                inCol, inDefaultRow, inDataStore,
+                inEnterAsTab
+            });
         } else {
             row = createDefaultInput({
                 inCol,
