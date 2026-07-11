@@ -1,7 +1,7 @@
-import { getKSTableConfig } from "./getKSTableConfig.js";
 import { clearTableContainer } from "./helpers/dom/clearTableContainer.js";
 import { initVertical } from "./helpers/ks/vertical.js";
 import { onSuccess } from "./helpers/ks/onSuccess.js";
+import config from "./configs/config.json" with {type: "json"};
 
 const getLastQuotation = async () => {
     const fromFetch = await fetch("/api/v6/BillsTable/lastRecord")
@@ -24,7 +24,7 @@ const startFunc = async () => {
         // console.log(res);
     });
 
-    const config = await getKSTableConfig();
+    // const config = await getKSTableConfig();
 
     window.ksVertical = initVertical(config, onSuccess);
 

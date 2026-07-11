@@ -2,7 +2,8 @@ export const createDefaultInput = ({ inCol, inDefaultRow, inDataStore,
     inDataListFillName, inType, inEnterAsTab }) => {
 
     const col = inCol.columnName;
-    const row = document.createElement("ks-input");
+    // const row = document.createElement("ks-input");
+    const row = document.createElement("ks-input-with-enter");
 
     const defaultValue = col in inDefaultRow ? inDefaultRow[col] : "";
 

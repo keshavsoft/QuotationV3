@@ -13,6 +13,8 @@ import "./buttons/saveButton/v2/index.js";
 import "./tableOnly/index.js";
 import "./cards/v2/index.js";
 
+import "./inputs/index.js";
+
 if (window?.ksShowLogTree?.components?.main) console.log("KS Components v19 loaded to DOM");
 
 export default {};

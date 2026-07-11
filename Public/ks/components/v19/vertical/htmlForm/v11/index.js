@@ -72,6 +72,7 @@ if (!customElements.get("ks-html-form")) {
 window.ks = window.ks || {};
 window.ks.components = window.ks.components || {};
 window.ks.components.htmlForm = KsHtmlForm;
+window.ks.components.htmlForm.version = "v11";
 
 export default KsHtmlForm;
 export { KsHtmlForm, layouts };
