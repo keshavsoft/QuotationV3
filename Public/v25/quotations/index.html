@@ -6,11 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KeshavSoft8</title>
 
-    <!-- Local Compiled Tailwind CSS -->
-    <link rel="stylesheet" href="./css/tailwind.css">
-    <link rel="stylesheet" href="./css/base.css">
-    <link rel="stylesheet" href="./css/vertical.css">
-    <link rel="stylesheet" href="./css/print.css" media="print">
+    <!-- Dynamic CSS Loading (Option A) -->
+    <script>
+        if (!document.documentElement.hasAttribute('data-ks-css-extension-loaded')) {
+            const cssFiles = [
+                "./css/tailwind.css",
+                "./css/base.css",
+                "./css/vertical.css"
+            ];
+            cssFiles.forEach(href => {
+                const link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = href;
+                document.head.appendChild(link);
+            });
+            
+            const printLink = document.createElement('link');
+            printLink.rel = 'stylesheet';
+            printLink.href = "./css/print.css";
+            printLink.media = "print";
+            document.head.appendChild(printLink);
+        }
+    </script>
 </head>
 
 <body class="ks bg-gray-100 flex flex-col min-h-screen">

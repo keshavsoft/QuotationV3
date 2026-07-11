@@ -2,27 +2,29 @@
    Print styles scoped under .ks
    ========================================================================== */
 
-.ks .table-responsive,
-.ks .overflow-auto,
-.ks .overflow-x-auto {
-    overflow: visible !important;
-}
+@media print {
+    .ks .table-responsive,
+    .ks .overflow-auto,
+    .ks .overflow-x-auto {
+        overflow: visible !important;
+    }
 
-.ks table {
-    width: 100% !important;
-}
+    .ks table {
+        width: 100% !important;
+    }
 
-.ks tfoot tr:has(input) {
-    display: none;
-}
+    .ks tfoot tr:has(input) {
+        display: none;
+    }
 
-.ks table th:last-child,
-.ks table td:last-child {
-    display: none;
-}
+    .ks table th:last-child,
+    .ks table td:last-child {
+        display: none;
+    }
 
-.ks header,
-.ks #header,
-.ks ks-nav {
-    display: none !important;
+    .ks header,
+    .ks #header,
+    .ks ks-nav {
+        display: none !important;
+    }
 }
