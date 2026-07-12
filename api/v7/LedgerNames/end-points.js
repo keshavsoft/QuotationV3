@@ -2,6 +2,7 @@ import express from 'express';
 
 import funcFromshowAll from './showAll/controller.js';
 import funcFromcount from './count/controller.js';
+import funcFromdistinct from './distinct/controller.js';
 
 const tableName = "LedgerNames.json";
 const tablePath = "Data/LedgerNames.json";
@@ -11,5 +12,6 @@ const router = express.Router();
 
 router.get('/showAll', (req, res) => funcFromshowAll({ req, res, inTablePath: tablePath }));
 router.get('/count', (req, res) => funcFromcount({ req, res, inTablePath: tablePath }));
+router.get('/distinct/:columnName', (req, res) => funcFromdistinct({ req, res, inTablePath: tablePath }));
 
 export { router };
