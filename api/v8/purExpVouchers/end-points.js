@@ -5,6 +5,7 @@ import funcFromdistinct from './distinctDate/controller.js';
 import funcFromcount from './count/controller.js';
 import funcFromDistinctLedgerName from './distinctLedgerName/controller.js';
 import funcFromgroupBy from './groupBy/controller.js';
+import funcFromTrialBalance from './trialBalance/controller.js';
 import { checkColumnName, checkColumnsToSum } from './groupBy/middleware.js';
 
 const tableName = "purExpVouchers.json";
@@ -17,6 +18,7 @@ router.get('/showAll', (req, res) => funcFromshowAll({ req, res, inTablePath: ta
 router.get('/distinctDate', (req, res) => funcFromdistinct({ req, res, inTablePath: tablePath }));
 router.get('/count', (req, res) => funcFromcount({ req, res, inTablePath: tablePath }));
 router.get('/distinctLedgerName', (req, res) => funcFromDistinctLedgerName({ req, res, inTablePath: tablePath }));
+router.get('/trialBalance', (req, res) => funcFromTrialBalance({ req, res, inTablePath: tablePath }));
 router.post('/groupBy/:columnName', express.json(), (req, res) => funcFromgroupBy({ req, res, inTablePath: tablePath }));
 
 export { router };

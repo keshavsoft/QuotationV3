@@ -1,0 +1,49 @@
+/* ==========================================================================
+   Base page styles scoped under .ks (body class)
+   ========================================================================== */
+
+.ks .currentRow {
+    background-color: #fef9c3;
+    border: 1px solid #facc15;
+    border-radius: 0.375rem;
+    padding: 0.75rem 1rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    transform: scale(1.05);
+    transition: all 0.15s ease;
+}
+
+.ks tfoot tr {
+    background-color: #fff8dc;
+}
+
+.ks tfoot tr:has(input:focus) {
+    background-color: #ffe082;
+}
+
+.ks input:focus {
+    outline: none;
+    border: 2px solid #2563eb;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.3);
+}
+
+.ks mark {
+    background-color: yellow;
+    color: black;
+}
+
+.ks .active svg {
+    stroke: #3b82f6;
+}
+
+.ks .active span {
+    color: #3b82f6;
+}
+
+.ks .danger svg {
+    stroke: #c41d14;
+}
+
+.ks .danger span {
+    color: #c41d14;
+}
