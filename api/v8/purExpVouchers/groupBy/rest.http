@@ -1,0 +1,6 @@
+POST http://localhost:9011/api/v8/purExpVouchers/groupBy/allledgerentries.ledgername
+Content-Type: application/json
+
+{
+  "allledgerentries.credit": "sum"
+}
