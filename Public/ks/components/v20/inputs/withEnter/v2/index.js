@@ -1,5 +1,5 @@
 // import KsInput from "../commonInputBuilder/inputCore/v3/index.js";
-import KsInput from "../../../commonInputBuilder/inputCore/v3/index.js";
+import KsInput from "../../../commonInputBuilder/inputCore/v4/index.js";
 
 import attachEnterKeyEvent from "./attachEnterKeyEvent.js";
 

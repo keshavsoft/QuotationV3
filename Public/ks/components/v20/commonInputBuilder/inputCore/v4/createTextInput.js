@@ -1,10 +1,10 @@
 const createTextInput = ({
-    type,
-    inPlaceholder,
-    name, isNotEmpty,
+    type, inShowDataList,
+    inPlaceholder, tabIndex,
+    name, isNotEmpty, inDataListSource,
     inClassName, inputClassName, inputClass
 }) => {
-    // console.log("isNotEmpty : ", isNotEmpty);
+    // console.log("inDataListSource : ", inDataListSource);
 
     const localInput =
         document.createElement("input");
@@ -19,7 +19,14 @@ const createTextInput = ({
 
     localInput.name = name;
     localInput.setAttribute("class", inputClass || inputClassName || inClassName);
-    // localInput.setAttribute("list", "aaaaaaaaaaa");
+
+    if (inDataListSource) {
+        localInput.setAttribute("list", `${name}List`);
+    };
+
+    if (tabIndex && tabIndex !== "undefined") {
+        localInput.setAttribute("tabindex", tabIndex);
+    };
 
     return localInput;
 };

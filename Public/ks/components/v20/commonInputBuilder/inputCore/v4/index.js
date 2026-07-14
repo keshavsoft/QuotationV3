@@ -31,21 +31,22 @@ class KsTableFooterInputCore extends HTMLElement {
             inRightAlign: localOptions.inRightAlign,
             inWidth: localOptions.inWidth
         });
+        // console.log("localOptions : ", localOptions);
 
         const localInput = createTextInput(localOptions);
 
         applyDefaultValue({
             inInput: localInput,
-            type: localOptions.type
+            type: localOptions.type, inValue: localOptions.value
         });
 
         applyDataList({
             inInput: localInput,
             inDataListFillName: localOptions.inDataListFillName
         });
-        console.log("localOptions : ", localOptions);
-
+        // console.log("localOptions.enterAsTab----------ppp : ", localOptions.tabIndex, localOptions.enterAsTab);
         if (localOptions.enterAsTab) {
+            // console.log("localOptions.enterAsTab---------- : ", localOptions.tabIndex, localOptions.enterAsTab);
             attachEnterKeyEvent(localInput);
         };
 
