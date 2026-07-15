@@ -1,6 +1,6 @@
 {
     "containerId": "kSHeadContainer",
-    "tableName": "Trial Balance",
+    "tableName": "show all Purchase Expenses",
     "mode": "create",
     "layout": {
         "verticalPosition": "top",
@@ -60,11 +60,11 @@
     },
     "columnsConfig": [
         {
-            "columnName": "ledgername",
-            "title": "Ledger Name",
-            "field": "ledgername",
+            "columnName": "date",
+            "title": "Date",
+            "field": "date",
             "cellConfig": {
-                "width": "500px",
+                "width": "130px",
                 "tdClass": "px-4 py-2 border"
             },
             "dataListSource": "",
@@ -85,9 +85,59 @@
             }
         },
         {
-            "columnName": "creditBalance",
-            "field": "creditBalance",
-            "title": "Credit",
+            "columnName": "vouchernumber",
+            "title": "Number",
+            "field": "vouchernumber",
+            "cellConfig": {
+                "width": "100px",
+                "tdClass": "px-4 py-2 border"
+            },
+            "dataListSource": "",
+            "tableFooterDataListShow": true,
+            "uiClasses": {
+                "form": {
+                    "rowClass": "flex items-center space-x-4"
+                }
+            },
+            "allowOnChange": true,
+            "onChangeType": "onDataListChange",
+            "isConsider": true,
+            "tableConfig": {
+                "footerConfig": {
+                    "enterAsTab": true,
+                    "isNotEmpty": true
+                }
+            }
+        },
+        {
+            "columnName": "ledgername",
+            "title": "ledgername",
+            "field": "ledgername",
+            "cellConfig": {
+                "width": "350px",
+                "tdClass": "px-4 py-2 border"
+            },
+            "dataListSource": "",
+            "tableFooterDataListShow": true,
+            "uiClasses": {
+                "form": {
+                    "rowClass": "flex items-center space-x-4"
+                }
+            },
+            "allowOnChange": true,
+            "onChangeType": "onDataListChange",
+            "isConsider": true,
+            "tableConfig": {
+                "footerConfig": {
+                    "enterAsTab": true,
+                    "isNotEmpty": true
+                }
+            }
+        },
+        {
+            "columnName": "credit",
+            "field": "credit",
+            "title": "credit",
             "primary": true,
             "isVisible": true,
             "cellConfig": {
@@ -100,9 +150,9 @@
             }
         },
         {
-            "columnName": "debitBalance",
-            "field": "debitBalance",
-            "title": "Debit",
+            "columnName": "debit",
+            "field": "debit",
+            "title": "debit",
             "primary": true,
             "isVisible": true,
             "cellConfig": {
