@@ -1,11 +1,29 @@
 import getData from "./helpers/getData.js";
 import configJson from "./configs/showAll.json" with { type: "json" };
 
-const getSingleLedgerData = async (inName) => {
-    const config = await fetch(`/api/v8/ledger/find/${inName}`);
+const getFilteredData = async (FromDate, ToDate) => {
+    const config = await fetch(`/api/v8/dayBook/find/${FromDate}/${ToDate}`);
     const data = await config.json();
 
     return await data;
+};
+
+let jFLocalFromDate = () => {
+    let jVarLocalFromDate = 'FromDate'
+    let jVarLocalHtmlId = document.getElementById(jVarLocalFromDate);
+
+    if (jVarLocalHtmlId === null === false) {
+        return jVarLocalHtmlId.value.trim();
+    };
+};
+
+let jFLocalToDate = () => {
+    let jVarLocalToDate = 'ToDate'
+    let jVarLocalHtmlId = document.getElementById(jVarLocalToDate);
+
+    if (jVarLocalHtmlId === null === false) {
+        return jVarLocalHtmlId.value.trim();
+    };
 };
 
 let jFLocalLedgerInput = () => {
@@ -18,23 +36,19 @@ let jFLocalLedgerInput = () => {
 };
 
 const startFunc = async () => {
-    const dataToShow = await getData();
-
-    buildDataList(dataToShow.sort());
-
     document.getElementById("ShowButton")
         .addEventListener("click", async () => {
-            const ledgerSelected = jFLocalLedgerInput();
-            const singleLedgerData = await getSingleLedgerData(ledgerSelected);
-            console.log("aaaaaaaaaa : ", singleLedgerData);
+            const fromDate = jFLocalFromDate();
+            const toDate = jFLocalToDate();
+            const filteredData = await getFilteredData(fromDate, toDate);
+            // console.log("aaaaaaaaaa : ", singleLedgerData);
 
-            configJson.defaults.data = singleLedgerData;
-            configJson.tableName = ledgerSelected;
+            configJson.defaults.data = filteredData;
+            configJson.tableName = `${fromDate} : ${toDate}`;
 
             ksTable1 = new window.ks.classes.tableShowOnly(configJson);
             ksTable1.initShowTable();
         });
-
 };
 
 const buildDataList = (inData) => {

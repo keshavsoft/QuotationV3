@@ -168,7 +168,7 @@
         },
         {
             "columnName": "ledgername",
-            "title": "ledgername",
+            "title": "Ledger Name",
             "field": "ledgername",
             "cellConfig": {
                 "width": "350px",
@@ -183,7 +183,7 @@
             },
             "allowOnChange": true,
             "onChangeType": "onDataListChange",
-            "isVisible": false,
+            "isVisible": true,
             "tableConfig": {
                 "footerConfig": {
                     "enterAsTab": true,

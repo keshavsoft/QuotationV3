@@ -134,22 +134,30 @@
 
         <div class="mx-auto max-w-5xl px-6 py-8">
 
-            <!-- Search Card -->
             <div class="bg-white rounded-xl shadow p-5">
 
-                <div class="flex gap-4">
+                <div class="flex items-end gap-4">
 
-                    <!-- <input id="LedgerInput" list="LedgerList" class="flex-1 h-12 px-4 border border-slate-300 rounded-lg
-                           focus:ring-2 focus:ring-blue-500 outline-none" placeholder="Select Ledger"> -->
+                    <div class="flex-1">
+                        <label class="block text-sm font-medium text-slate-600 mb-1">
+                            From Date
+                        </label>
 
-                    <input type="text" id="LedgerInput" name="ledger" list="LedgerList" autocomplete="off"
-                        autocorrect="off" autocapitalize="off" spellcheck="false" class="flex-1 h-12 px-4 border border-slate-300 rounded-lg
-           focus:ring-2 focus:ring-blue-500 outline-none" placeholder="Select Ledger">
+                        <input type="date" id="FromDate" class="w-full h-12 px-4 border border-slate-300 rounded-lg
+                       focus:ring-2 focus:ring-blue-500 outline-none">
+                    </div>
 
-                    <datalist id="LedgerList"></datalist>
+                    <div class="flex-1">
+                        <label class="block text-sm font-medium text-slate-600 mb-1">
+                            To Date
+                        </label>
+
+                        <input type="date" id="ToDate" class="w-full h-12 px-4 border border-slate-300 rounded-lg
+                       focus:ring-2 focus:ring-blue-500 outline-none">
+                    </div>
 
                     <button id="ShowButton" class="h-12 px-8 bg-blue-600 hover:bg-blue-700
-                           text-white rounded-lg">
+                   text-white rounded-lg">
                         Show
                     </button>
 
