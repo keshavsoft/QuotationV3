@@ -1,0 +1,121 @@
+{
+    "containerId": "kSHeadContainer",
+    "tableName": "show all Purchase Expenses",
+    "mode": "create",
+    "layout": {
+        "verticalPosition": "top",
+        "type": "table"
+    },
+    "options": {
+        "firstRow": {
+            "showSearch": true
+        },
+        "enabledSections": [
+            "vertical",
+            "table",
+            "footer"
+        ],
+        "table": {
+            "showFooterRows": true,
+            "showDataList": false,
+            "showSave": false,
+            "showActions": false,
+            "showSerial": true,
+            "showFooter": true,
+            "footer": {
+                "showAggregateRows": true,
+                "showTotals": true
+            },
+            "body": {
+                "showEdit": false,
+                "showDelete": false,
+                "showShow": false,
+                "deleteType": "icon",
+                "deleteIconSize": "xl"
+            }
+        }
+    },
+    "callbacks": {
+        "table": {
+            "onDelete1": "function",
+            "onReadFail": "function",
+            "body": {
+                "update": "function",
+                "show": "function"
+            },
+            "footer": {
+                "onSave": "function"
+            }
+        }
+    },
+    "endPoints": {
+        "create": "",
+        "update": "",
+        "delete": "",
+        "read": "",
+        "find": "",
+        "filter": "",
+        "dataLists": {},
+        "dataListEndpoints": {}
+    },
+    "columnsConfig": [
+        {
+            "columnName": "ledgername",
+            "title": "ledgername",
+            "field": "ledgername",
+            "cellConfig": {
+                "width": "500px",
+                "tdClass": "px-4 py-2 border"
+            },
+            "dataListSource": "",
+            "tableFooterDataListShow": true,
+            "uiClasses": {
+                "form": {
+                    "rowClass": "flex items-center space-x-4"
+                }
+            },
+            "allowOnChange": true,
+            "onChangeType": "onDataListChange",
+            "isConsider": true,
+            "tableConfig": {
+                "footerConfig": {
+                    "enterAsTab": true,
+                    "isNotEmpty": true
+                }
+            }
+        },
+        {
+            "columnName": "credit",
+            "field": "credit",
+            "title": "credit",
+            "primary": true,
+            "isVisible": true,
+            "cellConfig": {
+                "width": "150px",
+                "tableFooter": {
+                    "showTotal": true
+                },
+                "showThousandsSeperator": true,
+                "rightAlign": true
+            }
+        },
+        {
+            "columnName": "debit",
+            "field": "debit",
+            "title": "debit",
+            "primary": true,
+            "isVisible": true,
+            "cellConfig": {
+                "width": "150px",
+                "tableFooter": {
+                    "showTotal": true
+                },
+                "showThousandsSeperator": true,
+                "rightAlign": true
+            }
+        }
+    ],
+    "defaults": {
+        "data": []
+    }
+}
