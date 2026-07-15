@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-100">
+
+    <div class="mx-auto max-w-5xl px-6 py-8">
+
+        <!-- Search Card -->
+        <div class="bg-white rounded-xl shadow p-5">
+
+            <div class="flex gap-4">
+
+                <input id="LedgerInput" list="LedgerList" class="flex-1 h-12 px-4 border border-slate-300 rounded-lg
+                           focus:ring-2 focus:ring-blue-500 outline-none" placeholder="Select Ledger">
+
+                <datalist id="LedgerList"></datalist>
+
+                <button id="ShowButton" class="h-12 px-8 bg-blue-600 hover:bg-blue-700
+                           text-white rounded-lg">
+                    Show
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- Table Card -->
+        <div id="TableContainer" class="mt-6 bg-white rounded-xl shadow p-5 min-h-[500px]">
+
+        </div>
+
+    </div>
+
+    <script>
+
+        const rows = [
+            "Cash",
+            "Bank",
+            "Sales",
+            "Purchase",
+            "Expenses",
+            "Salary",
+            "Electricity",
+            "Rent",
+            "Capital",
+            "Profit"
+        ];
+
+        const dataList = document.getElementById("LedgerList");
+
+        rows.forEach(name => {
+
+            const option = document.createElement("option");
+            option.value = name;
+
+            dataList.appendChild(option);
+
+        });
+
+        document.getElementById("ShowButton")
+            .addEventListener("click", () => {
+
+                const ledger = document.getElementById("LedgerInput").value;
+
+                document.getElementById("TableContainer").innerHTML = `
+        <div class="text-lg font-semibold text-slate-700">
+            Selected :
+            <span class="text-blue-600">${ledger}</span>
+        </div>
+    `;
+
+            });
+
+        document.getElementById("LedgerInput")
+            .addEventListener("keydown", e => {
+
+                if (e.key === "Enter") {
+
+                    document.getElementById("ShowButton").click();
+
+                }
+
+            });
+
+    </script>
+
+</body>
+
+</html>

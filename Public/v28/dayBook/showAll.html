@@ -131,38 +131,23 @@
         <div id="header"></div>
 
 
+        <!-- body -->
+        <section class="mx-auto px-3 py-6 
+                max-w-3xl 
+                lg:max-w-5xl 
+                xl:max-w-6xl">
 
-        <div class="mx-auto max-w-5xl px-6 py-8">
+            <!-- Table container -->
 
-            <!-- Search Card -->
-            <div class="bg-white rounded-xl shadow p-5">
-
-                <div class="flex gap-4">
-
-                    <!-- <input id="LedgerInput" list="LedgerList" class="flex-1 h-12 px-4 border border-slate-300 rounded-lg
-                           focus:ring-2 focus:ring-blue-500 outline-none" placeholder="Select Ledger"> -->
-
-                    <input type="text" id="LedgerInput" name="ledger" list="LedgerList" autocomplete="off"
-                        autocorrect="off" autocapitalize="off" spellcheck="false" class="flex-1 h-12 px-4 border border-slate-300 rounded-lg
-           focus:ring-2 focus:ring-blue-500 outline-none" placeholder="Select Ledger">
-
-                    <datalist id="LedgerList"></datalist>
-
-                    <button id="ShowButton" class="h-12 px-8 bg-blue-600 hover:bg-blue-700
-                           text-white rounded-lg">
-                        Show
-                    </button>
-
-                </div>
-
+            <div id="kSHeadContainer">
             </div>
 
-            <!-- Table Card -->
-            <div id="kSTableContainer" class="mt-6 bg-white rounded-xl shadow p-5 min-h-[500px]">
-
+            <div id="kSTableContainer">
             </div>
 
-        </div>
+            <div id="kSVerticalContainer">
+            </div>
+        </section>
 
 
 
@@ -171,6 +156,32 @@
         <div class="max-w-6xl mx-auto px-4">
             © 2026 KeshavSoft • v-28 </div>
     </footer>
+
+    <!-- Login Modal -->
+
+    <!-- Modal -->
+    <div id="loginModal" class="hidden fixed inset-0 z-50 bg-black/40 flex items-center justify-center">
+
+        <div id="loginModalContent" class="bg-white rounded-lg shadow-lg w-full max-w-sm p-6">
+
+            <h2 class="text-xl font-semibold mb-4">
+                Login
+            </h2>
+
+            <input type="text" placeholder="Username" id="Username" class="w-full border rounded px-3 py-2 mb-3">
+
+            <input type="password" placeholder="Password" id="Password" class="w-full border rounded px-3 py-2 mb-2">
+
+            <p id="loginError" class="hidden text-red-600 text-sm mb-3">
+            </p>
+
+            <button class="w-full bg-blue-600 text-white py-2 rounded" id="loginButtonId">
+                Login
+            </button>
+
+        </div>
+
+    </div>
 
     <!-- <script src="../comps/v10/index.js" type="module"></script> -->
 
