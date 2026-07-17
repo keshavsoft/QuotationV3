@@ -57,7 +57,7 @@
   },
   "PrimarykeyTableNames": [],
   "PrimarykeyTables": [],
-  "columnsConfig": [
+  "columnsConfig1": [
     {
       "columnName": "LedgerName",
       "title": "LedgerName",
@@ -89,6 +89,81 @@
       "cellConfig": {
         "width": "100px",
         "tableFooter": {}
+      }
+    }
+  ],
+  "columnsConfig": [
+    {
+      "columnName": "LedgerName",
+      "title": "LedgerName",
+      "field": "LedgerName",
+      "cellConfig": {
+        "width": "200px"
+      },
+      "dataListSource": "",
+      "tableFooterDataListShow": false,
+      "uiClasses": {
+        "form": {
+          "rowClass": "flex items-center space-x-4"
+        }
+      },
+      "allowOnChange": false,
+      "onChangeType": "",
+      "isConsider": true,
+      "tableConfig": {
+        "footerConfig": {
+          "enterAsTab": true,
+          "isNotEmpty": true
+        }
+      }
+    },
+    {
+      "columnName": "LedgerParentName",
+      "field": "LedgerParentName",
+      "title": "LedgerParentName",
+      "primary": true,
+      "isVisible": true,
+      "cellConfig": {
+        "width": "200px"
+      }
+    },
+    {
+      "columnName": "LedgerType",
+      "field": "LedgerType",
+      "title": "LedgerType",
+      "primary": true,
+      "isVisible": true,
+      "cellConfig": {
+        "width": "200px"
+      }
+    },
+    {
+      "columnName": "GstRegistrationType",
+      "field": "GstRegistrationType",
+      "title": "GstRegistrationType",
+      "primary": true,
+      "isVisible": true,
+      "cellConfig": {
+        "width": "200px"
+      }
+    },
+    {
+      "columnName": "PartyGSTIN",
+      "field": "PartyGSTIN",
+      "title": "PartyGSTIN",
+      "primary": true,
+      "isVisible": true,
+      "cellConfig": {
+        "width": "200px"
+      }
+    },
+    {
+      "field": "pk",
+      "title": "pk",
+      "primary": true,
+      "isVisible": false,
+      "cellConfig": {
+        "width": "50px"
       }
     }
   ]
